@@ -38,33 +38,24 @@
 }
 
 
-/* ==========================================RESET BORDER & MARGIN, MAKE BODY FILL UP THE WHOLE WINDOW========================================== */
+/* ==========================================RESET BORDER & MARGIN========================================== */
 
 * {
 	border: 0;
 	margin: 0;
 }
 
-
-
-
-
 /* ==========================================HEADER========================================== */
-
-html,
-body {
-	height: 100%;
-}
-
-body {
-	display: flex;
-	flex-direction: column;
-}
-
 
 header {
 	width: 100%;
 	height: 50px;
+	position: fixed; 
+}
+
+.header-wrapper {
+	width: 100%;
+	height:100%;
 	background-color: hsl(240, 5%, 5%);
 	display: flex; /* flexbox um sowohl navbar als auch logo zu plazieren */
 	justify-content: space-between;
@@ -94,42 +85,4 @@ nav a.activeNav{
 
 #logo {
 	margin: 5px 10px;
-}
-
-/* ==========================================BODY========================================== */
-
-
-main {
-	flex: 1;
-	background-image: url(../media/textureMarble.jpg);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.vorschauten {
-	width: 90%;
-	height: 90%;
-	display: grid;
-	grid-template: 1fr 1fr/ 1fr 1fr;
-	grid-gap: 10px;
-}
-
-.vorschau {
-	text-decoration: none;
-	opacity: 0;
-	background-color: rgba(255, 255, 255, 0.1);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transition: opacity 750ms ease 100ms;
-}
-
-.vorschau:hover {
-	opacity: 1;
-}
-
-h1 {
-	font-family: "Overpass";
-	color: white;
 }

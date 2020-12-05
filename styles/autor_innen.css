@@ -1,0 +1,15 @@
+.linke-spalte{
+	position: absolute;
+	left: 0;
+	top: 50px;
+}
+
+.rechte-spalte{
+	position: absolute;
+	left: 50%;
+	top: 50px;
+}
+
+.autor_innen-karte {
+	height: 400px;
+}
