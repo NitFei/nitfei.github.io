@@ -51,7 +51,7 @@ main {
 }
 
 #letzterText {
-	background-image: url(../media/ds.jpg), linear-gradient(green, blue);
+	background-image: url(../media/ds.jpg);
 }
 
 #vorletzterText{

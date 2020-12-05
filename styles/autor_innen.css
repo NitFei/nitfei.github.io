@@ -1,15 +1,63 @@
+header {
+	z-index: 10; /* um nicht hinter den sich nach oben / unten bewegenden autor*innenkarten zu verschwinden */
+}
+
+.header-spacer { /* spacer, um main container direkt unter dem gefixten header anfangen zu lassen */
+	height: 50px;
+}
+
+main {
+	display: grid;
+	grid-template: 1fr / 1fr 1fr; /*auteilung in 1 row 2 columns für die linke und rechte spalte */
+}
+
 .linke-spalte{
-	position: absolute;
-	left: 0;
-	top: 50px;
+	position: relative;
+	background-image: url(../media/textureMarble.jpg);
 }
 
 .rechte-spalte{
-	position: absolute;
-	left: 50%;
-	top: 50px;
+	background-image: url(../media/textureMarble.jpg);
 }
 
 .autor_innen-karte {
+	min-width: 400px;
+	position: relative;
+	border: 2px hsl(240, 5%, 5%) solid;
+	margin: 8px auto;
 	height: 400px;
+	width: 80%;
+	background-position: center;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	background-color: hsl(240, 5%, 25%);
+}
+
+.autor_innen-karte img{
+	width: 100%;
+	height: auto;
+	min-height: 400px;
+}
+
+.autor_innen-karte:hover > .infocontainer {
+	top: 0;
+}
+
+.infocontainer {
+	position: absolute;
+	width: 100%;
+	top: -100%;
+	font-family: "Overpass";
+	color: hsl(210, 25%, 85%);
+	background-color: hsla(240, 5%, 5%, 0.8);
+	transition: top .5s ease;
+}
+
+.infocontainer h1{
+	text-align: center;
+}
+
+.infocontainer p{
+	text-align: center;
+	margin-bottom: 10px;
 }
