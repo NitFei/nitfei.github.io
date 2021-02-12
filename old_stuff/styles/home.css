@@ -1,0 +1,72 @@
+/* ==========================================MAKE BODY FILL UP THE WHOLE WINDOW========================================== */
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+
+
+/* ==========================================BODY========================================== */
+
+
+main {
+	flex: 1;
+	background-image: url(../media/textureMarble.jpg);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.header-spacer{
+	width:100%;
+	height: 50px;
+}
+
+.vorschauten {
+	flex-shrink: 0;
+	width: 90%;
+	height: 80%;
+	display: grid;
+	grid-template: 1fr 1fr/ 1fr 1fr;
+	grid-gap: 30px;
+}
+
+.vorschau {	
+	text-decoration: none;
+	opacity: 0;
+	background-color: rgba(255, 255, 255, 0.1);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: opacity 750ms ease 100ms;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+#letzterText {
+	background-image: url(../media/ds.jpg);
+}
+
+#vorletzterText{
+	background-image: url(../media/atmosphere.jpg);
+}
+
+
+.vorschau:hover {
+	opacity: 1;
+}
+
+h1 {
+	font-family: "Overpass";
+	color: white;
+	background-color: rgba(0, 0, 0, 0.5);
+	border: 2px white solid;
+	padding: 4px 6px 0px 4px;
+}

@@ -1,45 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>248Sachen</title>
-	<link rel="stylesheet" type="text/css" href="styles/main.css">
-	<link rel="stylesheet" type="text/css" href="styles/home.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | 248</title>
+    <link rel="stylesheet" href="./styles/token-autocomplete.css">
+    <link rel="stylesheet" href="./styles/home.css">
+    <script src="./scripts/token-autocomplete.js"></script>
+    
 </head>
 <body>
-	<header>
-		<div class="header-wrapper">
-			<nav>
-				<a href="index.html" class= activeNav >HOME</a>
-				<a href="pages/projekte.html">PROJEKTE</a>
-				<a href="pages/archiv.html">ARCHIV</a>
-				<a href="pages/autor_innen.html">AUTOR*INNEN</a>
-				<a href="pages/kontakt.html">KONTAKT</a>
-				<a href="pages/impressum.html">IMPRESSUM</a>
-			</nav>
+    <header id="header">
+        <div id="logo">
+            248
+            <!--put new logo here-->
+        </div>
 
-			<img id="logo" src="media/logoWhite.png" alt="248sachen Logo">
-		</div>
-	</header>
+        <div id="searchbar-wrapper">
+            <div id="searchbar">
+                <!-- container for the token-autocomplete plugin -->
+            </div>
+        </div>
 
-	<main>
-		<div class="header-spacer"></div>
-		<div class="vorschauten">
+        <!--maybe put a clickable search icon here? What would it do?-->
+    </header>
+    
+    <main>
+        <div class="spacer"></div>
+        <div id="slotmachine-wrapper">
+            <div class="scroll-helper">
+                <div id="left-column" class="left column">
+                    <!--test divs are created in home.js-->
+                </div>
+            </div>
 
-			<a href="LETZTERTEXTURL" class="text vorschau" id="letzterText">
-				<h1>LETZTER TEXT TITEL</h1>
-			</a>
-			<a href="VORLETZTERTEXTURL" class="text vorschau" id="vorletzterText">
-				<h1>VORLETZTER TEXT TITEL</h1>
-			</a>
-			<a href="LETZTESVIDEOURL" class="video vorschau" id="letztesVideo">
-				<h1>LETZTES VIDEO TITEL</h1>
-			</a>
-			<a href="VORLETZTESVIDEOURL" class="video vorschau" id="vorletztesVideo">
-				<h1>LETZTES VIDEO TITEL</h1>
-			</a>
+            <div class="scroll-helper">
+                <div id="middle-column" class="middle column">
+                </div>
+            </div>
 
-		</div>
-	</main>
+            <div class="scroll-helper">
+                <div id="right-column" class="right column">
+                </div>
+            </div>
+        </div>
+
+        <div id="upper-banner" class="upper banner">
+            <span>ich bin das obere Banner</span>
+        </div>
+
+        <div id="lower-banner" class="lower banner">
+            <span>ich bin das untere Banner</span>
+        </div>
+    </main>
 </body>
-
+<script src="./scripts/home.js"></script>
 </html>

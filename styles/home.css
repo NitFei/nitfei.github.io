@@ -1,72 +1,88 @@
-/* ==========================================MAKE BODY FILL UP THE WHOLE WINDOW========================================== */
+* {
+    border: 0;
+    margin: 0;
+}
 
 html,
 body {
-	height: 100%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 body {
-	display: flex;
-	flex-direction: column;
+    display: grid;
+    grid-template-rows: 1fr 9fr;
 }
 
+/*header*/
 
+header {
+    position: absolute;
+    display: flex;
+    align-items: start;
+    width: 100%;
+    height:10%;
+    z-index: 100;
+    background-color: #eee;
+}
 
-/* ==========================================BODY========================================== */
+#logo {
+    margin: 20px;
+    display: inline-block;
+}
 
+#searchbar-wrapper {
+    display: inline-block;
+    flex-grow: 1;
+    border: 2px solid black;
+    margin: 5px 10px;
+}
 
+#searchbar {
+    box-sizing: border-box;
+}
+
+/*main*/
 main {
-	flex: 1;
-	background-image: url(../media/textureMarble.jpg);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+    display: grid;
+    grid-template-rows: 1fr 9fr;
 }
 
-.header-spacer{
-	width:100%;
-	height: 50px;
+#slotmachine-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 100%;
+    overflow: hidden;
 }
 
-.vorschauten {
-	flex-shrink: 0;
-	width: 90%;
-	height: 80%;
-	display: grid;
-	grid-template: 1fr 1fr/ 1fr 1fr;
-	grid-gap: 30px;
+.scrollhelper {
+    width: 100%;
+    height: 100%;
 }
 
-.vorschau {	
-	text-decoration: none;
-	opacity: 0;
-	background-color: rgba(255, 255, 255, 0.1);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transition: opacity 750ms ease 100ms;
-	background-position: center;
-	background-repeat: no-repeat;
+.column {
+    position: relative;
+    top: 0;
+    transition: top .5s ease-in-out 0s;
 }
 
-#letzterText {
-	background-image: url(../media/ds.jpg);
+.post-tile {
+    height: 30%;
+    box-sizing: border-box;
+    border: 2px solid black;
 }
 
-#vorletzterText{
-	background-image: url(../media/atmosphere.jpg);
+#searchbar-suggestion-wrapper {
+    display: none;
+    position: absolute;
+    z-index: 5;
+    list-style-type: none;
 }
 
-
-.vorschau:hover {
-	opacity: 1;
-}
-
-h1 {
-	font-family: "Overpass";
-	color: white;
-	background-color: rgba(0, 0, 0, 0.5);
-	border: 2px white solid;
-	padding: 4px 6px 0px 4px;
+.banner {
+    position: absolute;
+    top: 0;
+    background-color: rgb(238, 238, 238);
+    width: 100%;
 }
