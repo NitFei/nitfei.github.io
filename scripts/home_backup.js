@@ -47,3 +47,50 @@ for (let i = 0; i < scrollWrappers.length; i++) {
     const wrapperHeight = iHeight - header.clientHeight;
     scrollScrollers[i].style.height = wrapperHeight + "px";
 }
+
+class Searchbar { // might be obsolete with token-autocomplete
+
+    //https://www.w3schools.com/howto/howto_js_filter_lists.asp
+
+    constructor() {
+        this.inputField = document.getElementById('searchbar');
+        this.inputField.addEventListener('keyup', () => {this.filterSuggestions()});
+        this.inputField.addEventListener('focus', () => {this.makeSuggestionsVisible()});
+        this.inputField.addEventListener('blur', () => {this.makeSuggestionsInvisible()});
+
+        this.mouseHoveringSuggestions = false;
+
+        this.suggestionDiv = document.getElementById('searchbar-suggestion-wrapper');
+        this.suggestions = this.suggestionDiv.children;
+    }
+
+    filterSuggestions = () => {
+        const lowerCaseInput = this.inputField.value.toLowerCase();
+        
+        for (let i = 0; i < this.suggestions.length; i++) {
+            const a = this.suggestions[i].getElementsByTagName("a")[0];
+            const txtValue = a.textContent || a.innerText;
+            if (txtValue.toLowerCase().indexOf(lowerCaseInput) >= 0) {
+                this.suggestions[i].style.display = "";
+            } else {
+                this.suggestions[i].style.display = "none";
+            }
+        }
+    }
+
+    makeSuggestionsVisible = () => {
+        this.suggestionDiv.style.display = 'block';
+    }
+
+    makeSuggestionsInvisible = () => {
+        if(!this.mouseHoveringSuggestions){
+            this.suggestionDiv.style.display = 'none';
+        }
+    }
+
+    confirmInput(){
+        checkTags(this.inputField.value);
+    }
+
+    addToColumn
+}
