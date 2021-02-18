@@ -15,6 +15,12 @@ class Scroller {
 
     addEventHandler = () => {
         this.div.parentElement.addEventListener('wheel', (e) => {
+            let delta;
+            if (e.deltaMode === 1) { // returns true only on firefox and only if you use a mousewheel, in which case deltaY is significantly lower than usual. That's why we multiplay it with an arbitrary number
+                delta = e.deltaY * 40;
+            } else {
+                delta = e.deltaY;
+            }
             if (this.div.scrollTop < this.div.clientHeight*0.2) {
                 this.addToTop();
             }
@@ -26,7 +32,7 @@ class Scroller {
                 this.addToBottom();
             }
 
-            this.scrollDest += e.deltaY;
+            this.scrollDest += delta;
             this.div.scrollTo(0, this.scrollDest);
             clearTimeout(this.timer);
             this.timer = setTimeout(() => {
