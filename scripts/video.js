@@ -19,10 +19,16 @@ class Video {
     createBackButton = () => {
         const bbuttonDiv = document.createElement('div');
         bbuttonDiv.classList.add('back-button');
+        bbuttonDiv.addEventListener('click', this.returnToSlotmachine);
         const bbutton = document.createElement('img');
         bbutton.src = '../src/media/ui/backButtonArrow.png';
         bbutton.width = '100';
         bbuttonDiv.appendChild(bbutton);
         this.div.appendChild(bbuttonDiv);
+    }
+
+    returnToSlotmachine = () => {
+        //this removes the iframe from view, but the instance of the video object might not get cleaned from memory. How do I do that?
+        document.body.removeChild(this.div);
     }
 }
