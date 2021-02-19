@@ -28,6 +28,7 @@ class Video {
         bbutton.width = '100';
 
         this.div.addEventListener('mousemove', () => {
+            console.log('log');
             bbuttonDiv.style.display = 'block';
             bbuttonDiv.style.opacity = '1';
             clearTimeout(this.bbOpacityTimer);
@@ -45,6 +46,8 @@ class Video {
 
     returnToSlotmachine = () => {
         //this removes the iframe from view, but the instance of the video object might not get cleaned from memory. How do I do that?
+        document.body.header.style.display = 'auto';
+        document.body.main.style.display = 'auto';
         document.body.removeChild(this.div);
     }
 }
