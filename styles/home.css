@@ -114,3 +114,18 @@ main {
     position: absolute;
     z-index: 100;
 }
+
+.back-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 20px;
+    padding: 30px;
+    background-color: transparent;
+    transition: opacity .5s ease-in-out;
+    transition: background-color .25s ease-in-out;
+}
+
+.back-button:hover {
+    background-color: rgba(0,0,0,0.5);
+}

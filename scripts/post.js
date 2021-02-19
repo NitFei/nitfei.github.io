@@ -81,14 +81,9 @@ class Post {
 
     openPost = () => {
         console.log('opened post');
-        const postFrame = document.createElement('iframe');
-        postFrame.classList.add('current-post');
-        postFrame.width = window.innerWidth;
-        postFrame.height = window.innerHeight;
-        postFrame.src = "https://www.youtube.com/embed/dQw4w9WgXcQ"
-        postFrame.frameborder="0";
-        postFrame.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        document.body.appendChild(postFrame);
-       
+        const postDiv = document.createElement('div');
+        postDiv.classList.add('current-post');
+        document.body.appendChild(postDiv);
+        new Video(postDiv, this.link);
     }
 }
