@@ -18,7 +18,9 @@ class Video {
         postFrame.frameborder = '0';
         this.div.appendChild(postFrame);
 
-        window.addEventListener('mousemove', this.handleMouseMove);
+        window.addEventListener('mousemove', () => {
+            console.log('moved');
+        });
     }
 
     createBackButton = () => {
