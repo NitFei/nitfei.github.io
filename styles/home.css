@@ -85,6 +85,7 @@ main {
     height: 30%;
     box-sizing: border-box;
     border: 2px solid black;
+    pointer-events: auto;
 }
 
 #searchbar-suggestion-wrapper {
@@ -107,4 +108,9 @@ main {
 
 .inactive-tile {
     display: none !important;
+}
+
+.current-post {
+    position: absolute;
+    z-index: 100;
 }

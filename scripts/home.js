@@ -9,6 +9,7 @@ find a solution to the window resizing issue
 find a way to split up images into the three columns
 find a way to check if posts align, and if so make them clickable (make cursor change when it hovers over them)
 make the iframes
+what happens when tiles are not aligned but clicked?
 */
 
 class Logic {
@@ -54,7 +55,7 @@ class Logic {
             if(i < 10) {
                 tags.push('letzte 10 Beiträge');    
             }
-            this.posts.push(new Post(type, 'demo-' + type, tags, 'hsl(' + 12*i + ', 65%, 60%)', '#header', this.columns))
+            this.posts.push(new Post(i, type, 'demo-' + type, tags, 'hsl(' + 12*i + ', 65%, 60%)', '#header', this.columns, this.scrollers))
         }
 
         // collect all possible tags from posts into an array

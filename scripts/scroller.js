@@ -3,7 +3,6 @@ class Scroller {
         this.div = _div;
         this.column = _column;
         this.scrBarW = this.getScrollBarWidth();
-        this.lastScrollTop = 0;
         this.columnHeight;
 
         this.addEventHandler();
@@ -69,7 +68,6 @@ class Scroller {
     snap = () =>{
         const activeTile = document.getElementsByClassName('active-tile')[0];
         let tileSize = parseFloat(getComputedStyle(activeTile,null).getPropertyValue('height'));
-        console.log(tileSize);
         const topPos = Math.floor((this.div.scrollTop + (0.5*tileSize)) / tileSize) * tileSize;
         
         this.div.scrollTo({
@@ -77,7 +75,6 @@ class Scroller {
             left: 0,
             behavior: 'smooth'
         })
-        console.log('snap now');
     }
 
     resizeScroller = (scrBarW) => { // probably not gonna work because the parentElement doesnt get resized yet
@@ -109,5 +106,37 @@ class Scroller {
         document.body.removeChild (outer);
         
         return (w1 - w2);
+    }
+
+    getTilePos = (tile) => {
+        let tilePos;
+
+        //check the current top offset of the viewport (how many active tiles are there above the top currently visible tile in the slotmachine?)
+        const ttPos = this.getTopTilePos();
+        
+        // collect all active tiles from column into one array
+        let activeTiles = [];
+        this.column.tiles.forEach((_tile) => {
+            if(_tile.div.classList.contains('active-tile')){
+                activeTiles.push(_tile);
+            }
+        })
+
+        for (let i = 0; i < activeTiles.length; i++) {
+            if(tile.id === activeTiles[i].id){
+                tilePos = i;
+            }
+        }
+        if(tilePos){
+            tilePos -= ttPos;
+        }
+        return tilePos
+    }
+
+    getTopTilePos = () => {
+        let pos = 0;
+        let tileSize = parseFloat(getComputedStyle(document.getElementsByClassName('active-tile')[0],null).getPropertyValue('height'));
+        pos = Math.floor((this.div.scrollTop / tileSize) + 0.5);
+        return pos;
     }
 }
