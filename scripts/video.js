@@ -12,17 +12,13 @@ class Video {
     createVid = () => {
         const postFrame = document.createElement('iframe');
         postFrame.classList.add('post-frame');
+        postFrame.height = window.innerHeight;
+        postFrame.width = window.innerWidth;
+        postFrame.src = 'https://www.youtube.com/embed/dQw4w9WgXcQ';
+        postFrame.frameborder = '0';
         this.div.appendChild(postFrame);
 
-        this.player = new YT.Player(postFrame, {
-            height: '480',
-            width: '400',
-            videoID: 'dQw4w9WgXcQ',
-            frameborder: '0',
-            // events: {
-            //     'onmousemove': this.handleMouseMove
-            // }
-        });        
+        this.window.addEventListener('mousemove', this.handleMouseMove);
     }
 
     createBackButton = () => {
