@@ -1,6 +1,7 @@
 class Video {
     constructor(_div, _link) {
         this.div = _div;
+        this.player;
 
         this.createVid();
         this.createBackButton();
@@ -10,12 +11,18 @@ class Video {
 
     createVid = () => {
         const postFrame = document.createElement('iframe');
-        postFrame.width = window.innerWidth;
-        postFrame.height = window.innerHeight;
-        postFrame.src = "https://www.youtube.com/embed/dQw4w9WgXcQ";
-        postFrame.frameborder="0";
-        postFrame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+        postFrame.classList.add('post-frame');
         this.div.appendChild(postFrame);
+
+        this.player = new YT.Player(postFrame, {
+            height: window.innerHeight,
+            width: window.innerWidth,
+            videoID: 'dQw4w9WgXcQ',
+            frameborder: '0',
+            events: {
+                'onmousemove': this.handleMouseMove
+            }
+        });        
     }
 
     createBackButton = () => {
@@ -27,7 +34,7 @@ class Video {
         bbutton.src = '../src/media/ui/backButtonArrow.png';
         bbutton.width = '100';
 
-        this.div.addEventListener('mousemove', () => {
+        document.querySelector('.post-frame').addEventListener('mousemove', () => {
             console.log('log');
             bbuttonDiv.style.display = 'block';
             bbuttonDiv.style.opacity = '1';
@@ -49,5 +56,9 @@ class Video {
         document.body.header.style.display = 'auto';
         document.body.main.style.display = 'auto';
         document.body.removeChild(this.div);
+    }
+
+    handleMouseMove = () => {
+        console.log('mouse moved');
     }
 }
