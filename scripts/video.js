@@ -15,13 +15,13 @@ class Video {
         this.div.appendChild(postFrame);
 
         this.player = new YT.Player(postFrame, {
-            height: window.innerHeight,
-            width: window.innerWidth,
+            height: '480',
+            width: '400',
             videoID: 'dQw4w9WgXcQ',
             frameborder: '0',
-            events: {
-                'onmousemove': this.handleMouseMove
-            }
+            // events: {
+            //     'onmousemove': this.handleMouseMove
+            // }
         });        
     }
 
