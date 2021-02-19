@@ -116,6 +116,7 @@ main {
 }
 
 .back-button {
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -124,6 +125,7 @@ main {
     background-color: transparent;
     transition: opacity .5s ease-in-out;
     transition: background-color .25s ease-in-out;
+    opacity: 0;
 }
 
 .back-button:hover {

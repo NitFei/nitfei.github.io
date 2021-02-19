@@ -4,6 +4,8 @@ class Video {
 
         this.createVid();
         this.createBackButton();
+        this.bbOpacityTimer = 0;
+        this.bbDisplayTimer = 0;
     }
 
     createVid = () => {
@@ -20,9 +22,23 @@ class Video {
         const bbuttonDiv = document.createElement('div');
         bbuttonDiv.classList.add('back-button');
         bbuttonDiv.addEventListener('click', this.returnToSlotmachine);
+
         const bbutton = document.createElement('img');
         bbutton.src = '../src/media/ui/backButtonArrow.png';
         bbutton.width = '100';
+
+        this.div.addEventListener('mousemove', () => {
+            bbuttonDiv.style.display = 'block';
+            bbuttonDiv.style.opacity = '1';
+            clearTimeout(this.bbOpacityTimer);
+            this.bbOpacityTimer = setTimeout(() => {
+                bbuttonDiv.style.opacity = '0';
+                this.bbDisplayTimer = setTimeout(() => {
+                    bbuttonDiv.style.display = 'none';
+                }, 500);
+            }, 1000);
+
+        })
         bbuttonDiv.appendChild(bbutton);
         this.div.appendChild(bbuttonDiv);
     }
