@@ -1,4 +1,7 @@
 /* TODO:
+BUGS:
+- after resizing, performance drops dramatically
+
 SCROLLING:
     - make it draggable
     - make it react to touch
