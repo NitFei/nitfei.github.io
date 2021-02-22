@@ -40,7 +40,7 @@ class Post {
     createTile = (id, scroller) => {
         const tileDiv = document.createElement('div');
         tileDiv.className = 'post-tile'
-        tileDiv.innerText = this.title;
+        tileDiv.classList.add(this.title);
 
         const tile = new Tile(tileDiv, this.tags, this.image, '#header', id, scroller);
         this.addClickHandler(tile);
@@ -81,9 +81,16 @@ class Post {
 
     openPost = () => {
         console.log('opened post');
-        const postDiv = document.createElement('div');
-        postDiv.classList.add('current-post');
-        document.body.appendChild(postDiv);
-        new Video(postDiv, this.link);
+        alert('opened post');
+        // const postDiv = document.createElement('div');
+        // postDiv.classList.add('current-post');
+        // document.body.appendChild(postDiv);
+        // new Video(postDiv, this.link);
+    }
+
+    placeTileImages = () => {
+        this.tiles.forEach(tile => {
+            tile.addImage();
+        })
     }
 }

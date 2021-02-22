@@ -2,6 +2,8 @@ class Column {
     constructor(_div) {
         this.div = _div;
         this.tiles = [];
+
+        this.resizeColumn();
     }
 
     getActiveColumnHeight = () => {
@@ -59,5 +61,14 @@ class Column {
                 break;
             }
         }
+    }
+
+    resizeColumn = () => {
+        if(this.div) {
+            this.div.style.height = window.innerHeight * 0.9 + 'px';
+        }
+        this.tiles.forEach(tile => {
+            tile.resizeTile();
+        })
     }
 }

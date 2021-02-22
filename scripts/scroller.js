@@ -37,10 +37,12 @@ class Scroller {
             this.timer = setTimeout(() => {
                 this.snap()
             }, 100);
+            console.log(e.deltaY);
         });
     }
 
     addToTop = () => {
+        console.log('addtoTop')
         this.column.moveBottomTileToTop();
         const tileHeight = document.getElementsByClassName('active-tile')[0].clientHeight;
 
@@ -53,6 +55,7 @@ class Scroller {
     }
 
     addToBottom = () => {
+        console.log('addtoBot')
         this.column.moveTopTileToBottom();
         const tileHeight = document.getElementsByClassName('active-tile')[0].clientHeight;
 
@@ -66,6 +69,7 @@ class Scroller {
     }
 
     snap = () =>{
+        console.log('snap now');
         const activeTile = document.getElementsByClassName('active-tile')[0];
         let tileSize = parseFloat(getComputedStyle(activeTile,null).getPropertyValue('height'));
         const topPos = Math.floor((this.div.scrollTop + (0.5*tileSize)) / tileSize) * tileSize;
@@ -78,6 +82,7 @@ class Scroller {
     }
 
     resizeScroller = (scrBarW) => { // probably not gonna work because the parentElement doesnt get resized yet
+        this.columnHeight = this.column.getActiveColumnHeight();
         this.div.style.width = this.div.parentElement.clientWidth + scrBarW + 'px';
     }
 

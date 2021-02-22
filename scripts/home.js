@@ -1,12 +1,19 @@
 /* TODO:
 SCROLLING:
-    - make it snap
-    - make it loop infinitely
     - make it draggable
+    - make it react to touch
 make classes their own files and find a way to export them
-remake the scrolling so it measures how far the wheel actually scrolls instead of just scrolling to the next scrollFactor
 find a solution to the window resizing issue
-find a way to split up images into the three columns
+    - which elements need to be resized?
+        - SHOULD HEADER BE RESIZED?
+        vert:
+            - scroll-helper
+            - tile-image
+        hori:
+            - Banner
+            - header
+
+
 find a way to check if posts align, and if so make them clickable (make cursor change when it hovers over them)
 make the iframes
 what happens when tiles are not aligned but clicked?
@@ -31,6 +38,11 @@ class Logic {
 
         // create all posts
         this.posts = [];
+        this.posts.push(new Post(104, 'text', 'img-test', ['', 'test', 'img', 'text'], 'src/media/autor_innen/kkoki.jpg', '#', this.columns, this.scrollers));
+        this.posts.push(new Post(103, 'text', 'img-test', ['', 'test', 'img', 'text'], 'src/media/autor_innen/casjen.jpg', '#', this.columns, this.scrollers));
+        this.posts.push(new Post(102, 'text', 'img-test', ['', 'test', 'img', 'text'], 'src/media/autor_innen/benedikt.jpg', '#', this.columns, this.scrollers));
+        this.posts.push(new Post(101, 'text', 'img-test', ['', 'test', 'img', 'text'], 'src/media/autor_innen/alexa.jpg', '#', this.columns, this.scrollers));
+        this.posts.push(new Post(100, 'text', 'img-test', ['', 'test', 'img', 'text'], 'src/media/autor_innen/bilbi.jpg', '#', this.columns, this.scrollers));
 
         // randomly create posts for demo 
         for (let i = 0; i < 30; i++) {
@@ -45,7 +57,7 @@ class Logic {
                 tags.push('audio');
                 type = 'audio';
             } else if (randNumb > 0.25) {
-                tags.push('text');
+                tags.push('video'); // changed to video for demo purposes, change it back to text asap
                 type = 'text';
             } else {
                 tags.push('autor*in');
@@ -89,6 +101,14 @@ class Logic {
             column.addTileDivsToColumn();
         })
 
+        // make post-tiles and columns the correct size
+        this.resizeElements();
+
+        // place tile images
+        this.posts.forEach(post => {
+            post.placeTileImages();
+        })
+
         // create searchbar
         this.searchbar = new TokenAutocomplete({
             name: 'searchbar',
@@ -100,27 +120,36 @@ class Logic {
             initialSuggestions: allSuggestions
         }, this);
 
-        const bannerHeight = document.body.clientHeight * 0.05;
-
+        this.banners = [];
         const upperBanner = document.getElementById('upper-banner');
-        upperBanner.style.top = document.body.clientHeight * 0.4 - bannerHeight*0.5 + 'px';
-        upperBanner.style.height = bannerHeight + 'px';
-
         const lowerBanner = document.getElementById('lower-banner');
-        lowerBanner.style.top = document.body.clientHeight * 0.7 - bannerHeight*0.5 + 'px';
-        lowerBanner.style.height = bannerHeight + 'px';
+        this.banners[0] = new Banner(upperBanner);
+        this.banners[1] = new Banner(lowerBanner);
         
         window.addEventListener('resize', this.resizeElements);
-        this.resizeElements();
     }
 
     resizeElements = () => {
-        for (let i = 0; i < this.columns.length; i++) {
-            this.columns[i].div.style.height = window.innerHeight * 0.9 + 'px';
-        }
-        const tiles = document.getElementsByClassName('post-tile');
-        for (let i = 0; i < tiles.length; i++) {
-            tiles[i].style.height = window.innerHeight * 0.3 + 'px';
+        this.scrollers.forEach(scroller => {
+            scroller.resizeScroller(scroller.scrBarW);
+        })
+
+        this.columns.forEach(column => {
+            column.resizeColumn();
+        })
+
+        this.posts.forEach(post => {
+            post.tiles.forEach(tile => {
+                if(tile.image){
+                    tile.placeImage();
+                }
+            })
+        })
+
+        if(this.banners){
+            this.banners.forEach(banner => {
+                    banner.placeBanner();
+            })
         }
     }
 
@@ -134,9 +163,15 @@ class Logic {
                 }
             }
         }
-        console.log(tags);
         this.handleTilesAfterNewToken(tags);
+        this.handleColumnsAfterNewToken();
     }
+
+    handleColumnsAfterNewToken = () => {
+        this.scrollers.forEach(scroller => {
+            scroller.resizeScroller(scroller.scrBarW);
+        })
+    };
 
     handleTilesAfterNewToken = (_tags) => {
         if(_tags.length > 0) {
@@ -173,3 +208,8 @@ class Logic {
 }
 
 const logic = new Logic();
+var tag = document.createElement('script');
+
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);

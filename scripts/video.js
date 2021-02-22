@@ -10,17 +10,30 @@ class Video {
     }
 
     createVid = () => {
-        const postFrame = document.createElement('iframe');
+        const postFrame = document.createElement('div');
         postFrame.classList.add('post-frame');
-        postFrame.height = window.innerHeight;
-        postFrame.width = window.innerWidth;
-        postFrame.src = 'https://www.youtube.com/embed/dQw4w9WgXcQ';
-        postFrame.frameborder = '0';
+        postFrame.id = 'post-frame';
         this.div.appendChild(postFrame);
 
-        window.addEventListener('mousemove', () => {
-            console.log('moved');
+        var player;
+        player = new YT.Player('post-frame', {
+            height: '390',
+            width: '640',
+            videoId: 'M7lc1UVf-VE',
+            // events: {
+            //     'click': this.handleMouseMove
+            // }
         });
+        
+        // postFrame.height = window.innerHeight;
+        // postFrame.width = window.innerWidth;
+        // postFrame.src = 'https://www.youtube.com/embed/dQw4w9WgXcQ';
+        // postFrame.frameborder = '0';
+        // this.div.appendChild(postFrame);
+
+        // window.addEventListener('mousemove', () => {
+        //     console.log('moved');
+        // });
     }
 
     createBackButton = () => {
@@ -32,19 +45,19 @@ class Video {
         bbutton.src = '../src/media/ui/backButtonArrow.png';
         bbutton.width = '100';
 
-        document.querySelector('.post-frame').addEventListener('mousemove', () => {
-            console.log('log');
-            bbuttonDiv.style.display = 'block';
-            bbuttonDiv.style.opacity = '1';
-            clearTimeout(this.bbOpacityTimer);
-            this.bbOpacityTimer = setTimeout(() => {
-                bbuttonDiv.style.opacity = '0';
-                this.bbDisplayTimer = setTimeout(() => {
-                    bbuttonDiv.style.display = 'none';
-                }, 500);
-            }, 1000);
+        // document.querySelector('.post-frame').addEventListener('mousemove', () => {
+        //     console.log('log');
+        //     bbuttonDiv.style.display = 'block';
+        //     bbuttonDiv.style.opacity = '1';
+        //     clearTimeout(this.bbOpacityTimer);
+        //     this.bbOpacityTimer = setTimeout(() => {
+        //         bbuttonDiv.style.opacity = '0';
+        //         this.bbDisplayTimer = setTimeout(() => {
+        //             bbuttonDiv.style.display = 'none';
+        //         }, 500);
+        //     }, 1000);
 
-        })
+        // })
         bbuttonDiv.appendChild(bbutton);
         this.div.appendChild(bbuttonDiv);
     }
