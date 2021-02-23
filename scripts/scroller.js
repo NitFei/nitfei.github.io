@@ -20,7 +20,7 @@ class Scroller {
             } else {
                 delta = e.deltaY;
             }
-            if (this.div.scrollTop < this.div.clientHeight*0.2) {
+            if (this.div.scrollTop < this.columnHeight*0.2) {
                 this.addToTop();
             }
                 
