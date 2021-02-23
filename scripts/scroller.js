@@ -20,6 +20,9 @@ class Scroller {
             } else {
                 delta = e.deltaY;
             }
+
+            console.log(this.div.scrollTop + (this.div.clientHeight * 1.2));
+            console.log(this.columnHeight);
             if (this.div.scrollTop < this.columnHeight*0.2) {
                 this.addToTop();
             }
@@ -52,7 +55,8 @@ class Scroller {
         this.scrollDest += tileHeight;
         // scrollbar gets stuck at the top and stops working when scrolling too fast. set it to 100 everytime that happens to avoid it
         if(this.div.scrollTop === 0) {
-            this.div.scrollTop = 50;
+            this.div.scrollTop = this.div.clientHeight*0.1;
+            console.log('jumped up')
         }        
     }
 

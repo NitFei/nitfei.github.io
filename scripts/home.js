@@ -133,12 +133,12 @@ class Logic {
     }
 
     resizeElements = () => {
-        this.scrollers.forEach(scroller => {
-            scroller.resizeScroller(scroller.scrBarW);
-        })
-
         this.columns.forEach(column => {
             column.resizeColumn();
+        })
+
+        this.scrollers.forEach(scroller => {
+            scroller.resizeScroller(scroller.scrBarW);
         })
 
         this.posts.forEach(post => {
