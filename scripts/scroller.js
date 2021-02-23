@@ -39,7 +39,7 @@ class Scroller {
             }, 100);
             console.log(e.deltaY);
             console.log(this.div.scrollTop);
-            console.log(this.div.clientHeight);
+            console.log(this.columnHeight);
         });
     }
 
