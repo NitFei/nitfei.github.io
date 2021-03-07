@@ -1,11 +1,12 @@
 class Post {
-    constructor (id, type, title, tags, image, link, columns, scrollers) {
+    constructor (id, type, title, tags, imageURL, link, columns, scrollers, logic) {
         this.id = id;
         this.type = type;
         this.title = title;
         this.tags = tags;
-        this.image = image;
+        this.imageURL = imageURL;
         this.link = link;
+        this.logic = logic;
 
         this.tiles = []
 
@@ -42,7 +43,7 @@ class Post {
         tileDiv.className = 'post-tile'
         tileDiv.classList.add(this.title);
 
-        const tile = new Tile(tileDiv, this.tags, this.image, '#header', id, scroller);
+        const tile = new Tile(tileDiv, this.tags, this.imageURL, '#header', id, scroller);
         this.addClickHandler(tile);
         this.tiles.push(tile);
         return tile;
@@ -62,7 +63,7 @@ class Post {
     tilesAreAligned = () => {
         let isAligned = false;
         // if the post is an authorprofile, it only has 1 tile, which means that it has no other tiles to align with, so we can always treat it as if it "aligns with itself"
-        if(this.tiles.length < 3) {
+        if(this.tiles.length === 1) {
             isAligned = true;
         } else {
             console.log('clicked');
@@ -81,7 +82,17 @@ class Post {
 
     openPost = () => {
         console.log('opened post');
-        alert('opened post');
+        switch (this.type) {
+            case 'autor_in':
+                this.openAuthor();
+                break;
+            case 'event':
+                this.openEvent();
+                break;
+            case 'lesung':
+                this.openEvent();
+                break;
+        }
         // const postDiv = document.createElement('div');
         // postDiv.classList.add('current-post');
         // document.body.appendChild(postDiv);
@@ -92,5 +103,13 @@ class Post {
         this.tiles.forEach(tile => {
             tile.addImage();
         })
+    }
+
+    openAuthor = () => {
+        this.logic.currentPost = new AuthorPost(this);
+    }
+
+    openEvent = () => {
+        this.logic.currentPost = new EventPost(this)
     }
 }

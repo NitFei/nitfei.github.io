@@ -1,24 +1,24 @@
 class Tile {
-    constructor(div, tags, image, link, id, scroller) {
+    constructor(div, tags, imageURL, link, id, scroller) {
         this.id = id;
         this.div = div;
         this.tags = tags;
-        this.imageSrc = image;
+        this.imageURL = imageURL;
         this.image;
         this.link = link;
         this.scroller = scroller;
 
-        this.div.style.background = image;
+        this.div.style.background = imageURL;
         this.div.className = 'post-tile';
         this.resizeTile();
     }
 
     addImage = () => {
         this.image = document.createElement('img');
-        this.image.addEventListener('error', (e) => {
+        this.image.addEventListener('error', () => {
             this.addBackupImage();
         })
-        this.image.src = this.imageSrc;
+        this.image.src = this.imageURL;
         this.image.classList.add('tile-image');
         
         this.div.appendChild(this.image);

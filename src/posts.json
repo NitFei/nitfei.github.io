@@ -1,0 +1,22 @@
+[
+    {
+        "id":"10001",
+        "type":"Autor_in",
+        "name":"Kkoki",
+        "tags":["Autor*in","Lesung 7"],
+        "image":"src/media/autor_innen/kkoki.jpg",
+        "links":[{"external":true, "postID":"Wenn das ein interner Link ist, sollte hier die ID des Posts, zu dem geführt wird, stehen", "url":"PlatzhalterURL", "linktext":"Ich bin ein Link"},
+            {"external":false, "postID":"Same as above", "url":"PlatzhalterURL", "linktext":"Ich bin ein Link"}],
+        "bio":"Ich bin eine Platzhalterbio"
+    },
+    {
+        "id":"10002",
+        "type":"Autor_in",
+        "name":"Alexa Dietrich",
+        "tags":["Autor*in","Lesung 9"],
+        "image":"src/media/autor_innen/alexadietrich.jpg",
+        "links":[{"external":true, "postID":"Wenn das ein interner Link ist, sollte hier die ID des Posts, zu dem geführt wird, stehen", "url":"PlatzhalterURL", "linktext":"Ich bin ein Link"},
+            {"external":false, "postID":"Same as above", "url":"PlatzhalterURL", "linktext":"Ich bin ein Link"}],
+        "bio":"Ich bin eine Platzhalterbio"
+    }
+]

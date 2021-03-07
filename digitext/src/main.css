@@ -11,18 +11,24 @@ body{
 
 #descend {
     height: 3000px;
+    position: relative;
+}
+
+#descCanv {
+    position: absolute;
+    top: 0;
 }
 
 #ex3 {
-    position: relative;
+    position: absolute;
     top: 2500px;
     left: 50px;
     width: 50%;
 }
 
 #ex2 {
-    position: relative;
-    top: 3000px;
+    position: absolute;
+    top: 2000px;
     left: 50%;
     width: 20%;
 }
@@ -31,3 +37,23 @@ p {
     pointer-events: none;
 }
 
+#cave {
+    height:100%;
+    position: relative;
+    overflow: hidden;
+}
+
+#caveCanv {
+    position: absolute;
+    top:0;
+}
+
+#cave-content {
+    position: absolute;
+}
+
+.cave-text {
+    position: absolute;
+    overflow: hidden;
+    width: 400px;
+}
