@@ -75,7 +75,7 @@ const init = () => {
     }
 
     const moveLight = () => {
-        const lightRadius = 80;
+        const lightRadius = 150;
             const gradient = ctx.createLinearGradient(0, canv.clientHeight * (1 - window.scrollY * 0.001), 0, canv.clientHeight * (2 - window.scrollY * 0.001));
             gradient.addColorStop(0, 'transparent');
             gradient.addColorStop(1, caveBGColor);
