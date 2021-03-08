@@ -54,7 +54,7 @@ class Fragment {
         this.gain.gain.value = 0.5;
         
         this.filter.connect(this.gain);
-        this.gain.connect(audioContext.destination);
+        this.gain.connect(this.audioContext.destination);
     }
 
     play = () => {
