@@ -104,7 +104,7 @@ class EventPost {
 
             const text = document.createElement('p');
             text.classList.add('event-description-audiolink', 'event-description-hoverable');
-            text.textContent = 'Gespräch';
+            text.textContent = 'Lesung';
             text.addEventListener('click', () => {this.skipToMidpoint(author.midPointText)});
 
             // const spacer = document.createElement('i');
@@ -113,7 +113,7 @@ class EventPost {
 
             const interview = document.createElement('p');
             interview.classList.add('event-description-audiolink', 'event-description-hoverable');
-            interview.textContent = 'Lesung';
+            interview.textContent = 'Gespräch';
             interview.addEventListener('click', () => {this.skipToMidpoint(author.midPointInterview)});
 
             authorDiv.appendChild(container);
