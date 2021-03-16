@@ -7,12 +7,17 @@ class PPButton {
         this.addIcon();
 
         this.div.addEventListener('click', this.pausePlay);
+        window.addEventListener('keydown', (e) => {
+            if(e.keyCode === 32) {
+                this.pausePlay();
+            }
+        })
     }
 
     addIcon = () => {
         const icon = document.createElement('i');
         icon.classList = ['fas fa-play-circle fa-3x'];
-        icon.style.color = '#d3d3d3';
+        icon.style.color = '#31b8ad';
         this.div.appendChild(icon);
     }
 
@@ -23,6 +28,7 @@ class PPButton {
         } else {
             this.mP.pause();
         }
+        this.mP.resizePlayer();
     }
 
     changeIconToPause = () => {

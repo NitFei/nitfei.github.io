@@ -1,5 +1,5 @@
 class MusicPlayer {
-    constructor(_div, currentTrackURL){
+    constructor(_div, currentTrackURL, _post){
         this.div = _div;
 
         this.createAudio(currentTrackURL);
@@ -7,7 +7,7 @@ class MusicPlayer {
         this.createtimeHandler();
 
         this.currentTrack.addEventListener('loadedmetadata', () => {
-            this.addMidPoints();
+            this.addMidPoints(_post);
             this.timeHandler.seekUpdate();
         });
     }
@@ -56,8 +56,10 @@ class MusicPlayer {
         this.timeHandler.seekUpdate();
     }
 
-    addMidPoints = () => {
-        this.timeHandler.addMidPoint();
+    addMidPoints = (post) => {
+        post.midPoints.forEach(midPoint => {
+            this.timeHandler.addMidPoint(midPoint.time, midPoint.label); 
+        });
     }
 
     resizePlayer = () => {

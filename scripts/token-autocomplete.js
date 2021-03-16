@@ -121,7 +121,7 @@ var TokenAutocomplete = /** @class */ (function () {
                         }
                         // THE LINE BELOW HAS BEEN MODIFIED TO FIT 248 NEEDS, original was this:
                         //  if (value.localeCompare(suggestion.text.slice(0, value.length), undefined, { sensitivity: 'base' }) === 0) {
-                        if (suggestion.text.indexOf(value) > -1) {
+                        if (suggestion.text.toLowerCase().indexOf(value.toLowerCase()) > -1) {
                             // The suggestion starts with the query text the user entered and will be displayed
                             me.autocomplete.addSuggestion(suggestion);
                         }

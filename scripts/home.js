@@ -13,8 +13,18 @@ find a way to check if posts align, and if so make them clickable (make cursor c
 make the iframes
 what happens when tiles are not aligned but clicked?
 MUSICPLAYER:
+REDESIGN: --o--o--o--
+- make labels not be inside the overflow hidden div
+
 - volume slider?
 - what happens, when track ends?
+- fotos den midpoints entsprechend wechseln
+
+IMPRESSUM:
+- hintergrundbild & kachelbild
+
+TAGSYSTEM:
+- wichtigste Tags zuerst anzeigen? Mit prioritätensystem
 
 organize everything into modules at the very end
 */
@@ -38,38 +48,40 @@ class Logic {
 
         // create all posts
         this.posts = [];
-        this.posts.push(new Post(104, 'autor_in', 'kkoki', ['', 'test', 'img', 'autor*in'], 'src/media/autor_innen/kkoki.jpg', '#', this.columns, this.scrollers, this));
-        this.posts.push(new Post(103, 'autor_in', 'casjen', ['', 'test', 'img', 'autor*in'], 'src/media/autor_innen/casjen.jpg', '#', this.columns, this.scrollers, this));
-        this.posts.push(new Post(102, 'autor_in', 'benedikt', ['', 'test', 'img', 'autor*in'], 'src/media/autor_innen/benedikt.jpg', '#', this.columns, this.scrollers, this));
-        this.posts.push(new Post(101, 'autor_in', 'alexa', ['', 'test', 'img', 'autor*in'], 'src/media/autor_innen/alexa.jpg', '#', this.columns, this.scrollers, this));
-        this.posts.push(new Post(100, 'autor_in', 'bilbi_der_schlumpf', ['', 'test', 'img', 'autor*in'], 'src/media/autor_innen/bilbi.jpg', '#', this.columns, this.scrollers, this));
+        // this.posts.push(new Post(104, 'autor_in', 'kkoki', ['', 'test', 'img', 'autor*in'], 'src/media/autor_innen/kkoki.jpg', '#', this.columns, this.scrollers, this));
+        // this.posts.push(new Post(103, 'autor_in', 'casjen', ['', 'test', 'img', 'autor*in'], 'src/media/autor_innen/casjen.jpg', '#', this.columns, this.scrollers, this));
+        // this.posts.push(new Post(102, 'autor_in', 'benedikt', ['', 'test', 'img', 'autor*in'], 'src/media/autor_innen/benedikt.jpg', '#', this.columns, this.scrollers, this));
+        // this.posts.push(new Post(101, 'autor_in', 'alexa', ['', 'test', 'img', 'autor*in'], 'src/media/autor_innen/alexa.jpg', '#', this.columns, this.scrollers, this));
+        // this.posts.push(new Post(100, 'autor_in', 'bilbi_der_schlumpf', ['', 'test', 'img', 'autor*in'], 'src/media/autor_innen/bilbi.jpg', '#', this.columns, this.scrollers, this));
 
-        this.posts.push(new Post(100, 'lesung', 'lesung3', ['', 'test', 'img', 'lesung'], 'src/media/lesungen/lesung3.jpeg', 'src/media/lesungen/disappear_adrianne_lenker.mp3', this.columns, this.scrollers, this));
-        // randomly create posts for demo 
-        for (let i = 0; i < 30; i++) {
-            const tags = ['', 'test'];
-            let type = '';
+        // this.posts.push(new Post(100, 'lesung', 'lesung3', ['', 'test', 'img', 'lesung'], 'src/media/lesungen/lesung3.jpeg', 'src/media/lesungen/disappear_adrianne_lenker.mp3', this.columns, this.scrollers, this));
+        // // randomly create posts for demo 
+        // for (let i = 0; i < 30; i++) {
+        //     const tags = ['', 'test'];
+        //     let type = '';
 
-            const randNumb = Math.random();
-            if (randNumb > 0.75) {
-                tags.push('video');
-                type = 'video';
-            // } else if (randNumb > 0.5) {
-            //     tags.push('lesung');
-            //     type = 'lesung';
-            } else if (randNumb > 0.25) {
-                tags.push('text'); // changed to video for demo purposes, change it back to text asap
-                type = 'text';
-            } else {
-                tags.push('autor*in');
-                type = 'autor_in';
-            }
+        //     const randNumb = Math.random();
+        //     if (randNumb > 0.75) {
+        //         tags.push('video');
+        //         type = 'video';
+        //     // } else if (randNumb > 0.5) {
+        //     //     tags.push('lesung');
+        //     //     type = 'lesung';
+        //     } else if (randNumb > 0.25) {
+        //         tags.push('text'); // changed to video for demo purposes, change it back to text asap
+        //         type = 'text';
+        //     } else {
+        //         tags.push('autor*in');
+        //         type = 'autor_in';
+        //     }
 
-            if(i < 10) {
-                tags.push('letzte 10 Beiträge');    
-            }
-            this.posts.push(new Post(i, type, 'demo-' + type, tags, 'hsl(' + 12*i + ', 65%, 60%)', '#header', this.columns, this.scrollers, this))
-        }
+        //     if(i < 10) {
+        //         tags.push('letzte 10 Beiträge');    
+        //     }
+        //     this.posts.push(new Post(i, type, 'demo-' + type, tags, 'hsl(' + 12*i + ', 65%, 60%)', '#header', this.columns, this.scrollers, this))
+        // }
+
+        this.createPosts();
 
         // collect all possible tags from posts into an array
         let allTags = [];
@@ -128,6 +140,21 @@ class Logic {
         this.banners[1] = new Banner(lowerBanner, ['achtung ich bin das untere banner', 'alalala']);
         
         window.addEventListener('resize', this.resizeElements);
+    }
+
+    createPosts = () => {
+        // xmlhttprequest comes here once everything is started from a server
+        // for now, everything loads locally
+
+        //allpostsJSON is created in posts.js for now
+        const jPosts = JSON.parse(allPostsJSON);
+        for (let i = 0; i < jPosts.length; i++) {
+            const newPost = new Post(this);
+            Object.assign(newPost, jPosts[i]);
+            newPost.init();
+
+            this.posts.push(newPost);
+        }
     }
 
     resizeElements = () => {

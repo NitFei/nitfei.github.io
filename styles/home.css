@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Mega&display=swap');
+
 * {
     border: 0;
     margin: 0;
@@ -11,6 +13,7 @@ body {
 }
 
 body {
+    font-family: 'Lexend Mega';
     display: grid;
     grid-template-rows: 1fr 9fr;
 }
@@ -22,20 +25,23 @@ header {
     display: flex;
     align-items: start;
     width: 100%;
-    height:10%;
+    height: 56px;
     z-index: 100;
-    background-color: #eee;
+    background-color: #e6ecee;
+    border-bottom: 2px #5e7984 solid;
 }
 
 #logo {
-    margin: 20px;
+    margin: 3px 2px 3px 10px;
+    padding: 2px;
+    background-color: #0a2631;
     display: inline-block;
+    border-radius: 10px;
 }
 
 #searchbar-wrapper {
     display: inline-block;
     flex-grow: 1;
-    border: 2px solid black;
     margin: 5px 10px;
 }
 
@@ -98,8 +104,10 @@ main {
 .banner {
     position: absolute;
     top: 0;
-    background-color: rgb(238, 238, 238);
+    background-color: #e6ecee;
     width: 100%;
+    border-top: 2px #5e7984 solid;
+    border-bottom: 2px #5e7984 solid;
 }
 
 .active-tile {
@@ -122,13 +130,13 @@ main {
     left: 0;
     margin: 20px;
     padding: 30px;
-    background-color: rgba(255,255,255,0.25);;
+    background-color: rgba(127,127,127,0.5);;
     transition: opacity .3s ease, background-color .25s ease-in-out;
     opacity: 0;
 }
 
 .back-button:hover {
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(200,125,125,0.5);
 }
 
 .mouse-move-catcher{
@@ -170,19 +178,9 @@ main {
 }
 
 .event-post-container {
-    background-color: black;
-    width: 100%;
-    height: 100%;
-    z-index: 200;
-    position: absolute;
-    top: 0;
-    overflow: hidden;
-}
-
-.event-image {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .music-player-wrapper {
@@ -192,7 +190,6 @@ main {
     position: absolute;
     bottom: 0;
     display: flex;
-    background-color: rgba(0, 0, 0, 0.534);
     align-items: center;
 }
 
@@ -205,10 +202,21 @@ main {
     display: flex;
     flex-grow: 1;
     align-items: center;
+    position: relative;
 }
 
 .time-slider {
     flex-grow: 1;
+    overflow: hidden;
+    height:6px;
+    background-color: white;
+}
+
+.time-slider-progress {
+    position: relative;
+    background-color: #31b8ad;
+    width: 0;
+    height: 400px;
 }
 
 .time-display {
@@ -221,53 +229,83 @@ main {
     margin: 10px;
 }
 
-.slider {
-    -webkit-appearance: none;
-    height: 15px;
-    border-radius: 5px;  
-    background: #d3d3d3;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-}
-  
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%; 
-    background: #4CAF50;
-    cursor: pointer;
-}
-  
-.slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #4CAF50;
-    cursor: pointer;
-}
-
 .mid-point {
+    overflow: hidden;
     position: absolute;
     border-radius: 50%;
-    width: 17px;
-    height: 17px;
-    background: #c58b0e;
-    transition: width 0.2s, height 0.2s;
+    width: 16px;
+    height: 16px;
+    background: white;
+    transition: width 0.2s, height 0.2s, left .2s;
 }
 
 .mid-point-label {
-    position: relative;
-    top: -50px;
-    background-color: aliceblue;
+    position: absolute;
+    top: 0;
     color: black;
     opacity: 0;
-    transition: opacity .25s ease;
+    transition: opacity .25s ease, top .2s, left .2s;
 }
 
 .banner-text {
     
+}
+
+.contact-description-wrapper {
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+.contact-description {
+    color: white;
+    padding: 20px;
+}
+
+.contact-post-container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.event-description-wrapper{
+    background-color: rgba(0, 0, 0, 0.5);
+    width:70%;
+}
+
+.event-description {
+    color:white;
+    margin: auto;
+    padding: 20px;
+}
+
+.event-description-title{
+    text-align: center;
+}
+
+.event-description-author-wrapper{
+    width: 100%;
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr;
+}
+
+.event-description-hoverable:hover {
+    color: #cabc60;
+    cursor: pointer;
+}
+
+.event-description-author{
+    color:white;
+    margin: 20px;
+}
+
+.event-description-audiolink{
+    color:white;
+    font-size: 20px;
+    margin: 0px 10px 20px 0px;
+}
+
+.event-description-author-name{
+    font-size: 30px;
+    text-align: left;
 }

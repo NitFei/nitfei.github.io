@@ -1,14 +1,14 @@
 class Tile {
-    constructor(div, tags, imageURL, link, id, scroller) {
-        this.id = id;
+    constructor(div, post, scroller) {
+        this.id = post.id;
         this.div = div;
-        this.tags = tags;
-        this.imageURL = imageURL;
+        this.tags = post.tags;
+        this.imageURL = post.tileImageURL;
         this.image;
-        this.link = link;
+        this.link = post.link;
         this.scroller = scroller;
 
-        this.div.style.background = imageURL;
+        this.div.style.background = post.imageURL;
         this.div.className = 'post-tile';
         this.resizeTile();
     }

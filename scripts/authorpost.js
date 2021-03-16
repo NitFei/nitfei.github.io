@@ -8,7 +8,7 @@ class AuthorPost {
             this.div = _div;
         }
 
-        this.post = _post
+        this.post = _post;
 
         this.name = this.post.title;
         this.descDivTimer = 0;
@@ -17,12 +17,13 @@ class AuthorPost {
 
         this.insertImage();
         this.createDescription();
+        this.createNameDiv();
         this.createBackButton();
         this.addEventHandlers();
     }
 
     insertImage = () => {
-        this.div.style.backgroundImage = 'url(' + this.post.imageURL + ')';
+        this.div.style.backgroundImage = 'url(' + this.post.bgImageURL + ')';
         this.div.style.backgroundSize = 'cover';
         this.div.style.backgroundPosition = 'center';
     }
@@ -33,13 +34,26 @@ class AuthorPost {
 
     createDescription = () => {
         this.descDiv = document.createElement('div');
-        this.descDiv.classList.add('post-description-container')
+        this.descDiv.classList.add('post-description-container');
         this.div.appendChild(this.descDiv);
-        this.resizeDescDiv()
+        this.resizeDescDiv();
+    }
 
-        this.nameDisp = document.createElement('h1');
-        this.nameDisp.innerText = this.name;
-        this.descDiv.appendChild(this.nameDisp);
+    createNameDiv = () => {
+        this.nameDiv = document.createElement('div');
+        this.nameDiv.classList.add('post-name-container');
+        this.div.appendChild(this.nameDiv);
+
+        const firstName = document.createElement('p');
+        firstName.textContent = this.post.title;
+        firstName.classList.add('author-first-name');
+
+        const lastName = document.createElement('p');
+        lastName.textContent = this.post.title;
+        lastName.classList.add('author-last-name');
+
+        this.div.appendChild(firstName);
+        this.div.appendChild(lastName);
     }
 
     resizeDescDiv = () => {

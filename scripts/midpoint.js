@@ -19,14 +19,18 @@ class MidPoint {
         this.point = document.createElement('div');
         this.point.classList.add('mid-point');
         this.slider.parentElement.appendChild(this.point);
+        
+        this.pointProg = document.createElement('div');
+        this.pointProg.classList.add('music-player', 'time-slider-progress');
+        this.point.appendChild(this.pointProg);
 
         this.positionPoint();
     }
 
     positionPoint = () => {
-        const offsetL = Math.floor((this.pos / this.mP.currentTrack.duration * this.slider.clientWidth) + this.mP.timeHandler.div.offsetLeft);
-        this.point.style.left = offsetL + 'px';
-        console.log(offsetL);
+        const offsetL = Math.floor((this.pos / this.mP.currentTrack.duration * this.slider.clientWidth));
+        this.point.style.left = offsetL - this.point.clientWidth*0.5 + 'px';
+        this.pointProg.style.left = -offsetL + this.point.clientWidth*0.5 + 'px';
     }
 
     addLabel = () => {
@@ -37,15 +41,29 @@ class MidPoint {
     }
 
     showLabel = () => {
+        const newSize = 150;
         this.label.style.opacity = 1;
-        this.point.style.width = '25px';
-        this.point.style.height = '25px';
+        this.point.style.width = newSize + 'px';
+        this.point.style.height = newSize + 'px';
+        this.point.style.left = Math.floor((this.pos / this.mP.currentTrack.duration * this.slider.clientWidth)) - (newSize*0.5) + 'px';
+        
+        const ll = (newSize - this.label.clientWidth) * 0.5;
+        const lt = (newSize - this.label.clientHeight) * 0.5;
+        this.label.style.top = lt + 'px';
+        this.label.style.left = ll + 'px';
     }
 
     hideLabel = () => {
+        const originalSize = 16;
         this.label.style.opacity = 0;
-        this.point.style.width = '17px';
-        this.point.style.height = '17px';
+        this.point.style.width = originalSize + 'px';
+        this.point.style.height = originalSize + 'px';
+        this.point.style.left = Math.floor((this.pos / this.mP.currentTrack.duration * this.slider.clientWidth)) - (originalSize*0.5) + 'px';
+
+        const ll = (originalSize - this.label.clientWidth) * 0.5;
+        const lt = (originalSize - this.label.clientHeight) * 0.5;
+        this.label.style.top = lt + 'px';
+        this.label.style.left = ll + 'px';
     }
 
     jumpToPointPos = () => {

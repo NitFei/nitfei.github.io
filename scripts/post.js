@@ -1,19 +1,17 @@
 class Post {
-    constructor (id, type, title, tags, imageURL, link, columns, scrollers, logic) {
-        this.id = id;
-        this.type = type;
-        this.title = title;
-        this.tags = tags;
-        this.imageURL = imageURL;
-        this.link = link;
-        this.logic = logic;
+    constructor (_logic) {
+        this.logic = _logic;
+        this.tags = [];
 
-        this.tiles = []
+        this.tiles = [];
+    }
 
+
+    init = () => {
         // check if the post is an author profile
         let isAuthor = false; 
-        tags.forEach((tag) => {
-            if(tag.toLowerCase() === 'autor*in' || tag.toLowerCase() === 'autor' || tag.toLowerCase() === 'autorin') {
+        this.tags.forEach((tag) => {
+            if(tag.toLowerCase() === 'autor*in' || tag.toLowerCase() === 'autor' || tag.toLowerCase() === 'autorin' || tag.toLowerCase() === 'autor_in' || tag.toLowerCase() === 'autor:in') {
                 isAuthor = true;
             }
         });
@@ -21,29 +19,29 @@ class Post {
         // if the post is an author profile, it will only take up 1 column instead of 3
         if (isAuthor) { 
             // randomly choose a column to place tile in
-            const randNum = Math.floor(Math.random()*columns.length); 
+            const randNum = Math.floor(Math.random()*this.logic.columns.length); 
             // create tile
-            const newTile = this.createTile(this.id, scrollers[randNum]);
+            const newTile = this.createTile(this.logic.scrollers[randNum]);
             // add tile to column
-            columns[randNum].addTileAtRandomIndex(newTile);
+            this.logic.columns[randNum].addTileAtRandomIndex(newTile);
 
         // if post is not an author profile, create 3 new tiles, each in its seperate column
         } else { 
-            for (let i = 0; i < columns.length; i++) {
+            for (let i = 0; i < this.logic.columns.length; i++) {
                 //create tile
-                const newTile = this.createTile(this.id, scrollers[i]);
+                const newTile = this.createTile(this.logic.scrollers[i]);
                 // solve image resizing problem here as well
-                columns[i].addTileAtRandomIndex(newTile);
+                this.logic.columns[i].addTileAtRandomIndex(newTile);
             }
         }
     }
 
-    createTile = (id, scroller) => {
+    createTile = (scroller) => {
         const tileDiv = document.createElement('div');
         tileDiv.className = 'post-tile'
         tileDiv.classList.add(this.title);
 
-        const tile = new Tile(tileDiv, this.tags, this.imageURL, '#header', id, scroller);
+        const tile = new Tile(tileDiv, this, scroller);
         this.addClickHandler(tile);
         this.tiles.push(tile);
         return tile;
@@ -82,7 +80,7 @@ class Post {
 
     openPost = () => {
         console.log('opened post');
-        switch (this.type) {
+        switch (this.type.toLowerCase()) {
             case 'autor_in':
                 this.openAuthor();
                 break;
@@ -91,6 +89,9 @@ class Post {
                 break;
             case 'lesung':
                 this.openEvent();
+                break;
+            case 'kontakt':
+                this.openContact();
                 break;
         }
         // const postDiv = document.createElement('div');
@@ -110,6 +111,10 @@ class Post {
     }
 
     openEvent = () => {
-        this.logic.currentPost = new EventPost(this)
+        this.logic.currentPost = new EventPost(this);
+    }
+
+    openContact = () => {
+        this.logic.currentPost = new ContactPost(this);
     }
 }
