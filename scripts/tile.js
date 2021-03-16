@@ -76,7 +76,7 @@ class Tile {
     }
 
     resizeTile = () => {
-        this.div.style.height = window.innerHeight * 0.3 + 'px';
+        this.div.style.height = (window.innerHeight - HEADERSIZE) / 3 + 'px';
         this.placeImage();
     }
 

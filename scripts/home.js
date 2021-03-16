@@ -239,6 +239,7 @@ class Logic {
     }
 }
 
+const HEADERSIZE = 56;
 const logic = new Logic();
 
 // var tag = document.createElement('script');

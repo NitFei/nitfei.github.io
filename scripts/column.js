@@ -65,7 +65,7 @@ class Column {
 
     resizeColumn = () => {
         if(this.div) {
-            this.div.style.height = window.innerHeight * 0.9 + 'px';
+            this.div.style.height = window.innerHeight -56 + 'px';
         }
         this.tiles.forEach(tile => {
             tile.resizeTile();

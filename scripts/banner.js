@@ -8,11 +8,11 @@ class Banner {
     }
     
     placeBanner = () => {
-        const bannerHeight = document.body.clientHeight * 0.05;
+        const bannerHeight = 40;
         if(this.div.classList.contains('upper')){
-            this.div.style.top = document.body.clientHeight * (0.4) - bannerHeight * (2 / 3) + 'px';
+            this.div.style.top = (document.body.clientHeight - HEADERSIZE) / 3 - bannerHeight * (2 / 3) + HEADERSIZE + 'px';
         } else if (this.div.classList.contains('lower')) {
-            this.div.style.top = document.body.clientHeight * (0.7) - bannerHeight * (1 / 3) + 'px';
+            this.div.style.top = (document.body.clientHeight - HEADERSIZE) * (2 / 3) - bannerHeight * (1 / 3) + HEADERSIZE + 'px';
         }
         this.div.style.height = bannerHeight + 'px';
     }
