@@ -57,7 +57,7 @@ const allPostsToJSON = [
         "tileImageURL":"src/media/lesungen/lesung7/lesung7kachel.jpg",
         "bgImageURLs":["src/media/lesungen/lesung7/lesung7bg1.jpg",
             "src/media/lesungen/lesung7/lesung7bg1.jpg"],
-        "audioURL":"src/media/lesungen/lesung7/lesung7.wav",
+        "audioURL":"src/media/lesungen/lesung7/lesung7.mp3",
         "midPoints":[{"label":"Freya Petersen Lesung", "time":"0"},
             {"label":"Freya Petersen Gespräch", "time":"549"},
             {"label":"Phillip Kampert Lesung", "time":"1311"},
