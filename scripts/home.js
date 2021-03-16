@@ -235,7 +235,25 @@ class Logic {
                 })
             })
         }
-        
+
+        this.columns.forEach((column) => {
+            let activeTileCounter = 0;
+            column.tiles.forEach((tile) => {
+                if(tile.div.classList.contains('active-tile')){
+                    activeTileCounter++;
+                }
+            });
+
+            if(activeTileCounter < 7) {
+                this.cloneTilesInColumn(column);
+            }
+        });
+    }
+
+    cloneTilesInColumn = (column) => {
+        column.tiles.forEach((tile) => {
+
+        })
     }
 }
 
