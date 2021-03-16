@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .mp {
+            overflow: hidden;
+            position: absolute;
+            top:-6px;
+            height:20px;
+            width:20px;
+            border-radius: 50%;
+            background-color: black;
+            border: 2px black solid;
+            
+        }
+
+        .slider {
+            overflow:hidden;
+            height:10px;
+            width:500px;
+            background-color: black;
+        }
+
+        .wrapper {
+            position: relative;
+            margin: 20px 0px;
+        }
+
+        .progress {
+            position: relative;
+            background-color: blue;
+            width: 200px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="slider">
+            <div class="progress"></div>
+        </div>
+
+        <div class="mp" style="left:50px">
+            <div class="progress" style="left:-50px"></div>
+        </div>
+    </div>
+</body>
+
+<script>
+    window.addEventListener('click', moveProgress);
+    let w = 0;
+    function moveProgress() {
+        const prg = document.getElementsByClassName('progress');
+        
+        for (let i = 0; i < prg.length; i ++) {
+            prg[i].style.width = w + 'px';
+            console.log(i);
+        }
+        w += 5;
+    }
+</script>
+</html>
