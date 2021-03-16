@@ -15,7 +15,6 @@ body {
 body {
     font-family: 'Lexend Mega';
     display: grid;
-    grid-template-rows: 56px 9fr;
 }
 
 /*header*/
@@ -52,7 +51,7 @@ header {
 /*main*/
 main {
     display: grid;
-    grid-template-rows: 1fr 9fr;
+    grid-template-rows: 56px 9fr;
 }
 
 #slotmachine-wrapper {
