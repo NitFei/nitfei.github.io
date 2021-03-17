@@ -1,7 +1,5 @@
 /* TODO:
 SCROLLING:
-    - what happens when there are not enough tiles to scroll?
-        --> make the tile alignment check check for Post ID instead of having it find where the other tiles of the post are
     - make it draggable
     - make it react to touch
 find a solution to the window resizing issue
