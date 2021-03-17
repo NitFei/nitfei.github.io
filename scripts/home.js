@@ -12,12 +12,10 @@ find a way to check if posts align, and if so make them clickable (make cursor c
 make the iframes
 what happens when tiles are not aligned but clicked?
 MUSICPLAYER:
-REDESIGN: --o--o--o--
-- make labels not be inside the overflow hidden div
-
 - volume slider?
 - what happens, when track ends?
 - fotos den midpoints entsprechend wechseln
+- wenn der post geschlossen wird, soll das audio zugehen
 
 IMPRESSUM:
 - hintergrundbild & kachelbild

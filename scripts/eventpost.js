@@ -97,7 +97,7 @@ class EventPost {
             const name = document.createElement('p');
             name.classList.add('event-description-author-name', 'event-description-hoverable');
             name.textContent = author.name;
-            name.addEventListener('click', this.openAuthorProfile);
+            name.addEventListener('click', () => {this.openAuthorProfile(author.profileID)});
 
             const audioPointsDiv = document.createElement('div');
             audioPointsDiv.style.display = 'flex';
@@ -130,7 +130,8 @@ class EventPost {
         this.mP.timeHandler.midPoints[index].jumpToPointPos();
     }
 
-    openAuthorProfile = () =>{
-        console.log('open the thing');
+    openAuthorProfile = (id) => {
+        this.returnToSlotmachine();
+        this.post.logic.openPost(id);
     }
 }
