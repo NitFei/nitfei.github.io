@@ -28,7 +28,7 @@ class Banner {
 
         while(this.textDiv.clientWidth < MAXSUPPORTEDSCREENWIDTH) {
             for (let i = 0; i < this.bannerText.content.length; i++) {
-                const phraseSpan = document.createElement('span');
+                const phraseSpan = document.createElement('p');
                 phraseSpan.classList.add('banner-text');
                 phraseSpan.textContent = this.bannerText.content[i].text;
                 if(this.bannerText.content[i].color === 'standard') {
@@ -36,17 +36,19 @@ class Banner {
                 }
                 this.textDiv.appendChild(phraseSpan);
 
-                const spacer1 = document.createElement('span');
+                const spacer1 = document.createElement('p');
                 spacer1.classList.add('banner-spacer', 'primary-color');
                 spacer1.textContent = '/';
                 this.textDiv.appendChild(spacer1);
 
-                const spacer2 = document.createElement('span');
+                const spacer2 = document.createElement('p');
                 spacer2.classList.add('banner-spacer', 'secondary-color');
                 spacer2.textContent = '/';
                 this.textDiv.appendChild(spacer2);
             }
         }
+
+        console.log(this.textDiv.children[0].getBoundingClientRect());
     }
 
     moveContent = () => {
@@ -54,7 +56,7 @@ class Banner {
         this.textDiv.style.left = this.pos + 'px';
         requestAnimationFrame(this.moveContent);
         if(this.leftContentIsOutOfFrame()) {
-            this.pos += this.textDiv.children[0].scrollWidth;
+            this.pos += this.textDiv.children[0].getBoundingClientRect().width;
             this.textDiv.style.left = this.pos + 'px';
             this.textDiv.appendChild(this.textDiv.children[0]);
         };
@@ -62,7 +64,7 @@ class Banner {
 
     leftContentIsOutOfFrame = () => {
         let outOfFrame = false;
-        if(this.pos + this.textDiv.children[0].scrollWidth < 0) {
+        if(this.pos + this.textDiv.children[0].getBoundingClientRect().width < 0) {
             outOfFrame = true;
         }
         return outOfFrame;

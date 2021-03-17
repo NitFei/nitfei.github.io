@@ -258,8 +258,14 @@ main {
 }
 
 .banner-text {
+    display: inline;
     white-space: nowrap;
     padding: 20px;
+}
+
+.banner-spacer {
+    display: inline;
+    white-space: nowrap;
 }
 
 .banner-content-wrapper {
