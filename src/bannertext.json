@@ -1,0 +1,16 @@
+[
+    {
+        "position":"upper",
+        "content":[
+            {"text":"Ich bin das obere Banner", "color":"standard"},
+            {"text":"Hier gibt es Neues von 248 Sachen", "color":"standard"}
+        ]
+    },
+    {
+        "position":"lower",
+        "content":[
+            {"text":"Ich bin das obere Banner", "color":"standard"},
+            {"text":"Hier gibt es Neues von 248 Sachen", "color":"standard"}
+        ]
+    }
+]

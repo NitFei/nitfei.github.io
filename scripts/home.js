@@ -2,15 +2,13 @@
 SCROLLING:
     - make it draggable
     - make it react to touch
-find a solution to the window resizing issue
-    - which elements still need to be resized?
-        - SHOULD HEADER REALLY BE RESIZED?
-        hori:
-            - Banner
-            - header
-find a way to check if posts align, and if so make them clickable (make cursor change when it hovers over them)
-make the iframes
+
+Make every subpage responsive and still look good
+
+make tiles snap after resizing window
+
 what happens when tiles are not aligned but clicked?
+--> 
 MUSICPLAYER:
 - volume slider?
 - what happens, when track ends?
@@ -22,6 +20,10 @@ IMPRESSUM:
 
 TAGSYSTEM:
 - wichtigste Tags zuerst anzeigen? Mit prioritätensystem
+
+CROSSBROWSER
+
+MOBILE
 
 organize everything into modules at the very end
 */
@@ -45,39 +47,6 @@ class Logic {
 
         // create all posts
         this.posts = [];
-        // this.posts.push(new Post(104, 'autor_in', 'kkoki', ['', 'test', 'img', 'autor*in'], 'src/media/autor_innen/kkoki.jpg', '#', this.columns, this.scrollers, this));
-        // this.posts.push(new Post(103, 'autor_in', 'casjen', ['', 'test', 'img', 'autor*in'], 'src/media/autor_innen/casjen.jpg', '#', this.columns, this.scrollers, this));
-        // this.posts.push(new Post(102, 'autor_in', 'benedikt', ['', 'test', 'img', 'autor*in'], 'src/media/autor_innen/benedikt.jpg', '#', this.columns, this.scrollers, this));
-        // this.posts.push(new Post(101, 'autor_in', 'alexa', ['', 'test', 'img', 'autor*in'], 'src/media/autor_innen/alexa.jpg', '#', this.columns, this.scrollers, this));
-        // this.posts.push(new Post(100, 'autor_in', 'bilbi_der_schlumpf', ['', 'test', 'img', 'autor*in'], 'src/media/autor_innen/bilbi.jpg', '#', this.columns, this.scrollers, this));
-
-        // this.posts.push(new Post(100, 'lesung', 'lesung3', ['', 'test', 'img', 'lesung'], 'src/media/lesungen/lesung3.jpeg', 'src/media/lesungen/disappear_adrianne_lenker.mp3', this.columns, this.scrollers, this));
-        // // randomly create posts for demo 
-        // for (let i = 0; i < 30; i++) {
-        //     const tags = ['', 'test'];
-        //     let type = '';
-
-        //     const randNumb = Math.random();
-        //     if (randNumb > 0.75) {
-        //         tags.push('video');
-        //         type = 'video';
-        //     // } else if (randNumb > 0.5) {
-        //     //     tags.push('lesung');
-        //     //     type = 'lesung';
-        //     } else if (randNumb > 0.25) {
-        //         tags.push('text'); // changed to video for demo purposes, change it back to text asap
-        //         type = 'text';
-        //     } else {
-        //         tags.push('autor*in');
-        //         type = 'autor_in';
-        //     }
-
-        //     if(i < 10) {
-        //         tags.push('letzte 10 Beiträge');    
-        //     }
-        //     this.posts.push(new Post(i, type, 'demo-' + type, tags, 'hsl(' + 12*i + ', 65%, 60%)', '#header', this.columns, this.scrollers, this))
-        // }
-
         this.createPosts();
 
         // collect all possible tags from posts into an array
@@ -130,11 +99,21 @@ class Logic {
             initialSuggestions: allSuggestions
         }, this);
 
+        // create Banners
         this.banners = [];
+
+        const bannerText = JSON.parse(bannerTextJSON);
+
         const upperBanner = document.getElementById('upper-banner');
         const lowerBanner = document.getElementById('lower-banner');
-        this.banners[0] = new Banner(upperBanner, ['hallo', 'das ist so toll']);
-        this.banners[1] = new Banner(lowerBanner, ['achtung ich bin das untere banner', 'alalala']);
+
+        for (let i = 0; i < bannerText.length; i++) {
+            if(bannerText[i].position === 'upper') {
+                this.banners[0] = new Banner(upperBanner, bannerText[i]);
+            } else if (bannerText[i].position === 'lower'){
+                this.banners[1] = new Banner(lowerBanner, bannerText[i]);
+            }
+        }
         
         window.addEventListener('resize', this.resizeElements);
     }
@@ -263,8 +242,10 @@ class Logic {
     }
 }
 
-const FEWESTTILESSTILLSCROLLABLE = 6;
-const HEADERSIZE = 56;
+const MAXSUPPORTEDSCREENWIDTH = 2000; // biggest supported screen width in pixels
+const FEWESTTILESSTILLSCROLLABLE = 6; // fewest amount of tiles in a column to still be able to scroll smoothly
+const HEADERSIZE = 56; // heiderheight in pixels
+
 const logic = new Logic();
 
 // var tag = document.createElement('script');
