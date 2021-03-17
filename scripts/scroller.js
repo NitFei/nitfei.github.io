@@ -21,8 +21,6 @@ class Scroller {
                 delta = e.deltaY;
             }
 
-            console.log(this.div.scrollTop + (this.div.clientHeight * 1.2));
-            console.log(this.columnHeight);
             if (this.div.scrollTop < this.columnHeight*0.2) {
                 this.addToTop();
             }
@@ -40,14 +38,10 @@ class Scroller {
             this.timer = setTimeout(() => {
                 this.snap()
             }, 100);
-            console.log(e.deltaY);
-            console.log(this.div.scrollTop);
-            console.log(this.columnHeight);
         });
     }
 
     addToTop = () => {
-        console.log('addtoTop')
         this.column.moveBottomTileToTop();
         const tileHeight = document.getElementsByClassName('active-tile')[0].clientHeight;
 
@@ -56,12 +50,10 @@ class Scroller {
         // scrollbar gets stuck at the top and stops working when scrolling too fast. set it to 100 everytime that happens to avoid it
         if(this.div.scrollTop === 0) {
             this.div.scrollTop = this.div.clientHeight*0.1;
-            console.log('jumped up')
         }        
     }
 
     addToBottom = () => {
-        console.log('addtoBot')
         this.column.moveTopTileToBottom();
         const tileHeight = document.getElementsByClassName('active-tile')[0].clientHeight;
 
@@ -75,7 +67,6 @@ class Scroller {
     }
 
     snap = () =>{
-        console.log('snap now');
         const activeTile = document.getElementsByClassName('active-tile')[0];
         let tileSize = parseFloat(getComputedStyle(activeTile,null).getPropertyValue('height'));
         const topPos = Math.floor((this.div.scrollTop + (0.5*tileSize)) / tileSize) * tileSize;

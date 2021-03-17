@@ -71,4 +71,44 @@ class Column {
             tile.resizeTile();
         })
     }
+
+    cloneTiles = (activeTiles) => {
+        if(activeTiles.length > 0) {
+            for(let j = Math.floor(FEWESTTILESSTILLSCROLLABLE/activeTiles.length); j > 0; j--) {
+                for (let i = 0; i < activeTiles.length; i++) {
+                    const tileDiv = document.createElement('div');
+                    tileDiv.classList = activeTiles[i].div.classList;
+                    tileDiv.classList.add('copy-tile');
+            
+                    const tile = new Tile(tileDiv, activeTiles[i].post, activeTiles[i].scroller);
+                    tile.addImage();
+                    //this.addClickHandler(tile);
+                    this.tiles.push(tile);
+                }
+            }
+        }
+        this.addTileDivsToColumn();
+    }
+
+    removeCopiedTiles(){
+        for (let i = this.tiles.length-1; i >= 0; i--) {
+            if(this.tiles[i].div.classList.contains('copy-tile')){
+                this.tiles[i].div.parentElement.removeChild(this.tiles[i].div);
+                this.tiles.splice(i, 1);
+                
+            }
+        }
+    }
+
+    getActiveTileAtIndex = (index) => {
+        // collect all active tiles from column into one array
+        let activeTiles = [];
+        this.tiles.forEach((_tile) => {
+            if(_tile.div.classList.contains('active-tile')){
+                activeTiles.push(_tile);
+            }
+        })
+
+        return activeTiles[index];
+    }
 }

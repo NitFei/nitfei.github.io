@@ -3,7 +3,7 @@ class Post {
         this.logic = _logic;
         this.tags = [];
 
-        this.tiles = [];
+        this.tiles = [[]];
     }
 
 
@@ -21,7 +21,7 @@ class Post {
             // randomly choose a column to place tile in
             const randNum = Math.floor(Math.random()*this.logic.columns.length); 
             // create tile
-            const newTile = this.createTile(this.logic.scrollers[randNum]);
+            const newTile = this.createTile(randNum);
             // add tile to column
             this.logic.columns[randNum].addTileAtRandomIndex(newTile);
 
@@ -29,33 +29,44 @@ class Post {
         } else { 
             for (let i = 0; i < this.logic.columns.length; i++) {
                 //create tile
-                const newTile = this.createTile(this.logic.scrollers[i]);
+                const newTile = this.createTile(i);
                 // solve image resizing problem here as well
                 this.logic.columns[i].addTileAtRandomIndex(newTile);
             }
         }
     }
 
-    createTile = (scroller) => {
+    createTile = (columnIndex) => {
         const tileDiv = document.createElement('div');
         tileDiv.className = 'post-tile'
         tileDiv.classList.add(this.id);
 
-        const tile = new Tile(tileDiv, this, scroller);
-        this.tiles.push(tile);
+        const tile = new Tile(tileDiv, this, this.logic.scrollers[columnIndex]);
+        this.addClickHandler(tile);
+        this.tiles[columnIndex].push(tile);
         return tile;
+    }
+
+    addClickHandler = (tile) => {
+        tile.div.addEventListener('click', () => {
+            if(this.tilesAreAligned()) {
+                this.openPost()
+            } else {
+                // what happens, when tiles are not aligned??? maybe each tile's border turns red and if the tile is currently not in the slotmachine's viewport, its direction (up or down) is marked with an arrow?
+                console.log('post-tiles do not align');
+            }
+        })
     }
 
     tilesAreAligned = () => {
         let isAligned = false;
         // if the post is an authorprofile, it has no other tiles to align with, so we can always treat it as if it "aligns with itself"
-        if(this.type.toLowerCase() === 'autor_in' || this.type.toLowerCase() === 'autorin' || this.type.toLowerCase() === 'autor') {
+        if(this.type.toLowerCase() === 'autor_in' || this.tiles.type.toLowerCase() === 'autorin' || this.tiles.type.toLowerCase() === 'autor') {
             isAligned = true;
         } else {
             console.log('clicked');
             // check the positions of every tile belonging to the post.
             let positions = [];
-            
             this.tiles.forEach((tile) => {
                 positions.push(tile.checkPosition());
             })
@@ -68,7 +79,7 @@ class Post {
     }
 
     openPost = () => {
-        console.log('opened post, post type is ' + this.type);
+        console.log('opened post');
         switch (this.type.toLowerCase()) {
             case 'autor_in':
                 this.openAuthor();

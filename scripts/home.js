@@ -1,6 +1,7 @@
 /* TODO:
 SCROLLING:
     - what happens when there are not enough tiles to scroll?
+        --> make the tile alignment check check for Post ID instead of having it find where the other tiles of the post are
     - make it draggable
     - make it react to touch
 find a solution to the window resizing issue
@@ -206,6 +207,8 @@ class Logic {
     };
 
     handleTilesAfterNewToken = (_tags) => {
+        this.removeAllCopiedTiles();
+
         if(_tags.length > 0) {
             this.posts.forEach((post) => {
                 post.tiles.forEach((tile) => {
@@ -219,10 +222,10 @@ class Logic {
                     })
             
                     if (containsTag) {
-                        tile.div.classList.remove('inactive-tile')
+                        tile.div.classList.remove('inactive-tile');
                         tile.div.classList.add('active-tile');
                     } else {
-                        tile.div.classList.remove('active-tile')
+                        tile.div.classList.remove('active-tile');
                         tile.div.classList.add('inactive-tile');
                     }
                 });
@@ -230,33 +233,42 @@ class Logic {
         } else {
             this.posts.forEach((post) => {
                 post.tiles.forEach((tile) => {
-                    tile.div.classList.remove('inactive-tile')
+                    tile.div.classList.remove('inactive-tile');
                     tile.div.classList.add('active-tile');
                 })
             })
         }
 
         this.columns.forEach((column) => {
-            let activeTileCounter = 0;
+            let activeTiles = [];
             column.tiles.forEach((tile) => {
                 if(tile.div.classList.contains('active-tile')){
-                    activeTileCounter++;
+                    activeTiles.push(tile);
                 }
             });
 
-            if(activeTileCounter < 7) {
-                this.cloneTilesInColumn(column);
+            if(activeTiles.length < FEWESTTILESSTILLSCROLLABLE) {
+                column.cloneTiles(activeTiles);
             }
         });
     }
 
-    cloneTilesInColumn = (column) => {
-        column.tiles.forEach((tile) => {
+    removeAllCopiedTiles = () => {
+        this.columns.forEach((column) => {column.removeCopiedTiles()});
+    }
 
-        })
+    openPost = (id) => {
+        for(let i = 0; i < this.posts.length; i++) {
+            if(this.posts[i].id === id) {
+                console.log(this.posts[i].type);
+                this.posts[i].openPost();
+                break;
+            }
+        }
     }
 }
 
+const FEWESTTILESSTILLSCROLLABLE = 6;
 const HEADERSIZE = 56;
 const logic = new Logic();
 
