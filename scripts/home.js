@@ -260,7 +260,6 @@ class Logic {
     openPost = (id) => {
         for(let i = 0; i < this.posts.length; i++) {
             if(this.posts[i].id === id) {
-                console.log(this.posts[i].type);
                 this.posts[i].openPost();
                 break;
             }

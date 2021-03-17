@@ -46,29 +46,7 @@ class Post {
         return tile;
     }
 
-    tilesAreAligned = () => {
-        let isAligned = false;
-        // if the post is an authorprofile, it has no other tiles to align with, so we can always treat it as if it "aligns with itself"
-        if(this.type.toLowerCase() === 'autor_in' || this.type.toLowerCase() === 'autorin' || this.type.toLowerCase() === 'autor') {
-            isAligned = true;
-        } else {
-            console.log('clicked');
-            // check the positions of every tile belonging to the post.
-            let positions = [];
-            
-            this.tiles.forEach((tile) => {
-                positions.push(tile.checkPosition());
-            })
-            // if positions are the same, all tiles are aligned
-            if(positions[0] === positions[1] && positions[1] === positions[2]){
-                isAligned = true;
-            }
-        }
-        return isAligned;
-    }
-
     openPost = () => {
-        console.log('opened post, post type is ' + this.type);
         switch (this.type.toLowerCase()) {
             case 'autor_in':
                 this.openAuthor();

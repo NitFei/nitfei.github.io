@@ -101,28 +101,25 @@ class Tile {
     addClickHandler = () => {
         this.div.addEventListener('click', () => {
             let tilesAreAlgined = true;
-            //calculate whether the clicked tile is in the top, middle or bottom row of the slotmachine
-            const tileRow = Math.floor(((this.div.getBoundingClientRect().top - 56) / this.div.clientHeight) + 0.5);
-            this.post.logic.scrollers.forEach((scroller) => {
-                const ttPos = scroller.getTopTilePos();
-                const comparedTile = scroller.column.getActiveTileAtIndex(ttPos + tileRow);
-                if(this.id != comparedTile.id){
-                    console.log(comparedTile.id);
-                    tilesAreAlgined = false;
-                }
-            })
 
-            console.log(tilesAreAlgined);
+            // if the post is an authorprofile, it has no other tiles to align with, so we can always treat it as if it "aligns with itself"
+            if (this.post.type.toLowerCase() === 'autor_in' || this.post.type.toLowerCase() === 'autorin' || this.post.type.toLowerCase() === 'autor') {
+                tilesAreAlgined = true;
+            } else {
+                //calculate whether the clicked tile is in the top, middle or bottom row of the slotmachine
+                const tileRow = Math.floor(((this.div.getBoundingClientRect().top - 56) / this.div.clientHeight) + 0.5);
+                this.post.logic.scrollers.forEach((scroller) => {
+                    const ttPos = scroller.getTopTilePos();
+                    const comparedTile = scroller.column.getActiveTileAtIndex(ttPos + tileRow);
+                    if(this.id != comparedTile.id){
+                        tilesAreAlgined = false;
+                    }
+                })
+            }
+
             if(tilesAreAlgined) {
-                console.log(this.id);
                 this.post.logic.openPost(this.id);
             }
-            // if(this.tilesAreAligned()) {
-            //     this.openPost()
-            // } else {
-            //     // what happens, when tiles are not aligned??? maybe each tile's border turns red and if the tile is currently not in the slotmachine's viewport, its direction (up or down) is marked with an arrow?
-            //     console.log('post-tiles do not align');
-            // }
         })
     }
 }
