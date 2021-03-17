@@ -236,9 +236,24 @@ class Logic {
         for(let i = 0; i < this.posts.length; i++) {
             if(this.posts[i].id === id) {
                 this.posts[i].openPost();
+                this.stopBackground();
                 break;
             }
         }
+    }
+
+    stopBackground = () => {
+        document.getElementsByClassName('home-wrapper')[0].style.display = 'none';
+        this.banners.forEach((banner) => {
+            banner.stopUpdating();
+        })
+    }
+
+    startBackground = () => {
+        document.getElementsByClassName('home-wrapper')[0].style.display = 'block';
+        this.banners.forEach((banner) => {
+            banner.startUpdating();
+        })
     }
 }
 

@@ -56,6 +56,7 @@ class EventPost {
     returnToSlotmachine = () => {
         //this removes the iframe from view, but the instance of the video object might not get cleaned from memory. How do I do that?
         document.body.removeChild(this.div);
+        this.post.logic.startBackground();
     }
 
     addEventHandlers = () => {

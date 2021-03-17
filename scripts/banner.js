@@ -7,6 +7,7 @@ class Banner {
         this.insertText();
         this.pos = 0;
 
+        this.isUpdating = true;
         this.moveContent();
     }
     
@@ -54,12 +55,14 @@ class Banner {
     moveContent = () => {
         this.pos--;
         this.textDiv.style.left = this.pos + 'px';
-        requestAnimationFrame(this.moveContent);
         if(this.leftContentIsOutOfFrame()) {
             this.pos += this.textDiv.children[0].getBoundingClientRect().width;
             this.textDiv.style.left = this.pos + 'px';
             this.textDiv.appendChild(this.textDiv.children[0]);
         };
+        if(this.isUpdating){
+            requestAnimationFrame(this.moveContent);
+        }
     }
 
     leftContentIsOutOfFrame = () => {
@@ -68,5 +71,14 @@ class Banner {
             outOfFrame = true;
         }
         return outOfFrame;
+    }
+
+    stopUpdating = () => {
+        this.isUpdating = false;
+    }
+    
+    startUpdating = () => {
+        this.isUpdating = true;
+        this.moveContent();
     }
 }
