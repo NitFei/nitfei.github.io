@@ -254,6 +254,7 @@ class Logic {
         this.banners.forEach((banner) => {
             banner.startUpdating();
         })
+        this.resizeElements();
     }
 }
 

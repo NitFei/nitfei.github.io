@@ -1,5 +1,5 @@
 class Post {
-    constructor (_logic) {
+    constructor(_logic) {
         this.logic = _logic;
         this.tags = [];
 
@@ -9,24 +9,24 @@ class Post {
 
     init = () => {
         // check if the post is an author profile
-        let isAuthor = false; 
+        let isAuthor = false;
         this.tags.forEach((tag) => {
-            if(tag.toLowerCase() === 'autor*in' || tag.toLowerCase() === 'autor' || tag.toLowerCase() === 'autorin' || tag.toLowerCase() === 'autor_in' || tag.toLowerCase() === 'autor:in') {
+            if (tag.toLowerCase() === 'autor*in' || tag.toLowerCase() === 'autor' || tag.toLowerCase() === 'autorin' || tag.toLowerCase() === 'autor_in' || tag.toLowerCase() === 'autor:in') {
                 isAuthor = true;
             }
         });
 
         // if the post is an author profile, it will only take up 1 column instead of 3
-        if (isAuthor) { 
+        if (isAuthor) {
             // randomly choose a column to place tile in
-            const randNum = Math.floor(Math.random()*this.logic.columns.length); 
+            const randNum = Math.floor(Math.random() * this.logic.columns.length);
             // create tile
             const newTile = this.createTile(this.logic.scrollers[randNum]);
             // add tile to column
             this.logic.columns[randNum].addTileAtRandomIndex(newTile);
 
-        // if post is not an author profile, create 3 new tiles, each in its seperate column
-        } else { 
+            // if post is not an author profile, create 3 new tiles, each in its seperate column
+        } else {
             for (let i = 0; i < this.logic.columns.length; i++) {
                 //create tile
                 const newTile = this.createTile(this.logic.scrollers[i]);
@@ -60,6 +60,9 @@ class Post {
             case 'kontakt':
                 this.openContact();
                 break;
+            case 'video':
+                this.openVideo();
+                break;
         }
         // const postDiv = document.createElement('div');
         // postDiv.classList.add('current-post');
@@ -83,5 +86,9 @@ class Post {
 
     openContact = () => {
         this.logic.currentPost = new ContactPost(this);
+    }
+
+    openVideo = () => {
+        this.logic.currentPost = new VideoPost(this);
     }
 }
