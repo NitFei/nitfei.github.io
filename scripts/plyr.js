@@ -779,6 +779,7 @@
                     }
                 }
                 if ("captions" === o && u.appendChild(i.call(t, "captions", d)), "settings" === o && !N.empty(t.config.settings)) {
+                    console.log(t.config.settings);
                     var g = B("div", F({}, d, { class: "".concat(d.class, " plyr__menu").trim(), hidden: "" }));
                     g.appendChild(i.call(t, "settings", { "aria-haspopup": !0, "aria-controls": "plyr-settings-".concat(e.id), "aria-expanded": !1 }));
                     var y = B("div", { class: "plyr__menu__container", id: "plyr-settings-".concat(e.id), hidden: "" }),

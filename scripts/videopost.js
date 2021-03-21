@@ -17,6 +17,7 @@ class VideoPost {
     createPlayer = () => {
         this.div.style.display = "flex";
         this.div.style.justifyContent = "center";
+        this.div.setAttribute('controls', '');
 
         this.playerCont = document.createElement('div');
         this.playerCont.classList.add('player-cont');
@@ -24,13 +25,16 @@ class VideoPost {
         this.playerDiv.classList.add('js-player');
         this.playerDiv.setAttribute('data-plyr-provider', 'youtube');
         this.playerDiv.setAttribute('data-plyr-embed-id', this.post.videoURL);
+        this.playerDiv.setAttribute('controls', '');
+        // this.playerDiv.setAttribute('data-plyr-config', '{ "settings": "quality" }');
 
         this.playerCont.appendChild(this.playerDiv);
         this.div.appendChild(this.playerCont);
         this.resizePost();
 
-        this.player = Plyr.setup('.js-player');
-    }
+        this.player = Plyr.setup('.js-player', { settings: ['quality', 'captions', 'speed'], quality: { default: 576, options: [4320, 2880, 2160, 1440, 1080, 720, 576, 480, 360, 240] } });
+    };
+
 
     resizePost = () => {
         this.playerCont.style.display = "flex";
