@@ -9,9 +9,17 @@ class VideoPost {
         }
 
         this.post = _post;
+        this.controlTimer = 0;
 
         this.createBackButton();
         this.createPlayer();
+        this.div.addEventListener('mousemove', () => {
+            this.handleMouseMove();
+            const event = new Event('mousemove');
+            if (this.playerCont) {
+                this.playerCont.children[0].dispatchEvent(event);
+            }
+        });
     }
 
     createPlayer = () => {
@@ -26,13 +34,20 @@ class VideoPost {
         this.playerDiv.setAttribute('data-plyr-provider', 'youtube');
         this.playerDiv.setAttribute('data-plyr-embed-id', this.post.videoURL);
         this.playerDiv.setAttribute('controls', '');
+        this.playerDiv.addEventListener('pause', () => {
+            console.log('hi');
+            this.adjustControls();
+        });
         // this.playerDiv.setAttribute('data-plyr-config', '{ "settings": "quality" }');
+
+        // quality option cant be set in youtube or vimeo
 
         this.playerCont.appendChild(this.playerDiv);
         this.div.appendChild(this.playerCont);
         this.resizePost();
 
-        this.player = Plyr.setup('.js-player', { settings: ['quality', 'captions', 'speed'], quality: { default: 576, options: [4320, 2880, 2160, 1440, 1080, 720, 576, 480, 360, 240] } });
+        this.player = new Plyr('.js-player', { settings: ['quality', 'captions', 'speed'], quality: { default: 576, options: [4320, 2880, 2160, 1440, 1080, 720, 576, 480, 360, 240] } });
+        this.player.on('ready', this.adjustControls);
     };
 
 
@@ -41,7 +56,17 @@ class VideoPost {
         this.playerCont.style.height = "100%";
         this.playerCont.style.width = (16 / 9) * this.div.clientHeight + 'px';
 
+        this.adjustControls();
+    }
 
+    adjustControls = () => {
+        const contr = document.getElementsByClassName('plyr__controls')[0];
+        if (contr) {
+
+            contr.style.width = this.div.clientWidth + 'px';
+            const leftBounding = contr.parentElement.getBoundingClientRect().left;
+            contr.style.left = -leftBounding + 'px';
+        }
     }
 
     createBackButton = () => {
