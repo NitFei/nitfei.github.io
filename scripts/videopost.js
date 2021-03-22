@@ -34,10 +34,6 @@ class VideoPost {
         this.playerDiv.setAttribute('data-plyr-provider', 'youtube');
         this.playerDiv.setAttribute('data-plyr-embed-id', this.post.videoURL);
         this.playerDiv.setAttribute('controls', '');
-        this.playerDiv.addEventListener('pause', () => {
-            console.log('hi');
-            this.adjustControls();
-        });
         // this.playerDiv.setAttribute('data-plyr-config', '{ "settings": "quality" }');
 
         // quality option cant be set in youtube or vimeo

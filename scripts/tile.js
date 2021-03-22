@@ -22,7 +22,7 @@ class Tile {
         })
         this.image.src = this.imageURL;
         this.image.classList.add('tile-image');
-        
+
         this.div.appendChild(this.image);
         this.image.addEventListener('load', () => {
             this.placeImage();
@@ -35,22 +35,22 @@ class Tile {
         this.image.src = 'src/media/logo/248logo_stretched.jpg';
         this.image.classList.add('tile-image');
         this.image.width = '1920';
-        
+
         this.div.appendChild(this.image);
         this.image.addEventListener('load', () => {
             this.placeImage();
         })
-        
+
     }
 
     placeImage = () => {
         if (this.image) {
             let isActive = false;
-            if(this.div.classList.contains('active-tile')){
+            if (this.div.classList.contains('active-tile')) {
                 isActive = true;
             }
 
-            if(!isActive){
+            if (!isActive) {
                 this.div.classList.remove('inactive-tile');
                 this.div.classList.add('active-tile');
             }
@@ -70,7 +70,7 @@ class Tile {
             const leftPos = (divW - imgW) * 0.5 - divW * columnPos;
             this.image.style.left = leftPos + 'px';
 
-            if(!isActive){
+            if (!isActive) {
                 this.div.classList.remove('active-tile');
                 this.div.classList.add('inactive-tile');
             }
@@ -88,7 +88,7 @@ class Tile {
 
     getColumnPos = () => {
         let columnPos;
-        if(this.div.parentElement.classList.contains('left')) {
+        if (this.div.parentElement.classList.contains('left')) {
             columnPos = -1;
         } else if (this.div.parentElement.classList.contains('middle')) {
             columnPos = 0;
@@ -100,25 +100,27 @@ class Tile {
 
     addClickHandler = () => {
         this.div.addEventListener('click', () => {
-            let tilesAreAlgined = true;
+            if (!this.scroller.isDragging) {
+                let tilesAreAlgined = true;
 
-            // if the post is an authorprofile, it has no other tiles to align with, so we can always treat it as if it "aligns with itself"
-            if (this.post.type.toLowerCase() === 'autor_in' || this.post.type.toLowerCase() === 'autorin' || this.post.type.toLowerCase() === 'autor') {
-                tilesAreAlgined = true;
-            } else {
-                //calculate whether the clicked tile is in the top, middle or bottom row of the slotmachine
-                const tileRow = Math.floor(((this.div.getBoundingClientRect().top - 56) / this.div.clientHeight) + 0.5);
-                this.post.logic.scrollers.forEach((scroller) => {
-                    const ttPos = scroller.getTopTilePos();
-                    const comparedTile = scroller.column.getActiveTileAtIndex(ttPos + tileRow);
-                    if(this.id != comparedTile.id){
-                        tilesAreAlgined = false;
-                    }
-                })
-            }
+                // if the post is an authorprofile, it has no other tiles to align with, so we can always treat it as if it "aligns with itself"
+                if (this.post.type.toLowerCase() === 'autor_in' || this.post.type.toLowerCase() === 'autorin' || this.post.type.toLowerCase() === 'autor') {
+                    tilesAreAlgined = true;
+                } else {
+                    //calculate whether the clicked tile is in the top, middle or bottom row of the slotmachine
+                    const tileRow = Math.floor(((this.div.getBoundingClientRect().top - 56) / this.div.clientHeight) + 0.5);
+                    this.post.logic.scrollers.forEach((scroller) => {
+                        const ttPos = scroller.getTopTilePos();
+                        const comparedTile = scroller.column.getActiveTileAtIndex(ttPos + tileRow);
+                        if (this.id != comparedTile.id) {
+                            tilesAreAlgined = false;
+                        }
+                    })
+                }
 
-            if(tilesAreAlgined) {
-                this.post.logic.openPost(this.id);
+                if (tilesAreAlgined) {
+                    this.post.logic.openPost(this.id);
+                }
             }
         })
     }
