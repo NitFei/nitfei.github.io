@@ -95,5 +95,26 @@
         "tags": ["Kontakt", "Mitmachen"],
         "tileImageURL": "src/media/kontakt/kontaktkachel.jpg",
         "bgImageURL": "src/media/kontakt/kontakt.jpg"
+    },
+    {
+        "id": "60001",
+        "type": "haendewaschen",
+        "tags": ["Irgendwas mit Händewaschen", "Audio"],
+        "tileImageURL": "src/media/haendewaschen/haendewaschenkachel.jpg",
+        "bgImageURL": "src/media/haendewaschen/haendewaschen.jpg",
+        "texts": [{
+                "title": "Example Text 1",
+                "audioURL": "src/media/haendewaschen/disappear_adrianne_lenker.mp3",
+                "authorName": "Kkoki",
+                "authorProfileID": "10004"
+            },
+            {
+                "title": "Example Text 2",
+                "audioURL": "src/media/haendewaschen/disappear_adrianne_lenker.mp3",
+                "authorName": "Freya Petersen",
+                "authorProfileID": "10002"
+            }
+        ]
     }
+
 ]

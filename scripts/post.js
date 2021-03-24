@@ -63,6 +63,9 @@ class Post {
             case 'video':
                 this.openVideo();
                 break;
+            case 'haendewaschen':
+                this.openHaendewaschen();
+                break;
         }
         // const postDiv = document.createElement('div');
         // postDiv.classList.add('current-post');
@@ -90,5 +93,9 @@ class Post {
 
     openVideo = () => {
         this.logic.currentPost = new VideoPost(this);
+    }
+
+    openHaendewaschen = () => {
+        this.logic.currentPost = new HaendewaschenPost(this);
     }
 }

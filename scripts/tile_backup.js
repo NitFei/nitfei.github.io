@@ -112,9 +112,6 @@ class Tile {
                     this.post.logic.scrollers.forEach((scroller) => {
                         const ttPos = scroller.getTopTilePos();
                         const comparedTile = scroller.column.getActiveTileAtIndex(ttPos + tileRow);
-                        // console.log(ttPos + tileRow);
-                        // console.log(this);
-                        // console.log(comparedTile);
                         if (this.id != comparedTile.id) {
                             tilesAreAlgined = false;
                         }
@@ -133,7 +130,19 @@ class Tile {
 
     getRow = () => {
         const tileRow = Math.floor(((this.div.getBoundingClientRect().top - HEADERSIZE) / this.div.clientHeight) + 0.5);
-        console.log(tileRow);
         return tileRow;
+    }
+
+    getColumnPos = () => {
+        let pos;
+        const col = this.scroller.div.children[0];
+        if (col.classList.contains('left')) {
+            pos = 0;
+        } else if (col.classList.contains('middle')) {
+            pos = 1;
+        } else if (col.classList.contains('right')) {
+            pos = 2;
+        }
+        return pos;
     }
 }

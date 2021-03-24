@@ -50,7 +50,6 @@ class Scroller {
         this.isDragging = true;
         const add = this.checkEdges();
         this.mouseDownScrollTop += add;
-        console.log(this.mouseDownScrollTop);
         this.div.scrollTo(0, this.mouseDownY + this.mouseDownScrollTop - e.clientY);
     }
 

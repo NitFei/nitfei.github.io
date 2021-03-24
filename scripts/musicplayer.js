@@ -1,5 +1,5 @@
 class MusicPlayer {
-    constructor(_div, currentTrackURL, _post){
+    constructor(_div, currentTrackURL, _post) {
         this.div = _div;
 
         this.createAudio(currentTrackURL);
@@ -42,12 +42,17 @@ class MusicPlayer {
 
     createAudio = (trackURL) => {
         this.currentTrack = document.createElement('audio');
-        this.currentTrack.src = trackURL;
-        this.currentTrack.load();
+        this.loadTrack(trackURL);
 
-        this.currentTrack.addEventListener('ended', () => { 
+        this.currentTrack.addEventListener('ended', () => {
             this.pause();
         });
+        this.div.appendChild(this.currentTrack);
+    }
+
+    loadTrack = (trackURL) => {
+        this.currentTrack.src = trackURL;
+        this.currentTrack.load();
     }
 
     seekTo = (sliderPos) => {
@@ -57,9 +62,11 @@ class MusicPlayer {
     }
 
     addMidPoints = (post) => {
-        post.midPoints.forEach(midPoint => {
-            this.timeHandler.addMidPoint(midPoint.time, midPoint.label); 
-        });
+        if (post.midPoints) {
+            post.midPoints.forEach(midPoint => {
+                this.timeHandler.addMidPoint(midPoint.time, midPoint.label);
+            });
+        }
     }
 
     resizePlayer = () => {

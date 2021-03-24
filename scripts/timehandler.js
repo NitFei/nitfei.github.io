@@ -48,54 +48,53 @@ class TimeHandler {
         this.sliderProg.classList.add('music-player', 'time-slider-progress');
         this.slider.appendChild(this.sliderProg);
 
-        document.getElementsByClassName('event-post-container')[0].addEventListener('mouseup', () => {this.isDragging = false});
+        document.getElementsByClassName('event-post-container')[0].addEventListener('mouseup', () => { this.isDragging = false });
         document.getElementsByClassName('event-post-container')[0].addEventListener('mousemove', this.seekToDragging);
     }
 
     seekTo = (e) => {
         e.preventDefault();
         this.mP.seekTo(e.layerX / this.slider.clientWidth);
-        console.log(e.layerX);
     }
 
     seekToDragging = (e) => {
-        if(this.isDragging) {
+        if (this.isDragging) {
             const seekPos = e.clientX - this.slider.getBoundingClientRect().left;
             this.mP.seekTo(seekPos / this.slider.clientWidth);
         }
     }
 
-    seekUpdate = () => { 
-        let seekPosition = 0; 
-        
+    seekUpdate = () => {
+        let seekPosition = 0;
+
         // Check if the current track duration is a legible number 
-        if (!isNaN(this.mP.currentTrack.duration)) { 
+        if (!isNaN(this.mP.currentTrack.duration)) {
             seekPosition = this.mP.currentTrack.currentTime * (this.slider.clientWidth / this.mP.currentTrack.duration);
 
             const prgs = document.getElementsByClassName('time-slider-progress');
             for (let i = 0; i < prgs.length; i++) {
                 prgs[i].style.width = seekPosition + 'px';
             }
-            
+
             // Calculate the time left and the total duration 
             let currentHours = Math.floor(this.mP.currentTrack.currentTime / 3600);
-            let currentMinutes = Math.floor((this.mP.currentTrack.currentTime % 3600) / 60); 
+            let currentMinutes = Math.floor((this.mP.currentTrack.currentTime % 3600) / 60);
             let currentSeconds = Math.floor(this.mP.currentTrack.currentTime % 60);
             let durationHours = Math.floor(this.mP.currentTrack.duration / 3600);
-            let durationMinutes = Math.floor((this.mP.currentTrack.duration % 3600) / 60); 
-            let durationSeconds = Math.floor(this.mP.currentTrack.duration % 60); 
-            
+            let durationMinutes = Math.floor((this.mP.currentTrack.duration % 3600) / 60);
+            let durationSeconds = Math.floor(this.mP.currentTrack.duration % 60);
+
             // Add a zero to the single digit time values 
-            if (currentSeconds < 10) { currentSeconds = '0' + currentSeconds; } 
-            if (durationSeconds < 10) { durationSeconds = '0' + durationSeconds; } 
-            if (currentMinutes < 10) { currentMinutes = '0' + currentMinutes; } 
-            if (durationMinutes < 10) { durationMinutes = '0' + durationMinutes; } 
-            
+            if (currentSeconds < 10) { currentSeconds = '0' + currentSeconds; }
+            if (durationSeconds < 10) { durationSeconds = '0' + durationSeconds; }
+            if (currentMinutes < 10) { currentMinutes = '0' + currentMinutes; }
+            if (durationMinutes < 10) { durationMinutes = '0' + durationMinutes; }
+
             // Display the updated duration 
-            this.tDisp.textContent = currentHours + ':' + currentMinutes + ':' + currentSeconds + ' / ' + durationHours + ':' + durationMinutes + ':' + durationSeconds; 
-        } 
-    } 
-    
+            this.tDisp.textContent = currentHours + ':' + currentMinutes + ':' + currentSeconds + ' / ' + durationHours + ':' + durationMinutes + ':' + durationSeconds;
+        }
+    }
+
     startUpdating = () => {
         this.updateTimer = setInterval(() => {
             this.seekUpdate();

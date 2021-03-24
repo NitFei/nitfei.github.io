@@ -1,22 +1,14 @@
 /* TODO:
 SCROLLING:
-    - make it draggable
     - make it react to touch
 
 Make every subpage responsive and still look good
 
-make tiles snap after resizing window
-
-what happens when tiles are not aligned but clicked?
 --> 
 MUSICPLAYER:
 - volume slider?
 - what happens, when track ends?
 - fotos den midpoints entsprechend wechseln
-- wenn der post geschlossen wird, soll das audio zugehen
-
-IMPRESSUM:
-- hintergrundbild & kachelbild
 
 TAGSYSTEM:
 - wichtigste Tags zuerst anzeigen? Mit prioritätensystem
@@ -24,6 +16,9 @@ TAGSYSTEM:
 CROSSBROWSER
 
 MOBILE
+
+VIDEO:
+- Credit description einfügen
 
 organize everything into modules at the very end
 */
@@ -56,11 +51,11 @@ class Logic {
                 tile.tags.forEach((nextTag) => {
                     let alreadyAdded = false;
                     allTags.forEach((addedTag) => {
-                        if(addedTag.toLowerCase() === nextTag.toLowerCase()) {
+                        if (addedTag.toLowerCase() === nextTag.toLowerCase()) {
                             alreadyAdded = true;
                         }
                     })
-            
+
                     if (!alreadyAdded) {
                         allTags.push(nextTag);
                     }
@@ -69,9 +64,9 @@ class Logic {
         })
 
         // create array of suggestions for the token-autocomplete
-        let allSuggestions =[];
+        let allSuggestions = [];
         allTags.forEach((tag) => {
-            const newSugg = {value: tag, text: tag, description: tag};
+            const newSugg = { value: tag, text: tag, description: tag };
             allSuggestions.push(newSugg);
         })
 
@@ -94,7 +89,7 @@ class Logic {
             selector: '#searchbar',
             noMatchesText: 'entspricht keinem Beitrag...',
             initialTokens: [
-                {value: 'letzte 10 Beiträge', text: 'letzte 10 Beiträge'}
+                { value: 'letzte 10 Beiträge', text: 'letzte 10 Beiträge' }
             ],
             initialSuggestions: allSuggestions
         }, this);
@@ -108,13 +103,13 @@ class Logic {
         const lowerBanner = document.getElementById('lower-banner');
 
         for (let i = 0; i < bannerText.length; i++) {
-            if(bannerText[i].position === 'upper') {
+            if (bannerText[i].position === 'upper') {
                 this.banners[0] = new Banner(upperBanner, bannerText[i]);
-            } else if (bannerText[i].position === 'lower'){
+            } else if (bannerText[i].position === 'lower') {
                 this.banners[1] = new Banner(lowerBanner, bannerText[i]);
             }
         }
-        
+
         window.addEventListener('resize', this.resizeElements);
     }
 
@@ -144,19 +139,19 @@ class Logic {
 
         this.posts.forEach(post => {
             post.tiles.forEach(tile => {
-                if(tile.image){
+                if (tile.image) {
                     tile.placeImage();
                 }
             })
         })
 
-        if(this.banners){
+        if (this.banners) {
             this.banners.forEach(banner => {
-                    banner.placeBanner();
+                banner.placeBanner();
             })
         }
 
-        if(this.currentPost) {
+        if (this.currentPost) {
             this.currentPost.resizePost();
         }
     }
@@ -184,7 +179,7 @@ class Logic {
     handleTilesAfterNewToken = (_tags) => {
         this.removeAllCopiedTiles();
 
-        if(_tags.length > 0) {
+        if (_tags.length > 0) {
             this.posts.forEach((post) => {
                 post.tiles.forEach((tile) => {
                     let containsTag = false;
@@ -195,7 +190,7 @@ class Logic {
                             }
                         })
                     })
-            
+
                     if (containsTag) {
                         tile.div.classList.remove('inactive-tile');
                         tile.div.classList.add('active-tile');
@@ -217,24 +212,24 @@ class Logic {
         this.columns.forEach((column) => {
             let activeTiles = [];
             column.tiles.forEach((tile) => {
-                if(tile.div.classList.contains('active-tile')){
+                if (tile.div.classList.contains('active-tile')) {
                     activeTiles.push(tile);
                 }
             });
 
-            if(activeTiles.length < FEWESTTILESSTILLSCROLLABLE) {
+            if (activeTiles.length < FEWESTTILESSTILLSCROLLABLE) {
                 column.cloneTiles(activeTiles);
             }
         });
     }
 
     removeAllCopiedTiles = () => {
-        this.columns.forEach((column) => {column.removeCopiedTiles()});
+        this.columns.forEach((column) => { column.removeCopiedTiles() });
     }
 
     openPost = (id) => {
-        for(let i = 0; i < this.posts.length; i++) {
-            if(this.posts[i].id === id) {
+        for (let i = 0; i < this.posts.length; i++) {
+            if (this.posts[i].id === id) {
                 this.posts[i].openPost();
                 this.stopBackground();
                 break;
@@ -256,16 +251,19 @@ class Logic {
         })
         this.resizeElements();
     }
+
+    showCompletedPostTiles = (tile, tileRow) => {
+        const tileCol = tile.getColumnPos() + 1; // + 1 because getColumnPos returns -1 to 1 insteam of 0 to 2
+        for (let i = 0; i < 3; i++) {
+            if (i !== tileCol) {
+                this.columns[i].showCompletedPostTiles(tile, tileRow, this.scrollers[i]);
+            }
+        }
+    }
 }
 
 const MAXSUPPORTEDSCREENWIDTH = 2000; // biggest supported screen width in pixels
 const FEWESTTILESSTILLSCROLLABLE = 6; // fewest amount of tiles in a column to still be able to scroll smoothly
-const HEADERSIZE = 56; // heiderheight in pixels
+const HEADERSIZE = 56; // headerheight in pixels
 
 const logic = new Logic();
-
-// var tag = document.createElement('script');
-
-// tag.src = "https://www.youtube.com/iframe_api";
-// var firstScriptTag = document.getElementsByTagName('script')[0];
-// firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);

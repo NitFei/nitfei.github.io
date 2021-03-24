@@ -334,3 +334,17 @@ main {
     font-size: 30px;
     text-align: left;
 }
+
+.fake-div {
+    box-sizing: border-box;
+    position: absolute;
+    transition: opacity 1s ease;
+    opacity: 0;
+    overflow: hidden;
+    border: red solid;
+    border-width: 20px 15px;
+}
+
+.fake-div-appear {
+    opacity: 1;
+}

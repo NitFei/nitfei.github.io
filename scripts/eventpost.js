@@ -2,7 +2,7 @@ class EventPost {
     constructor(_post, _div) {
         this.post = _post;
 
-        if(!_div) {
+        if (!_div) {
             this.div = document.createElement('div');
             this.div.classList.add('post-container', 'event-post-container');
             document.body.appendChild(this.div);
@@ -54,6 +54,7 @@ class EventPost {
     }
 
     returnToSlotmachine = () => {
+        this.mP.currentTrack.parentElement.removeChild(this.mP.currentTrack);
         //this removes the iframe from view, but the instance of the video object might not get cleaned from memory. How do I do that?
         document.body.removeChild(this.div);
         this.post.logic.startBackground();
@@ -80,7 +81,7 @@ class EventPost {
         this.descDiv = document.createElement('div');
         this.descDiv.classList.add('event-description-wrapper');
         this.div.appendChild(this.descDiv);
-        
+
         const title = document.createElement('h1');
         title.classList.add('event-description', 'event-description-title');
         title.textContent = 'IRGENDWIE 248 SACHEN - NO. 7';
@@ -94,11 +95,11 @@ class EventPost {
         this.post.authors.forEach(author => {
             const container = document.createElement('div');
             container.classList = ('event-description-author');
-    
+
             const name = document.createElement('p');
             name.classList.add('event-description-author-name', 'event-description-hoverable');
             name.textContent = author.name;
-            name.addEventListener('click', () => {this.openAuthorProfile(author.profileID)});
+            name.addEventListener('click', () => { this.openAuthorProfile(author.profileID) });
 
             const audioPointsDiv = document.createElement('div');
             audioPointsDiv.style.display = 'flex';
@@ -106,7 +107,7 @@ class EventPost {
             const text = document.createElement('p');
             text.classList.add('event-description-audiolink', 'event-description-hoverable');
             text.textContent = 'Lesung';
-            text.addEventListener('click', () => {this.skipToMidpoint(author.midPointText)});
+            text.addEventListener('click', () => { this.skipToMidpoint(author.midPointText) });
 
             // const spacer = document.createElement('i');
             // spacer.classList.add('fa', 'fa-circle');
@@ -115,7 +116,7 @@ class EventPost {
             const interview = document.createElement('p');
             interview.classList.add('event-description-audiolink', 'event-description-hoverable');
             interview.textContent = 'Gespräch';
-            interview.addEventListener('click', () => {this.skipToMidpoint(author.midPointInterview)});
+            interview.addEventListener('click', () => { this.skipToMidpoint(author.midPointInterview) });
 
             authorDiv.appendChild(container);
             container.appendChild(name);
