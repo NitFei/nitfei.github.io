@@ -83,15 +83,13 @@ class HaendewaschenPost {
         this.textMenuDiv = document.createElement('div');
         this.textMenuDiv.classList.add('text-menu');
 
-        this.textMenu = new TextMenu(this);
+        this.textMenu = new TextMenu(this, this.textMenuDiv);
     }
 
     addTextToTextMenu = () => {
-        this.textMenu =
+        //this.textMenu =
 
-            this.post.texts.forEach((text) => {
 
-            });
     }
 
     addText = () => {

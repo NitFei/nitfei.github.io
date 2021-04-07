@@ -48,8 +48,6 @@ class Banner {
                 this.textDiv.appendChild(spacer2);
             }
         }
-
-        console.log(this.textDiv.children[0].getBoundingClientRect());
     }
 
     moveContent = () => {

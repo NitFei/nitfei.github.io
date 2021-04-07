@@ -348,3 +348,16 @@ main {
 .fake-div-appear {
     opacity: 1;
 }
+
+.haendewaschen-textmenu-author-image {
+    background-position: center;
+}
+
+.lever-container {
+    height: 40px;
+    width: 40px;
+    pointer-events: all;
+    margin: 8px;
+    background-image: url(../src/media/ui/lever_unclicked.png);
+    background-position: center;
+}

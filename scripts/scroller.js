@@ -65,17 +65,27 @@ class Scroller {
             this.columnHeight = this.column.getActiveColumnHeight();
         }
 
+        const tileHeight = document.getElementsByClassName('active-tile')[0].clientHeight;
+
         let add = 0;
 
-        if (this.div.scrollTop < this.columnHeight * 0.2) {
+        if (this.div.scrollTop < tileHeight) {
             this.addToTop();
-            add += document.getElementsByClassName('active-tile')[0].clientHeight;
+            add += tileHeight;
         }
 
-        if (this.div.scrollTop + (this.div.clientHeight * 1.2) >= this.columnHeight) { // *1.2 sets the threshhold 20% of the scrollers height below the maximum scrolling
+        if (this.div.scrollTop + (this.div.clientHeight) >= this.columnHeight - tileHeight) { // *1.2 sets the threshhold 20% of the scrollers height below the maximum scrolling
             this.addToBottom();
-            add -= document.getElementsByClassName('active-tile')[0].clientHeight;
+            add -= tileHeight;
         }
+        
+
+        // debugging
+
+        // if(add !== 0) {
+        //     console.log(this.column.getActiveTiles());
+        //     console.log(this.column.div.children);
+        // }
 
         return add;
     }
@@ -109,6 +119,8 @@ class Scroller {
         const activeTile = document.getElementsByClassName('active-tile')[0];
         let tileSize = parseFloat(getComputedStyle(activeTile, null).getPropertyValue('height'));
         const topPos = Math.floor((this.div.scrollTop + (0.5 * tileSize)) / tileSize) * tileSize;
+
+        this.scrollDest = topPos;
 
         this.div.scrollTo({
             top: topPos,
@@ -177,10 +189,42 @@ class Scroller {
         return tilePos
     }
 
+    getTilePosByID = (id) => {
+        let tilePos;
+
+        //check the current top offset of the viewport (how many active tiles are there above the top currently visible tile in the slotmachine?)
+        const ttPos = this.getTopTilePos();
+
+        // collect all active tiles from column into one array
+        let activeTiles = [];
+        this.column.tiles.forEach((_tile) => {
+            if (_tile.div.classList.contains('active-tile')) {
+                activeTiles.push(_tile);
+            }
+        })
+
+        for (let i = 0; i < activeTiles.length; i++) {
+            if (id === activeTiles[i].id) {
+                tilePos = i;
+            }
+        }
+        if (tilePos) {
+            tilePos -= ttPos;
+        }
+        return tilePos
+    }
+
     getTopTilePos = () => {
         let pos = 0;
         let tileSize = parseFloat(getComputedStyle(document.getElementsByClassName('active-tile')[0], null).getPropertyValue('height'));
         pos = Math.floor((this.div.scrollTop / tileSize) + 0.5);
         return pos;
+    }
+
+    scrollTowards = (dest) => {
+        while (this.checkEdges() !== 0){}
+
+        this.scrollDest += dest;
+        this.div.scrollTo(0, this.scrollDest);
     }
 }

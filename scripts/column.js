@@ -26,6 +26,11 @@ class Column {
     }
 
     addTileDivsToColumn = () => {
+        const children = this.div.children;
+        for (let i = 0; i < children.length; i++) {
+            this.div.removeChild(children[i]);
+        }
+
         this.tiles.forEach(tile => {
             this.div.appendChild(tile.div);
         })
@@ -106,15 +111,7 @@ class Column {
     }
 
     getActiveTileAtIndex = (index) => {
-        // collect all active tiles from column into one array
-        let activeTiles = [];
-        this.tiles.forEach((_tile) => {
-            if (_tile.div.classList.contains('active-tile')) {
-                activeTiles.push(_tile);
-            }
-        })
-
-        return activeTiles[index];
+        return this.getActiveTiles()[index];
     }
 
     showCompletedPostTiles = (tile, row, scroller) => {
@@ -175,6 +172,31 @@ class Column {
             columnPos = 1;
         }
         return columnPos;
+    }
+
+    getActiveTileIndexByID = (id) => {
+        let index = -1;
+
+        const activeTiles = this.getActiveTiles();
+        for (let i = 0; i < activeTiles.length; i++) {
+            if(activeTiles[i].id === id) {
+                index = i;
+            }
+        }
+
+        return index;
+    }
+
+    getActiveTiles = () => {
+        // collect all active tiles from column into one array
+        let activeTiles = [];
+        this.tiles.forEach((_tile) => {
+            if (_tile.div.classList.contains('active-tile')) {
+                activeTiles.push(_tile);
+            }
+        })
+
+        return activeTiles;
     }
 
 }

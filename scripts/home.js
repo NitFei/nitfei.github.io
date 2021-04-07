@@ -1,4 +1,7 @@
 /* TODO:
+
+DONT FORGET INITIAL TOKENS
+
 SCROLLING:
     - make it react to touch
 
@@ -16,6 +19,10 @@ TAGSYSTEM:
 CROSSBROWSER
 
 MOBILE
+
+LEVER:
+- post pos soll am ende in der mitte sein
+- change the id search algorithm to only look at active tiles' ids
 
 VIDEO:
 - Credit description einfügen
@@ -88,8 +95,11 @@ class Logic {
             name: 'searchbar',
             selector: '#searchbar',
             noMatchesText: 'entspricht keinem Beitrag...',
+
+
             initialTokens: [
-                { value: 'letzte 10 Beiträge', text: 'letzte 10 Beiträge' }
+                { value: "", text: "" }
+                // { value: 'letzte 10 Beiträge', text: 'letzte 10 Beiträge' }
             ],
             initialSuggestions: allSuggestions
         }, this);
@@ -110,7 +120,11 @@ class Logic {
             }
         }
 
+        const leverDiv = document.getElementById('lever-wrapper');
+        this.lever = new Lever(this, leverDiv);
         window.addEventListener('resize', this.resizeElements);
+
+        this.lastRandomId = 0;
     }
 
     createPosts = () => {
@@ -259,6 +273,79 @@ class Logic {
                 this.columns[i].showCompletedPostTiles(tile, tileRow, this.scrollers[i]);
             }
         }
+    }
+
+    alignRandomPost = () => {
+        this.scrollers.forEach((scroller) => {
+            clearTimeout(scroller.timer);
+        })
+
+        const randID = this.getRandomPostID();
+        const scrollDestinations = this.findScrollDestination(randID);
+        for (let i = 0; i < this.scrollers.length; i++) {
+            //this.scrollers[i].scrollDest = 0;            
+            this.spinTowardsDestination(this.scrollers[i], scrollDestinations[i]);
+        }
+
+    }
+
+    spinScrollers = (spinSpeeds) => {
+        for (let i = 0; i < spinSpeeds.length; i++) {
+            this.scrollers[i].scrollAtSpeed(spinSpeeds[i]);
+        }
+        requestAnimationFrame(() => { this.spinScrollers(spinSpeeds) });
+    }
+
+    getRandomPostID = () => {
+        let randPost;
+        while (!randPost || randPost.type.toLowerCase() === 'autor_in' || randPost.type.toLowerCase() === 'autorin' || randPost.type.toLowerCase() === 'autor') {
+            const randInd = Math.floor(Math.random() * (this.posts.length - 1));
+            randPost = this.posts[randInd];
+        }
+        return randPost.id;
+    }
+
+    findScrollDestination = (id) => {
+        const activeTile = document.getElementsByClassName('active-tile')[0];
+        const tileSize = parseFloat(getComputedStyle(activeTile, null).getPropertyValue('height'));
+
+        let scrollDestinations = [];
+
+        for (let i = 0; i < this.scrollers.length; i++) {
+            const tilePos = this.columns[i].getActiveTileIndexByID(id);
+            const topPos = Math.floor((this.scrollers[i].div.scrollTop / tileSize) + 0.5);
+            const midPos = topPos + 1;
+
+            let diff = midPos - tilePos;
+            if(diff < 0) {
+                diff += this.columns[i].getActiveTiles().length;
+            }
+            
+            const scrollDestination = (-1) * diff * tileSize - (tileSize * 0.1) - this.scrollers[i].column.getActiveColumnHeight();
+            
+            // const pos = this.columns[i].getActiveTileIndexByID(id) - this.columns[i].getActiveTiles().length;
+
+            // const scrollDestination = ((pos + -3) * tileSize) - (tileSize * 0.1) + (this.scrollers[i].div.scrollTop - tileSize);
+            // // const scrollDestination = ((pos + -3) * tileSize) - (tileSize * 0.1) - (this.scrollers[i].column.getActiveColumnHeight() * 3);
+
+            // scrollDestinations[i] = scrollDestination;
+            scrollDestinations[i] = scrollDestination;
+        }
+        return scrollDestinations;
+    }
+
+    spinTowardsDestination = (scroller, dest) => {
+        const partDest = dest * 0.03;
+        scroller.scrollTowards(partDest);
+        dest -= partDest;
+
+        if (scroller.scrollDest - scroller.div.scrollTop < -20 || dest < -20) {
+            requestAnimationFrame(() => { this.spinTowardsDestination(scroller, dest) })
+        } else {
+            scroller.snap();
+            document.getElementById('lever-wrapper').style.backgroundImage = "url(./src/media/ui/lever_unclicked.png)";
+        }
+
     }
 }
 
