@@ -98,7 +98,6 @@ class Logic {
 
 
             initialTokens: [
-                { value: "", text: "" }
                 // { value: 'letzte 10 Beiträge', text: 'letzte 10 Beiträge' }
             ],
             initialSuggestions: allSuggestions
@@ -124,7 +123,9 @@ class Logic {
         this.lever = new Lever(this, leverDiv);
         window.addEventListener('resize', this.resizeElements);
 
+        //this.checkTags();
         this.lastRandomId = 0;
+
     }
 
     createPosts = () => {
@@ -297,11 +298,50 @@ class Logic {
     }
 
     getRandomPostID = () => {
-        let randPost;
-        while (!randPost || randPost.type.toLowerCase() === 'autor_in' || randPost.type.toLowerCase() === 'autorin' || randPost.type.toLowerCase() === 'autor') {
-            const randInd = Math.floor(Math.random() * (this.posts.length - 1));
-            randPost = this.posts[randInd];
+        const tokens = document.getElementsByClassName('token-autocomplete-token');
+        let tags = [];
+        for (let i = 0; i < tokens.length; i++) {
+            for (let j = 0; j < tokens[i].childNodes.length; j++) {
+                if (tokens[i].childNodes[j].nodeType === 3) {
+                    tags.push(tokens[i].childNodes[j].data);
+                }
+            }
         }
+
+        let activePosts = [];
+
+        if (tags.length > 0) {
+            this.posts.forEach((post) => {
+                tags.forEach((tag) => {
+                    post.tags.forEach((postTag) => {
+                        if(postTag === tag) {
+                            if(!(post.type.toLowerCase() === 'autor_in' || post.type.toLowerCase() === 'autorin' || post.type.toLowerCase() === 'autor')) {
+                                activePosts.push(post);
+                            }
+                        }
+                    })
+                    
+                })
+            })
+        } else {
+            this.posts.forEach((post) => {
+                if(!(post.type.toLowerCase() === 'autor_in' || post.type.toLowerCase() === 'autorin' || post.type.toLowerCase() === 'autor')) {
+                    activePosts.push(post);
+                }    
+            })
+        }
+
+        console.log(activePosts);
+
+        let randPost;
+
+        if (activePosts.length > 0) {
+            const randInd = Math.floor(Math.random() * (activePosts.length - 1));
+            randPost = activePosts[randInd];
+        }
+
+        console.log(randPost.type);
+
         return randPost.id;
     }
 
@@ -320,7 +360,7 @@ class Logic {
             if(diff < 0) {
                 diff += this.columns[i].getActiveTiles().length;
             }
-            
+
             const scrollDestination = (-1) * diff * tileSize - (tileSize * 0.1) - this.scrollers[i].column.getActiveColumnHeight();
             
             // const pos = this.columns[i].getActiveTileIndexByID(id) - this.columns[i].getActiveTiles().length;
@@ -345,7 +385,6 @@ class Logic {
             scroller.snap();
             document.getElementById('lever-wrapper').style.backgroundImage = "url(./src/media/ui/lever_unclicked.png)";
         }
-
     }
 }
 
