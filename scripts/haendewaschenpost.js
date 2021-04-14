@@ -2,7 +2,7 @@ class HaendewaschenPost {
     constructor(_post, _div) {
         if (!_div) {
             this.div = document.createElement('div');
-            this.div.classList.add('post-container', 'event-post-container');
+            this.div.classList.add('post-container', 'haendewaschen-post-container');
             document.body.appendChild(this.div);
         } else {
             this.div = _div;
@@ -13,15 +13,11 @@ class HaendewaschenPost {
 
         this.showButtonTimer;
         this.hideButtonTimer;
-
-        this.insertImage();
+        
         this.createBackButton();
         this.addEventHandlers();
         this.createMusicPlayer();
         this.createTextMenu();
-        this.addTextToTextMenu();
-
-
     }
 
     createMusicPlayer = () => {
@@ -30,12 +26,6 @@ class HaendewaschenPost {
         this.div.appendChild(this.mPDiv);
 
         this.mP = new MusicPlayer(this.mPDiv, this.post.texts[0].audioURL, this.post);
-    }
-
-    insertImage = () => {
-        this.div.style.backgroundImage = 'url(' + this.post.bgImageURL + ')';
-        this.div.style.backgroundSize = 'cover';
-        this.div.style.backgroundPosition = 'center';
     }
 
     createBackButton = () => {
@@ -73,7 +63,6 @@ class HaendewaschenPost {
     }
 
     returnToSlotmachine = () => {
-        this.mP.currentTrack.parentElement.removeChild(this.mP.currentTrack);
         //this removes the iframe from view, but the instance of the video object might not get cleaned from memory. How do I do that?
         document.body.removeChild(this.div);
         this.post.logic.startBackground();
@@ -83,13 +72,8 @@ class HaendewaschenPost {
         this.textMenuDiv = document.createElement('div');
         this.textMenuDiv.classList.add('text-menu');
 
-        this.textMenu = new TextMenu(this, this.textMenuDiv);
-    }
-
-    addTextToTextMenu = () => {
-        //this.textMenu =
-
-
+        this.textMenu = new TextMenu(this.post, this.textMenuDiv, this);
+        this.div.appendChild(this.textMenuDiv);
     }
 
     addText = () => {

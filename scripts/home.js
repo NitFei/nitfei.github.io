@@ -1,13 +1,17 @@
+// To whoever might have to read code this in the future: I'm so sorry.
+// Nitay Feigenbaum, April 2021
+
 /* TODO:
 
 DONT FORGET INITIAL TOKENS
+
+cursor everywhere
 
 SCROLLING:
     - make it react to touch
 
 Make every subpage responsive and still look good
 
---> 
 MUSICPLAYER:
 - volume slider?
 - what happens, when track ends?
@@ -20,9 +24,9 @@ CROSSBROWSER
 
 MOBILE
 
-LEVER:
-- post pos soll am ende in der mitte sein
-- change the id search algorithm to only look at active tiles' ids
+SEACHBAR:
+- resizing to a too small screenwidth moves everything to the next line, solve that
+- hovering over a suggestion doesnt move the highlighting thingy, solve that
 
 VIDEO:
 - Credit description einfügen
@@ -336,7 +340,7 @@ class Logic {
         let randPost;
 
         if (activePosts.length > 0) {
-            const randInd = Math.floor(Math.random() * (activePosts.length - 1));
+            const randInd = Math.floor(Math.random() * (activePosts.length));
             randPost = activePosts[randInd];
         }
 
@@ -363,12 +367,6 @@ class Logic {
 
             const scrollDestination = (-1) * diff * tileSize - (tileSize * 0.1) - this.scrollers[i].column.getActiveColumnHeight();
             
-            // const pos = this.columns[i].getActiveTileIndexByID(id) - this.columns[i].getActiveTiles().length;
-
-            // const scrollDestination = ((pos + -3) * tileSize) - (tileSize * 0.1) + (this.scrollers[i].div.scrollTop - tileSize);
-            // // const scrollDestination = ((pos + -3) * tileSize) - (tileSize * 0.1) - (this.scrollers[i].column.getActiveColumnHeight() * 3);
-
-            // scrollDestinations[i] = scrollDestination;
             scrollDestinations[i] = scrollDestination;
         }
         return scrollDestinations;

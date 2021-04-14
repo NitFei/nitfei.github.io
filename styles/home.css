@@ -48,6 +48,10 @@ header {
     box-sizing: border-box;
 }
 
+#searchbar-input {
+    cursor: text;
+}
+
 
 /*main*/
 
@@ -93,6 +97,7 @@ main {
     box-sizing: border-box;
     pointer-events: auto;
     overflow: hidden;
+    cursor: pointer;
 }
 
 #searchbar-suggestion-wrapper {
@@ -224,6 +229,7 @@ main {
     overflow: hidden;
     height: 6px;
     background-color: white;
+    cursor: pointer;
 }
 
 .time-slider-progress {
@@ -241,6 +247,7 @@ main {
 .play-pause-button {
     display: inline;
     margin: 10px;
+    cursor: pointer;
 }
 
 .mid-point {
@@ -351,6 +358,8 @@ main {
 
 .haendewaschen-textmenu-author-image {
     background-position: center;
+    cursor: pointer;
+    border: black 2px solid;
 }
 
 .lever-container {
@@ -359,5 +368,46 @@ main {
     pointer-events: all;
     margin: 8px;
     background-image: url(../src/media/ui/lever_unclicked.png);
+    background-position: center;
+    cursor: pointer;
+}
+
+.text-menu {
+    background-color: #00000080;
+    width: 100%;
+}
+
+.haendewaschen-textmenu-author-image {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background-position: center;
+    background-size: cover;
+    background-color: black;
+    margin: 5px
+}
+
+.haendewaschen-textmenu-text-title {
+    color:white;
+    font-size: 40px;
+    padding-right: 10px;
+}
+
+.haendewaschen-textmenu-text-title:hover {
+    color:#cabc60;
+    cursor: pointer;
+}
+
+.haendewaschen-textmenu-option {
+    border: black 2px solid;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+}
+
+.haendewaschen-post-container{
+    background-image: url(../src/media/haendewaschen/haendewaschen_background.jpg);
+    background-size: cover;
     background-position: center;
 }

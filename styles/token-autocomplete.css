@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Mega&display=swap');
 
 .token-autocomplete-container {
+    overflow: hidden;
     display: inline-flex;
     flex-wrap: wrap;
     border: 3px solid #e1e1e1;

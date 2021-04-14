@@ -107,14 +107,14 @@
                 "audioURL": "src/media/haendewaschen/disappear_adrianne_lenker.mp3",
                 "authorName": "Kkoki",
                 "authorProfileID": "10004",
-                "AuthorImageURL": "src/media/autor_innen/kkoki_hw.jpg"
+                "authorImageURL": "src/media/haendewaschen/kkoki.jpg"
             },
             {
                 "title": "Example Text 2",
                 "audioURL": "src/media/haendewaschen/disappear_adrianne_lenker.mp3",
                 "authorName": "Freya Petersen",
                 "authorProfileID": "10002",
-                "AuthorImageURL": "src/media/autor_innen/freyapetersen_hw.jpg"
+                "authorImageURL": "src/media/haendewaschen/freyapetersen.jpg"
             }
         ]
     }

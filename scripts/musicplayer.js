@@ -55,6 +55,11 @@ class MusicPlayer {
         this.currentTrack.load();
     }
 
+    loadTrackAndPlay = (trackURL) => {
+        this.loadTrack(trackURL);
+        this.currentTrack.addEventListener('canplay', this.play());
+    }
+
     seekTo = (sliderPos) => {
         const seekPos = this.currentTrack.duration * sliderPos;
         this.currentTrack.currentTime = seekPos;

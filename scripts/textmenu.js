@@ -1,7 +1,8 @@
 class TextMenu {
-    constructor(_post, _div) {
+    constructor(_post, _div, _hWPost) {
         this.post = _post;
         this.div = _div;
+        this.hWPost = _hWPost; // haendewaschenpost, god forgive this atrocity
 
         this.texts = [];
 
@@ -11,23 +12,38 @@ class TextMenu {
     }
 
     addText(text) {
-        this.text.push(text);
+        this.texts.push(text);
 
         const textDiv = document.createElement('div');
         textDiv.classList.add('haendewaschen-textmenu-option');
 
         const imageDiv = document.createElement('div');
         imageDiv.classList.add('haendewaschen-textmenu-author-image');
-        imageDiv.backgroundImage = text.authorImageURL;
+        console.log(text);
+        imageDiv.style.backgroundImage = 'url(' + text.authorImageURL + ')';
+        imageDiv.addEventListener('click', () => {this.openAuthorProfile(text.authorProfileID)});
 
-        // eventlistener click, logic openpost text.authorprofile id
+        const textTitle = document.createElement('span');
+        textTitle.classList.add('haendewaschen-textmenu-text-title');
+        textTitle.textContent = text.authorName + ' - ' + text.title;
+        textTitle.addEventListener('click', () => {this.hWPost.mP.loadTrackAndPlay(text.audioURL)});
+        
+        textDiv.appendChild(textTitle);
+        textDiv.appendChild(imageDiv);
 
+        this.div.appendChild(textDiv);
+        
         // authorname - title
 
         // eventlistener click, currenttrack load text.audioURL, play once loaded
     }
 
+    openAuthorProfile = (id) => {
+        this.hWPost.returnToSlotmachine();
+        this.post.logic.openPost(id);
+    }
+
     resizeMenu = () => {
-        const
+        console.log('resize text menu');
     }
 }

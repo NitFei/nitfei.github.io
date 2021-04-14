@@ -104,17 +104,76 @@ const allPostsToJSON = [{
         "tags": ["Irgendwas mit Händewaschen", "Audio"],
         "tileImageURL": "src/media/haendewaschen/haendewaschenkachel.jpg",
         "bgImageURL": "src/media/haendewaschen/haendewaschen.jpg",
-        "texts": [{
+        "texts": [
+            {
                 "title": "Example Text 1",
                 "audioURL": "src/media/haendewaschen/disappear_adrianne_lenker.mp3",
                 "authorName": "Kkoki",
-                "authorProfileID": "10004"
+                "authorProfileID": "10004",
+                "authorImageURL": "src/media/haendewaschen/kkoki.jpg"
             },
             {
                 "title": "Example Text 2",
                 "audioURL": "src/media/haendewaschen/disappear_adrianne_lenker.mp3",
                 "authorName": "Freya Petersen",
-                "authorProfileID": "10002"
+                "authorProfileID": "10001",
+                "authorImageURL": "src/media/haendewaschen/freyapetersen.jpg"
+            },
+            {
+                "title": "Example Text 1",
+                "audioURL": "src/media/haendewaschen/disappear_adrianne_lenker.mp3",
+                "authorName": "Kkoki",
+                "authorProfileID": "10004",
+                "authorImageURL": "src/media/haendewaschen/kkoki.jpg"
+            },
+            {
+                "title": "Example Text 2",
+                "audioURL": "src/media/haendewaschen/disappear_adrianne_lenker.mp3",
+                "authorName": "Freya Petersen",
+                "authorProfileID": "10001",
+                "authorImageURL": "src/media/haendewaschen/freyapetersen.jpg"
+            },
+            {
+                "title": "Example Text 1",
+                "audioURL": "src/media/haendewaschen/disappear_adrianne_lenker.mp3",
+                "authorName": "Kkoki",
+                "authorProfileID": "10004",
+                "authorImageURL": "src/media/haendewaschen/kkoki.jpg"
+            },
+            {
+                "title": "Example Text 2",
+                "audioURL": "src/media/haendewaschen/disappear_adrianne_lenker.mp3",
+                "authorName": "Freya Petersen",
+                "authorProfileID": "10001",
+                "authorImageURL": "src/media/haendewaschen/freyapetersen.jpg"
+            },
+            {
+                "title": "Example Text 1",
+                "audioURL": "src/media/haendewaschen/disappear_adrianne_lenker.mp3",
+                "authorName": "Kkoki",
+                "authorProfileID": "10004",
+                "authorImageURL": "src/media/haendewaschen/kkoki.jpg"
+            },
+            {
+                "title": "Example Text 2",
+                "audioURL": "src/media/haendewaschen/disappear_adrianne_lenker.mp3",
+                "authorName": "Freya Petersen",
+                "authorProfileID": "10001",
+                "authorImageURL": "src/media/haendewaschen/freyapetersen.jpg"
+            },
+            {
+                "title": "Example Text 1",
+                "audioURL": "src/media/haendewaschen/disappear_adrianne_lenker.mp3",
+                "authorName": "Kkoki",
+                "authorProfileID": "10004",
+                "authorImageURL": "src/media/haendewaschen/kkoki.jpg"
+            },
+            {
+                "title": "Example Text 2",
+                "audioURL": "src/media/haendewaschen/disappear_adrianne_lenker.mp3",
+                "authorName": "Freya Petersen",
+                "authorProfileID": "10001",
+                "authorImageURL": "src/media/haendewaschen/freyapetersen.jpg"
             }
         ]
     }

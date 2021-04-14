@@ -48,8 +48,8 @@ class TimeHandler {
         this.sliderProg.classList.add('music-player', 'time-slider-progress');
         this.slider.appendChild(this.sliderProg);
 
-        document.getElementsByClassName('event-post-container')[0].addEventListener('mouseup', () => { this.isDragging = false });
-        document.getElementsByClassName('event-post-container')[0].addEventListener('mousemove', this.seekToDragging);
+        document.getElementsByClassName('post-container')[0].addEventListener('mouseup', () => { this.isDragging = false });
+        document.getElementsByClassName('post-container')[0].addEventListener('mousemove', this.seekToDragging);
     }
 
     seekTo = (e) => {
