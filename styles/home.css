@@ -348,8 +348,8 @@ main {
     transition: opacity 1s ease;
     opacity: 0;
     overflow: hidden;
-    border: red solid;
-    border-width: 20px 15px;
+    border: red double;
+    border-width: 2px 2px;
 }
 
 .fake-div-appear {
@@ -375,6 +375,9 @@ main {
 .text-menu {
     background-color: #00000080;
     width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-bottom: #000000 5px solid;
 }
 
 .haendewaschen-textmenu-author-image {
@@ -399,7 +402,8 @@ main {
 }
 
 .haendewaschen-textmenu-option {
-    border: black 2px solid;
+    border-top: black 2px solid;
+    border-bottom: black 2px solid;
     display: flex;
     justify-content: end;
     align-items: center;
@@ -410,4 +414,8 @@ main {
     background-image: url(../src/media/haendewaschen/haendewaschen_background.jpg);
     background-size: cover;
     background-position: center;
+}
+
+.instagram-icon {
+    color: #E1306C;
 }

@@ -38,6 +38,7 @@
     border-radius: 32px;
     padding: 0px 8px 0px 12px;
     pointer-events: none;
+    flex-shrink: 2;
 }
 
 .token-autocomplete-container .token-autocomplete-token:hover {

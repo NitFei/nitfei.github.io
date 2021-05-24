@@ -9,6 +9,8 @@ class TextMenu {
         this.post.texts.forEach((text) => {
             this.addText(text);
         });
+
+        this.resizeMenu();
     }
 
     addText(text) {
@@ -44,6 +46,6 @@ class TextMenu {
     }
 
     resizeMenu = () => {
-        console.log('resize text menu');
+        this.div.style.height = window.innerHeight - 108 + 'px'; // 108 is the calculated musicplayer size
     }
 }

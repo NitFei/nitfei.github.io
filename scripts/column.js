@@ -158,7 +158,7 @@ class Column {
                 setTimeout(() => {
                     this.div.removeChild(fakeDiv);
                 }, 1000);
-            }, 3000)
+            }, 1500)
         }, 100);
     }
 

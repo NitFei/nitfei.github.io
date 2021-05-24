@@ -41,7 +41,7 @@ var TokenAutocomplete = /** @class */ (function () {
         this.hiddenSelect.name = this.options.name;
         this.hiddenSelect.setAttribute('multiple', 'true');
         this.hiddenSelect.style.display = 'none';
-        this.textInput = document.createElement('span');
+        this.textInput = document.createElement('span'); // 248
         this.textInput.id = this.container.id + '-input';
         this.textInput.classList.add('token-autocomplete-input');
         this.textInput.setAttribute('data-placeholder', 'Suchbegriff eingeben');

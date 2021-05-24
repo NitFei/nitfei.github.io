@@ -54,6 +54,7 @@ class EventPost {
     }
 
     returnToSlotmachine = () => {
+        this.mP.pause();
         this.mP.currentTrack.parentElement.removeChild(this.mP.currentTrack);
         //this removes the iframe from view, but the instance of the video object might not get cleaned from memory. How do I do that?
         document.body.removeChild(this.div);

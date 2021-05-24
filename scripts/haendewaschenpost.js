@@ -23,6 +23,7 @@ class HaendewaschenPost {
     createMusicPlayer = () => {
         this.mPDiv = document.createElement('div');
         this.mPDiv.classList.add('music-player-wrapper');
+        this.mPDiv.style.backgroundColor = '#00000080';
         this.div.appendChild(this.mPDiv);
 
         this.mP = new MusicPlayer(this.mPDiv, this.post.texts[0].audioURL, this.post);
@@ -59,10 +60,11 @@ class HaendewaschenPost {
     }
 
     resizePost = () => {
-
+        this.textMenu.resizeMenu();
     }
 
     returnToSlotmachine = () => {
+        this.mP.pause();
         //this removes the iframe from view, but the instance of the video object might not get cleaned from memory. How do I do that?
         document.body.removeChild(this.div);
         this.post.logic.startBackground();

@@ -63,13 +63,12 @@ class ContactPost {
         igWrapper.href = 'https://www.instagram.com/irgendwie248sachen/'
 
         const ig = document.createElement('i');
-        ig.classList.add('fa', 'fa-instagram', 'fa-3x');
+        ig.classList.add('fa', 'fa-instagram', 'fa-3x', 'instagram-icon');
         ig.setAttribute('aria-hidden', 'true');
-        ig.style.color = '#4267B2'
         ig.style.padding = '20px';
 
-        ig.addEventListener('mouseenter', () => {ig.classList = ['fa fa-instagram fa-4x'];})
-        ig.addEventListener('mouseleave', () => {ig.classList = ['fa fa-instagram fa-3x'];})
+        ig.addEventListener('mouseenter', () => {ig.classList = ['fa fa-instagram fa-4x instagram-icon'];})
+        ig.addEventListener('mouseleave', () => {ig.classList = ['fa fa-instagram fa-3x instagram-icon'];})
 
         igWrapper.appendChild(ig);
         this.descDiv.appendChild(igWrapper);
