@@ -31,7 +31,7 @@ $(document).ready(function() {
     canvas.width = window.innerWidth;
 
     //resizeCanvasToDisplaySize(canvas);
-    particles = new Particles(canvas, 1024*4, 4);
+    particles = new Particles(canvas, 1024*16, 4);
     particles.draw().start();
 });
 

@@ -53,7 +53,7 @@ function Particles(canvas, nparticles, size) {
     this.maxAge = 300.0;
     this.birthIndex = 0;
     this.birthing = false;
-    this.birthingAtOnce = 1;
+    this.birthingAtOnce = 20;
     this.steerTarget = [this.worldsize[0] * 0.5, this.worldsize[1] * 0.5];
 
     function texture() {
@@ -523,7 +523,7 @@ Particles.prototype.draw2 = function() {
  * @returns {Particles} this
  */
 Particles.prototype.frame = function() {
-    window.requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
         if (this.running) {
             //this.stop();
             this.step().draw().frame();
