@@ -70,7 +70,8 @@ void birthParticlePosition(inout vec2 p){
 
 void main() {
     vec4 asample = texture2D(age, index);
-    float alive = decodeAge(asample.rg);
+    float alive = asample.r;
+    float colorProp = asample.g;
     float partAge = decodeAge(asample.ba);
 
     // if(alive <= 0.0 && derivative < 2) {
@@ -111,6 +112,6 @@ void main() {
             result = vec2(0.0, 0.0);
         }
 
-        gl_FragColor = vec4(encodeAge(result.x), encodeAge(result.y));
+        gl_FragColor = vec4(result.x, colorProp, encodeAge(result.y));
     }
 }

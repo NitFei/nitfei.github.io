@@ -11,7 +11,7 @@ uniform vec2 worldsize;
 uniform float size;
 uniform vec2 scale;
 varying vec2 velocity;
-varying vec2 age;
+varying vec3 age;
 
 const float BASE = 255.0;
 const float OFFSET = BASE * BASE / 2.0;
@@ -31,7 +31,7 @@ void main() {
 
     vec2 p = vec2(decode(psample.rg, scale.x), decode(psample.ba, scale.x));
     velocity = vec2(decode(vsample.rg, scale.y), decode(vsample.ba, scale.y));
-    age = vec2(decodeAge(asample.rg), decodeAge(asample.ba));
+    age = vec3(asample.r, asample.g, decodeAge(asample.ba));
     gl_Position = vec4(p / worldsize * 2.0 - 1.0, 0, 1);
     gl_PointSize = size;
 }

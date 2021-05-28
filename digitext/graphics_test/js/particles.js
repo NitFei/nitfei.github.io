@@ -41,14 +41,13 @@ function Particles(canvas, nparticles, size) {
 
     gl.canvas.addEventListener('mouseup', () => {
         this.birthing = false;
-        console.log(this.getPixels());
     });
 
     /* Simulation parameters. */
     this.running = false;
     this.gravity = [0, -0.1];
     this.wind = [0, 0];
-    this.maxAge = 500.0;
+    this.maxAge = 200.0;
     this.birthIndex = 0;
     this.birthing = false;
 
@@ -160,7 +159,7 @@ Particles.prototype.initTextures = function() {
             rgbaV[i + 2] = vy[0];
             rgbaV[i + 3] = vy[1];
             rgbaA[i + 0] = 0.0;
-            rgbaA[i + 1] = 0.0;
+            rgbaA[i + 1] = Math.random() * 255;
             rgbaA[i + 2] = 0.0;
             rgbaA[i + 3] = 0.0;           
         }
@@ -169,7 +168,6 @@ Particles.prototype.initTextures = function() {
     var image = new Image();
     image.src = "./test.jpg";  // MUST BE SAME DOMAIN!!!
     image.onload = () => {
-        console.log(this)
         const gl = this.igloo.gl;
         this.textures.test.bind();
  
@@ -194,8 +192,6 @@ Particles.prototype.initTextures = function() {
             rgbaC[i + 3] = 255;
         }
     }
-
-    console.log(w, h)
 
     rgbaTest = new Uint8Array(w * h * 4);
 
@@ -222,6 +218,8 @@ Particles.prototype.initTextures = function() {
     this.textures.c0.set(rgbaC, w, h);
     this.textures.c1.blank(w, h);
     this.textures.test.set(rgbaTest, w, h);
+
+    this.getAge2();
     return this;
 };
 

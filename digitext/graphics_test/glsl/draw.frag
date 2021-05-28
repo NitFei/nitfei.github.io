@@ -5,7 +5,7 @@ precision highp float;
 uniform vec4 color;
 uniform sampler2D lastFrame;
 varying vec2 velocity;
-varying vec2 age;
+varying vec3 age;
 uniform float maxAge;
 
 const float DELTA = 0.2;
@@ -16,7 +16,7 @@ void main() {
     if(age.x <= 0.0) {
         gl_FragColor = vec4(lFColor.rgb, lFColor.a * 0.8);
     } else {
-        gl_FragColor = vec4(1,0,0.4,1.0 - (age.y / maxAge));
+        gl_FragColor = vec4(1.0 * (age.y) + 0.0 * (1.0 - age.y), 0.0 * (age.y) + 0.1 * (1.0 - age.y) , 0.2 * (age.y) + 0.8 * (1.0 - age.y), 1.0 - (age.z / maxAge));
     }
 
     

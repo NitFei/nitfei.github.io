@@ -8,8 +8,16 @@ if (window.requestAnimationFrame == null) {
         };
 }
 
-function comma(num) {
-    return num.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+function resizeCanvasToDisplaySize(canvas, multiplier) {
+    multiplier = multiplier || 1;
+    const width  = canvas.clientWidth  * multiplier | 0;
+    const height = canvas.clientHeight * multiplier | 0;
+    if (canvas.width !== width ||  canvas.height !== height) {
+      canvas.width  = width;
+      canvas.height = height;
+      return true;
+    }
+    return false;
 }
 
 var particles = null,
@@ -17,7 +25,15 @@ var particles = null,
 
 $(document).ready(function() {
     var canvas = $('#display')[0];
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    resizeCanvasToDisplaySize(canvas);
     particles = new Particles(canvas, 1024*4, 3);
     console.log(particles.getAge2());
     particles.draw().start();
 });
+
+window.addEventListener('resize', () => {
+    resizeCanvasToDisplaySize($('#display')[0]);
+})
+
