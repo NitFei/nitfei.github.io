@@ -14,10 +14,8 @@ void main() {
     vec4 lFColor = texture2D(lastFrame, gl_PointCoord);
 
     if(age.x <= 0.0) {
-        gl_FragColor = vec4(lFColor.rgb, lFColor.a * 0.8);
+        discard;
     } else {
         gl_FragColor = vec4(1.0 * (age.y) + 0.0 * (1.0 - age.y), 0.0 * (age.y) + 0.1 * (1.0 - age.y) , 0.2 * (age.y) + 0.8 * (1.0 - age.y), 1.0 - (age.z / maxAge));
     }
-
-    
 }

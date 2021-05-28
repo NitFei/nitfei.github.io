@@ -25,15 +25,17 @@ var particles = null,
 
 $(document).ready(function() {
     var canvas = $('#display')[0];
-    canvas.width = window.innerWidth;
+    // canvas.width = window.innerWidth;
+    // canvas.height = window.innerHeight;
     canvas.height = window.innerHeight;
-    resizeCanvasToDisplaySize(canvas);
-    particles = new Particles(canvas, 1024*4, 3);
-    console.log(particles.getAge2());
+    canvas.width = window.innerWidth;
+
+    //resizeCanvasToDisplaySize(canvas);
+    particles = new Particles(canvas, 1024*4, 4);
     particles.draw().start();
 });
 
-window.addEventListener('resize', () => {
-    resizeCanvasToDisplaySize($('#display')[0]);
-})
+//window.addEventListener('resize', () => {
+    //resizeCanvasToDisplaySize($('#display')[0]);
+//})
 

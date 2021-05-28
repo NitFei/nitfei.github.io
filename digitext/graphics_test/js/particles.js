@@ -16,6 +16,8 @@ function Particles(canvas, nparticles, size) {
     this.scale = [scale, scale * 100];
     this.listeners = [];
 
+    console.log(w, h)
+
     /* Vertex shader texture access not guaranteed on OpenGL ES 2.0. */
     if (gl.getParameter(gl.MAX_VERTEX_TEXTURE_IMAGE_UNITS) === 0) {
         var msg = 'Vertex shader texture access not available.' +
@@ -34,7 +36,6 @@ function Particles(canvas, nparticles, size) {
     });
 
     gl.canvas.addEventListener('mousedown', () => {
-        this.start();
         this.birthing = true;
         console.log('birthing')
     });
@@ -43,11 +44,13 @@ function Particles(canvas, nparticles, size) {
         this.birthing = false;
     });
 
+    window.addEventListener('keydown', (e) => {if(e.key = " ") {console.log(this.getAge2())}})
+
     /* Simulation parameters. */
     this.running = false;
     this.gravity = [0, -0.1];
     this.wind = [0, 0];
-    this.maxAge = 200.0;
+    this.maxAge = 100.0;
     this.birthIndex = 0;
     this.birthing = false;
 
@@ -58,7 +61,8 @@ function Particles(canvas, nparticles, size) {
     this.programs = {
         update:  igloo.program('glsl/quad.vert', 'glsl/update.frag'),
         draw:    igloo.program('glsl/draw.vert', 'glsl/draw.frag'),
-        copy:    igloo.program('glsl/copy.vert', 'glsl/copy.frag')
+        copy:    igloo.program('glsl/copy.vert', 'glsl/copy.frag'),
+        lastFrame: igloo.program('glsl/copy.vert', 'glsl/lastframe.frag')
     };
     this.buffers = {
         quad: igloo.array(Igloo.QUAD2),
@@ -148,8 +152,8 @@ Particles.prototype.initTextures = function() {
             var i = y * tw * 4 + x * 4,
                 px = Particles.encode(Math.random() * w, s[0]),
                 py = Particles.encode(Math.random() * h, s[0]),
-                vx = Particles.encode(Math.random() * 3.0 - 0.5, s[1]),
-                vy = Particles.encode(Math.random() * 2.5, s[1]);
+                vx = Particles.encode(Math.random() * 2.0 - 1.0, s[1]),
+                vy = Particles.encode(Math.random() * 1.5, s[1]);
             rgbaP[i + 0] = px[0];
             rgbaP[i + 1] = px[1];
             rgbaP[i + 2] = py[0];
@@ -424,6 +428,11 @@ Particles.prototype.draw = function() {
     gl.viewport(0, 0, this.worldsize[0], this.worldsize[1]);
     gl.clearColor(0, 0, 0, 1);
     gl.clear(gl.COLOR_BUFFER_BIT);
+    this.textures.c0.bind(0);
+    this.programs.lastFrame.use()
+        .attrib('quad', this.buffers.quad, 2)
+        .uniformi('pixels', 0)
+        .draw(gl.TRIANGLE_STRIP, Igloo.QUAD2.length / 2);
     this.textures.p0.bind(0);
     this.textures.v0.bind(1);
     this.textures.a0.bind(2);
