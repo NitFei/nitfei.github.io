@@ -14,6 +14,7 @@ uniform vec2 wind;
 uniform vec2 worldsize;
 uniform vec2 statesize;
 uniform vec2 origin;
+uniform vec2 steerTarget;
 uniform int birthIndex;
 uniform int birthingAtOnce;
 uniform bool birthing;
@@ -21,6 +22,7 @@ varying vec2 index;
 
 const float BASE = 255.0;
 const float OFFSET = BASE * BASE / 2.0;
+const float MAXSPEED = 3.0;
 
 float decode(vec2 channels, float scale) {
     return (dot(channels, vec2(BASE, BASE * BASE)) - OFFSET) / scale;
@@ -50,6 +52,14 @@ void updatePosition(inout vec2 p, inout vec2 v) {
     //     p.x = origin.x;
     //     p.y = origin.y;
     // }
+}
+
+vec2 steer(vec2 p, vec2 v) {
+    vec2 desVel = steerTarget - p;
+    desVel *= (MAXSPEED / length(desVel));
+    vec2 force = desVel - v;
+    force *= (MAXSPEED / length(force));
+    return force;
 }
 
 void updateVelocity(inout vec2 p, inout vec2 v) {
@@ -98,6 +108,8 @@ void main() {
         gl_FragColor = vec4(encode(result.x, s), encode(result.y, s));
     } else if(derivative == 1) {
         if(alive > 0.0) {
+            vec2 steerForce = steer(p, v);
+            v += steerForce;
             updateVelocity(p, v);
         }
         result = v;

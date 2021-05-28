@@ -37,7 +37,7 @@ function Particles(canvas, nparticles, size) {
 
     gl.canvas.addEventListener('mousedown', () => {
         this.birthing = true;
-        console.log('birthing')
+        console.log('birthing');
     });
 
     gl.canvas.addEventListener('mouseup', () => {
@@ -53,7 +53,8 @@ function Particles(canvas, nparticles, size) {
     this.maxAge = 300.0;
     this.birthIndex = 0;
     this.birthing = false;
-    this.birthingAtOnce = 3;
+    this.birthingAtOnce = 1;
+    this.steerTarget = [this.worldsize[0] * 0.5, this.worldsize[1] * 0.5];
 
     function texture() {
         return igloo.texture(null, gl.RGBA, gl.CLAMP_TO_EDGE, gl.NEAREST);
@@ -393,6 +394,7 @@ Particles.prototype.step = function() {
         .uniformi('birthingAtOnce', this.birthingAtOnce)
         .uniform('birthing', this.birthing)
         .uniform('scale', this.scale)
+        .uniform('steerTarget', this.steerTarget)
         .uniform('random', Math.random() * 2.0 - 1.0)
         .uniform('gravity', this.gravity)
         .uniform('wind', this.wind)
