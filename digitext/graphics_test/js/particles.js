@@ -50,9 +50,10 @@ function Particles(canvas, nparticles, size) {
     this.running = false;
     this.gravity = [0, -0.1];
     this.wind = [0, 0];
-    this.maxAge = 100.0;
+    this.maxAge = 300.0;
     this.birthIndex = 0;
     this.birthing = false;
+    this.birthingAtOnce = 3;
 
     function texture() {
         return igloo.texture(null, gl.RGBA, gl.CLAMP_TO_EDGE, gl.NEAREST);
@@ -147,13 +148,14 @@ Particles.prototype.initTextures = function() {
         rgbaP = new Uint8Array(tw * th * 4),
         rgbaV = new Uint8Array(tw * th * 4),
         rgbaA =  new Uint8Array(tw * th * 4);
+    const speed = 5.0;
     for (var y = 0; y < th; y++) {
         for (var x = 0; x < tw; x++) {
             var i = y * tw * 4 + x * 4,
                 px = Particles.encode(Math.random() * w, s[0]),
                 py = Particles.encode(Math.random() * h, s[0]),
-                vx = Particles.encode(Math.random() * 2.0 - 1.0, s[1]),
-                vy = Particles.encode(Math.random() * 1.5, s[1]);
+                vx = Particles.encode(Math.random() * speed - speed * 0.5, s[1]),
+                vy = Particles.encode(Math.random() * speed - speed * 0.5, s[1]);
             rgbaP[i + 0] = px[0];
             rgbaP[i + 1] = px[1];
             rgbaP[i + 2] = py[0];
@@ -388,6 +390,7 @@ Particles.prototype.step = function() {
         .uniformi('age', 2)
         .uniform('maxAge', this.maxAge)
         .uniformi('birthIndex', this.birthIndex % this.partAmount)
+        .uniformi('birthingAtOnce', this.birthingAtOnce)
         .uniform('birthing', this.birthing)
         .uniform('scale', this.scale)
         .uniform('random', Math.random() * 2.0 - 1.0)
@@ -411,7 +414,7 @@ Particles.prototype.step = function() {
     this.swap();
 
     if(this.birthing) {
-        this.birthIndex++;
+        this.birthIndex += this.birthingAtOnce;
     }
     return this;
 };

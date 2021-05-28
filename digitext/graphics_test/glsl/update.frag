@@ -15,6 +15,7 @@ uniform vec2 worldsize;
 uniform vec2 statesize;
 uniform vec2 origin;
 uniform int birthIndex;
+uniform int birthingAtOnce;
 uniform bool birthing;
 varying vec2 index;
 
@@ -88,7 +89,7 @@ void main() {
     float s;
     if (derivative == 0) {
         int oneDIndex = int(index.x * statesize.x + index.y * statesize.y * statesize.x - 16.0); // for whatever reason this adds 16 to the expected result, no idea why, so subtract 16 to get 0 for the x = 0 and y = 0 and 1023 for x = 31 and y = 31
-        if(birthing && oneDIndex == birthIndex) {
+        if(birthing && oneDIndex >= birthIndex && oneDIndex < (birthIndex + birthingAtOnce)) {
             birthParticlePosition(p);
         }
         updatePosition(p, v);
@@ -96,14 +97,16 @@ void main() {
         s = scale.x;
         gl_FragColor = vec4(encode(result.x, s), encode(result.y, s));
     } else if(derivative == 1) {
-        updateVelocity(p, v);
+        if(alive > 0.0) {
+            updateVelocity(p, v);
+        }
         result = v;
         s = scale.y;
         gl_FragColor = vec4(encode(result.x, s), encode(result.y, s));
     } else {
         int oneDIndex = int(index.x * statesize.x + index.y * statesize.y * statesize.x - 16.0); // for whatever reason this adds 16 to the expected result, no idea why, so subtract 16 to get 0 for the x = 0 and y = 0 and 1023 for x = 31 and y = 31
 
-        if(birthing && oneDIndex == birthIndex) {
+        if(birthing && oneDIndex >= birthIndex && oneDIndex < (birthIndex + birthingAtOnce)) {
             alive = 1.0;
         }
         if(partAge <= maxAge && alive > 0.0) {
