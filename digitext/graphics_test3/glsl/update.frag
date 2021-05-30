@@ -14,9 +14,7 @@ uniform vec2 wind;
 uniform vec2 worldsize;
 uniform vec2 statesize;
 uniform vec2 origin;
-uniform vec2 steerTarget0;
-uniform vec2 steerTarget1;
-uniform vec2 steerTarget2;
+uniform vec2 steerTarget;
 uniform int birthIndex;
 uniform int birthingAtOnce;
 uniform bool birthing;
@@ -25,7 +23,6 @@ varying vec2 index;
 const float BASE = 255.0;
 const float OFFSET = BASE * BASE / 2.0;
 const float MAXSPEED = 1.0;
-const float STEERTARGETS = 3.0;
 
 float decode(vec2 channels, float scale) {
     return (dot(channels, vec2(BASE, BASE * BASE)) - OFFSET) / scale;
@@ -57,7 +54,7 @@ void updatePosition(inout vec2 p, inout vec2 v) {
     // }
 }
 
-vec2 steer(vec2 p, vec2 v, vec2 steerTarget) {
+vec2 steer(vec2 p, vec2 v) {
     vec2 desVel = steerTarget - p;
     desVel *= (MAXSPEED / length(desVel));
     vec2 force = desVel - v;
@@ -100,11 +97,9 @@ void main() {
 
     vec2 result;
     float s;
-
-    int oneDIndex = int(index.x * statesize.x + index.y * statesize.y * statesize.x - 16.0); // for whatever reason this adds 16 to the expected result, no idea why, so subtract 16 to get 0 for the x = 0 and y = 0 and 1023 for x = 31 and y = 31
-
     if (derivative == 0) {
-            if(birthing && oneDIndex >= birthIndex && oneDIndex < (birthIndex + birthingAtOnce)) {
+        int oneDIndex = int(index.x * statesize.x + index.y * statesize.y * statesize.x - 16.0); // for whatever reason this adds 16 to the expected result, no idea why, so subtract 16 to get 0 for the x = 0 and y = 0 and 1023 for x = 31 and y = 31
+        if(birthing && oneDIndex >= birthIndex && oneDIndex < (birthIndex + birthingAtOnce)) {
             birthParticlePosition(p);
         }
         updatePosition(p, v);
@@ -113,17 +108,7 @@ void main() {
         gl_FragColor = vec4(encode(result.x, s), encode(result.y, s));
     } else if(derivative == 1) {
         if(alive > 0.0) {
-            vec2 steerTarget;
-            float n = mod(float(oneDIndex), STEERTARGETS);
-            if(n == 0.0) {
-                steerTarget = steerTarget0;
-            } else if (n == 1.0) {
-                steerTarget = steerTarget1;
-            } else {
-                steerTarget = steerTarget2;
-            }
-            
-            vec2 steerForce = steer(p, v, steerTarget);
+            vec2 steerForce = steer(p, v);
             v += steerForce;
             updateVelocity(p, v);
         }
@@ -131,6 +116,8 @@ void main() {
         s = scale.y;
         gl_FragColor = vec4(encode(result.x, s), encode(result.y, s));
     } else {
+        int oneDIndex = int(index.x * statesize.x + index.y * statesize.y * statesize.x - 16.0); // for whatever reason this adds 16 to the expected result, no idea why, so subtract 16 to get 0 for the x = 0 and y = 0 and 1023 for x = 31 and y = 31
+
         if(birthing && oneDIndex >= birthIndex && oneDIndex < (birthIndex + birthingAtOnce)) {
             alive = 1.0;
         }

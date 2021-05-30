@@ -8,8 +8,9 @@
  */
 function Particles(canvas, nparticles, size) {
     var igloo = this.igloo = new Igloo(canvas),
-        gl = canvas.getContext("webgl");
+        gl = canvas.getContext("webgl", {premultipliedAlpha: false});
         w = canvas.width, h = canvas.height;
+    this.gl = gl;
     gl.disable(gl.DEPTH_TEST);
     this.worldsize = new Float32Array([w, h]);
     var scale = Math.floor(Math.pow(Particles.BASE, 2) / Math.max(w, h) / 3);
@@ -54,7 +55,10 @@ function Particles(canvas, nparticles, size) {
     this.birthIndex = 0;
     this.birthing = false;
     this.birthingAtOnce = 20;
-    this.steerTarget = [this.worldsize[0] * 0.5, this.worldsize[1] * 0.5];
+    this.lightConeRadius = 0.5
+    this.closestTargets = [[this.worldsize[0] * 0.25, this.worldsize[1] * 0.5],
+                           [this.worldsize[0] * 0.5, this.worldsize[1] * 0.5],
+                           [this.worldsize[0] * 0.75, this.worldsize[1] * 0.5]];
 
     function texture() {
         return igloo.texture(null, gl.RGBA, gl.CLAMP_TO_EDGE, gl.NEAREST);
@@ -64,13 +68,26 @@ function Particles(canvas, nparticles, size) {
         update:  igloo.program('glsl/quad.vert', 'glsl/update.frag'),
         draw:    igloo.program('glsl/draw.vert', 'glsl/draw.frag'),
         copy:    igloo.program('glsl/copy.vert', 'glsl/copy.frag'),
-        lastFrame: igloo.program('glsl/copy.vert', 'glsl/lastframe.frag')
+        lastFrame: igloo.program('glsl/copy.vert', 'glsl/lastframe.frag'),
+        lightCone: igloo.program('glsl/lightcone.vert', 'glsl/lightcone.frag')
     };
+
+    
+    this.lightConeVertices = 100;
+    const lightConeAlpha = [];
+    for (let i = 0; i < this.lightConeVertices; i++) {
+        lightConeAlpha.push(0,1,1);
+    }
+
+
     this.buffers = {
         quad: igloo.array(Igloo.QUAD2),
         indexes: igloo.array(),
-        point: igloo.array(new Float32Array([0, 0]))
+        point: igloo.array(new Float32Array([0, 0])),
+        lightCone: this.setLightConeBuffer(this.lightConeRadius, this.lightConeVertices),
+        lightConeAlpha: igloo.array(new Float32Array(lightConeAlpha))
     };
+
     this.textures = {
         p0: texture(),
         p1: texture(),
@@ -137,6 +154,31 @@ Particles.decodeAge = function(pair) {
     var b = Particles.BASE;
     return (pair[0] + pair[1] * b) * b;
 };
+
+Particles.prototype.setLightConeBuffer = function(r, v) {
+    let vertices = new Float32Array(v*6);
+    for(let i = 0; i < v; i++) {
+        const a1 = i*((2*Math.PI)/v);
+        const a2 = (i+1)*((2*Math.PI)/v);
+        console.log(i,a1,a2)
+        const v0 = [0,0];
+        const v1 = [r * Math.cos(a1), r * Math.sin(a1)];
+        const v2 = [r * Math.cos(a2), r * Math.sin(a2)];
+        
+        
+        vertices[i*6] = v0[0];
+        vertices[i*6+1] = v0[1];
+        vertices[i*6+2] = v1[0];
+        vertices[i*6+3] = v1[1];
+        vertices[i*6+4] = v2[0];
+        vertices[i*6+5] = v2[1];
+    }
+
+    console.log(vertices);
+    console.log(2*Math.PI)
+
+    return this.igloo.array(vertices);
+}
 
 /**
  * Allocates textures and fills them with initial random state.
@@ -394,7 +436,9 @@ Particles.prototype.step = function() {
         .uniformi('birthingAtOnce', this.birthingAtOnce)
         .uniform('birthing', this.birthing)
         .uniform('scale', this.scale)
-        .uniform('steerTarget', this.steerTarget)
+        .uniform('steerTarget0', this.closestTargets[0])
+        .uniform('steerTarget1', this.closestTargets[1])
+        .uniform('steerTarget2', this.closestTargets[2])
         .uniform('random', Math.random() * 2.0 - 1.0)
         .uniform('gravity', this.gravity)
         .uniform('wind', this.wind)
@@ -426,7 +470,7 @@ Particles.prototype.step = function() {
  * @returns {Particles} this
  */
 Particles.prototype.draw = function() {
-    var igloo = this.igloo, gl = igloo.gl;
+    var igloo = this.igloo, gl = this.gl;
     gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
     gl.enable(gl.BLEND);
     this.framebuffers.step.attach(this.textures.c1);
@@ -464,6 +508,14 @@ Particles.prototype.draw = function() {
         .attrib('quad', this.buffers.quad, 2)
         .uniformi('pixels', 3)
         .draw(gl.TRIANGLE_STRIP, Igloo.QUAD2.length / 2);
+    gl.blendFunc(gl.DST_COLOR, gl.SRC_ALPHA);
+    gl.enable(gl.BLEND);
+    this.programs.lightCone.use()
+        .attrib('a_position', this.buffers.lightCone, 2)
+        .attrib('a_alpha', this.buffers.lightConeAlpha, 1)
+        .uniform('posOffset', this.mousePos)
+        .uniform('worldsize', this.worldsize)
+        .draw(gl.TRIANGLES, this.lightConeVertices*3);
     return this;
 };
 
@@ -489,34 +541,6 @@ Particles.prototype.drawOriginal = function() {
         .draw(gl.POINTS, this.statesize[0] * this.statesize[1]);
     return this;
 };
-
-Particles.prototype.draw2 = function() {
-    var igloo = this.igloo, gl = igloo.gl;
-    gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
-    gl.enable(gl.BLEND);
-    igloo.defaultFramebuffer.bind();
-    gl.viewport(0, 0, this.worldsize[0], this.worldsize[1]);
-    gl.clearColor(0, 0, 0, 1);
-    gl.clear(gl.COLOR_BUFFER_BIT);
-    this.textures.p0.bind(0);
-    this.textures.v0.bind(1);
-    this.textures.a0.bind(2);
-    this.textures.c0.bind(3);
-    this.programs.draw.use()
-        .attrib('index', this.buffers.indexes, 2)
-        .uniformi('positions', 0)
-        .uniformi('velocities', 1)
-        .uniformi('ages', 2)
-        .uniformi('lastFrame', 3)
-        .uniform('statesize', this.statesize)
-        .uniform('worldsize', this.worldsize)
-        .uniform('size', this.size)
-        .uniform('scale', this.scale)
-        .uniform('color', this.color)
-        .draw(gl.POINTS, this.statesize[0] * this.statesize[1]);
-    return this;
-};
-
 
 /**
  * Register with requestAnimationFrame to step and draw a frame.

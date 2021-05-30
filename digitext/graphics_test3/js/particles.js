@@ -48,10 +48,10 @@ function Particles(canvas, nparticles, size) {
 
     /* Simulation parameters. */
     this.running = false;
-    this.gravity = [0, -0.1];
+    this.gravity = [0, -0.01];
     this.wind = [0, 0];
     this.changingWind = true;
-    this.maxAge = 300.0;
+    this.maxAge = 750.0;
     this.birthIndex = 0;
     this.birthing = false;
     this.birthingAtOnce = 20;
@@ -150,7 +150,7 @@ Particles.prototype.initTextures = function() {
         rgbaP = new Uint8Array(tw * th * 4),
         rgbaV = new Uint8Array(tw * th * 4),
         rgbaA =  new Uint8Array(tw * th * 4);
-    const speed = 5.0;
+    const speed = 10.0;
     for (var y = 0; y < th; y++) {
         for (var x = 0; x < tw; x++) {
             var i = y * tw * 4 + x * 4,
@@ -420,21 +420,24 @@ Particles.prototype.step = function() {
         this.birthIndex += this.birthingAtOnce;
     }
 
+    const maxWind = 0.2;
+
     if(this.changingWind) {
-        this.wind[0] += (Math.random() - 0.5) * 0.25;
-        if (this.wind[0] < -3) {
-            this.wind[0] = -3;
-        } else if (this.wind[0] > 3) {
-            this.wind[0] = 3;
+        this.wind[0] += (Math.random() - 0.5) * 0.01;
+        if (this.wind[0] < -maxWind) {
+            this.wind[0] = -maxWind;
+        } else if (this.wind[0] > maxWind) {
+            this.wind[0] = maxWind;
         }
 
         this.wind[1] += (Math.random() - 0.5) * 0.25;
-        if (this.wind[1] < -3) {
-            this.wind[1] = -3;
-        } else if (this.wind[1] > 3) {
-            this.wind[1] = 3;
+        if (this.wind[1] < -maxWind) {
+            this.wind[1] = -maxWind;
+        } else if (this.wind[1] > maxWind) {
+            this.wind[1] = maxWind;
         }
     }
+
     return this;
 };
 

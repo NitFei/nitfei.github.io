@@ -1,0 +1,15 @@
+* {
+    border: 0;
+    margin: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background: rgb(255, 255, 255);
+    color: rgb(255, 30, 0);
+    text-align: center;
+}
+
+canvas {
+    display: block;
+}
