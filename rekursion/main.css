@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+}
+
+#vid {
+    transition: opacity .25s ease-in-out;
+}
+
+#res-wrapper {
+    transition: opacity .25s ease-in-out;
+    opacity: 0;
+    position: absolute;
+    top:0;
+    left:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#resources {
+    background-color: rgba(0, 0, 0, 0.623);
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#resources>p {
+    margin: 20px;
+}

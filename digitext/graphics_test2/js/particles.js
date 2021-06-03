@@ -508,14 +508,14 @@ Particles.prototype.draw = function() {
         .attrib('quad', this.buffers.quad, 2)
         .uniformi('pixels', 3)
         .draw(gl.TRIANGLE_STRIP, Igloo.QUAD2.length / 2);
-    gl.blendFunc(gl.DST_COLOR, gl.SRC_ALPHA);
-    gl.enable(gl.BLEND);
-    this.programs.lightCone.use()
-        .attrib('a_position', this.buffers.lightCone, 2)
-        .attrib('a_alpha', this.buffers.lightConeAlpha, 1)
-        .uniform('posOffset', this.mousePos)
-        .uniform('worldsize', this.worldsize)
-        .draw(gl.TRIANGLES, this.lightConeVertices*3);
+    // gl.blendFunc(gl.DST_COLOR, gl.SRC_ALPHA);
+    // gl.enable(gl.BLEND);
+    // this.programs.lightCone.use()
+    //     .attrib('a_position', this.buffers.lightCone, 2)
+    //     .attrib('a_alpha', this.buffers.lightConeAlpha, 1)
+    //     .uniform('posOffset', this.mousePos)
+    //     .uniform('worldsize', this.worldsize)
+    //     .draw(gl.TRIANGLES, this.lightConeVertices*3);
     return this;
 };
 
