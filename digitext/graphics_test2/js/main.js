@@ -210,7 +210,7 @@ $(document).ready(function() {
     }
 
     const updateParticles = () => {
-        particles.updateMousePos({x: mousePos.x, y: (caveDiv.offsetTop - window.scrollY) + canvas.clientHeight - mousePos.y})
+        particles.updateMousePos({x: mousePos.x, y: (caveDiv.offsetTop - window.scrollY) + canvas.clientHeight - mousePos.y});
         particles.step().draw();
     }
 
@@ -218,6 +218,7 @@ $(document).ready(function() {
         cavePos.x += x;
         cavePos.y += y;
         updateCave(cavePos.x, cavePos.y);
+        particles.updateCaveOffset([x,y]);
     }
 
     const updateCave = (x, y) => {
@@ -231,6 +232,12 @@ $(document).ready(function() {
             particles.birthing = false;
         }, 5000);
     }, 10000);
+
+    //initial birthing burst
+    particles.birthing = true;
+    setTimeout(() => {
+        particles.birthing = false;
+    }, 5000);
 
     findClosestFragments();
     particles.updateClosest(closestFragments, cavePos);

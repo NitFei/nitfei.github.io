@@ -11,6 +11,7 @@ uniform vec2 scale;
 uniform float random;
 uniform vec2 gravity;
 uniform vec2 wind;
+uniform vec2 posOffset;
 uniform vec2 worldsize;
 uniform vec2 statesize;
 uniform vec2 origin;
@@ -110,7 +111,7 @@ void main() {
         updatePosition(p, v);
         result = p;
         s = scale.x;
-        gl_FragColor = vec4(encode(result.x, s), encode(result.y, s));
+        gl_FragColor = vec4(encode(result.x + posOffset.x, s), encode(result.y - posOffset.y, s));
     } else if(derivative == 1) {
         if(alive > 0.0) {
             vec2 steerTarget;

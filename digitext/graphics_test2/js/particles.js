@@ -52,6 +52,7 @@ function Particles(canvas, nparticles, size) {
     // gl.canvas.addEventListener('mouseup', () => {
     //     this.birthing = false;
     // });
+    this.posOffset = [0,0];
 
     /* Simulation parameters. */
     this.running = false;
@@ -163,6 +164,11 @@ Particles.decodeAge = function(pair) {
 
 Particles.prototype.updateMousePos = function (_mousePos) {
     this.mousePos = _mousePos;
+}
+
+Particles.prototype.updateCaveOffset = function (_cavePosDelta) {
+    this.posOffset = _cavePosDelta;
+    console.log(this.posOffset)
 }
 
 Particles.prototype.updateClosest = function (closestFragments, cavePos) {
@@ -456,6 +462,7 @@ Particles.prototype.step = function() {
         .uniform('random', Math.random() * 2.0 - 1.0)
         .uniform('gravity', this.gravity)
         .uniform('wind', this.wind)
+        .uniform('posOffset', this.posOffset)
         .uniform('worldsize', this.worldsize)
         .uniform('statesize', this.statesize)
         .uniform('origin', origin)
