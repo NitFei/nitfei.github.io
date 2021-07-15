@@ -168,7 +168,6 @@ Particles.prototype.updateMousePos = function (_mousePos) {
 
 Particles.prototype.updateCaveOffset = function (_cavePosDelta) {
     this.posOffset = _cavePosDelta;
-    console.log(this.posOffset)
 }
 
 Particles.prototype.updateClosest = function (closestFragments, cavePos) {

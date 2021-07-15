@@ -59,7 +59,7 @@ $(document).ready(function() {
     canvas.width = window.innerWidth;
 
     //resizeCanvasToDisplaySize(canvas);
-    particles = new Particles(canvas, 1024*16, 3);
+    particles = new Particles(canvas, 1024*8, 3);
     particles.draw();
 
 
@@ -184,7 +184,7 @@ $(document).ready(function() {
     }
 
     const update = () => {
-
+        particles.updateCaveOffset([0,0]);
         const mD = mouseDelta();
         if (dragging) {
             moveCave(mD.x, mD.y);
