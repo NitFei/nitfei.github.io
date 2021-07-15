@@ -74,4 +74,5 @@ p {
     position: absolute;
     overflow: hidden;
     width: 400px;
+    pointer-events: none;
 }

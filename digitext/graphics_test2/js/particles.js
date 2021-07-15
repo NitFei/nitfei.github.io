@@ -1,3 +1,12 @@
+/* TODO
+- finde die closest 3 textmittelpunkte
+- bewege dich mit (offset x & y)
+- wenn partikel über den rand hnausgehen, displaye sie nicht
+
+
+*/
+
+
 /*global Igloo */
 
 /**
@@ -17,8 +26,6 @@ function Particles(canvas, nparticles, size) {
     this.scale = [scale, scale * 100];
     this.listeners = [];
 
-    console.log(w, h)
-
     /* Vertex shader texture access not guaranteed on OpenGL ES 2.0. */
     if (gl.getParameter(gl.MAX_VERTEX_TEXTURE_IMAGE_UNITS) === 0) {
         var msg = 'Vertex shader texture access not available.' +
@@ -30,22 +37,21 @@ function Particles(canvas, nparticles, size) {
     /* Drawing parameters. */
     this.size = size || 5;
     this.color = [0.14, 0.2, 0.5, 0.8];
-    this.mousePos = [w * 0.5, h * 0.5];
-    gl.canvas.addEventListener('mousemove', (e) => {
+    this.mousePos = {x: w * 0.5, y: h * 0.5};
+    // mousemovement should be passed from main
+    /*gl.canvas.addEventListener('mousemove', (e) => {
         this.mousePos[0] = e.pageX - $('#display')[0].offsetLeft;
         this.mousePos[1] = this.worldsize[1] - (e.pageY - $('#display')[0].offsetTop);
-    });
+    });*/
 
-    gl.canvas.addEventListener('mousedown', () => {
-        this.birthing = true;
-        console.log('birthing');
-    });
+    // gl.canvas.addEventListener('mousedown', () => {
+    //     this.birthing = true;
+    //     console.log('birthing');
+    // });
 
-    gl.canvas.addEventListener('mouseup', () => {
-        this.birthing = false;
-    });
-
-    window.addEventListener('keydown', (e) => {if(e.key = " ") {console.log(this.getAge2())}})
+    // gl.canvas.addEventListener('mouseup', () => {
+    //     this.birthing = false;
+    // });
 
     /* Simulation parameters. */
     this.running = false;
@@ -56,7 +62,7 @@ function Particles(canvas, nparticles, size) {
     this.birthing = false;
     this.birthingAtOnce = 20;
     this.lightConeRadius = 0.5
-    this.closestTargets = [[this.worldsize[0] * 0.25, this.worldsize[1] * 0.5],
+    this.closestTargets = [[this.worldsize[0] * -0.25, this.worldsize[1] * 0.5],
                            [this.worldsize[0] * 0.5, this.worldsize[1] * 0.5],
                            [this.worldsize[0] * 0.75, this.worldsize[1] * 0.5]];
 
@@ -155,12 +161,23 @@ Particles.decodeAge = function(pair) {
     return (pair[0] + pair[1] * b) * b;
 };
 
+Particles.prototype.updateMousePos = function (_mousePos) {
+    this.mousePos = _mousePos;
+}
+
+Particles.prototype.updateClosest = function (closestFragments, cavePos) {
+    for(let i = 0; i < closestFragments.length; i++) {
+        if(closestFragments[i]) {
+            this.closestTargets[i] = [closestFragments[i].pos.x * Fragment.PLACEMENTFACTOR + cavePos.x, this.worldsize[1] - (closestFragments[i].pos.y * Fragment.PLACEMENTFACTOR + + cavePos.y)];           
+        }
+    }
+}
+
 Particles.prototype.setLightConeBuffer = function(r, v) {
     let vertices = new Float32Array(v*6);
     for(let i = 0; i < v; i++) {
         const a1 = i*((2*Math.PI)/v);
         const a2 = (i+1)*((2*Math.PI)/v);
-        console.log(i,a1,a2)
         const v0 = [0,0];
         const v1 = [r * Math.cos(a1), r * Math.sin(a1)];
         const v2 = [r * Math.cos(a2), r * Math.sin(a2)];
@@ -173,9 +190,6 @@ Particles.prototype.setLightConeBuffer = function(r, v) {
         vertices[i*6+4] = v2[0];
         vertices[i*6+5] = v2[1];
     }
-
-    console.log(vertices);
-    console.log(2*Math.PI)
 
     return this.igloo.array(vertices);
 }
@@ -417,7 +431,7 @@ Particles.prototype.swap = function() {
  * @returns {Particles} this
  */
 Particles.prototype.step = function() {
-    const origin = this.mousePos;
+    const origin = [this.mousePos.x, this.mousePos.y];
 
     var igloo = this.igloo, gl = igloo.gl;
     gl.disable(gl.BLEND);
@@ -508,14 +522,14 @@ Particles.prototype.draw = function() {
         .attrib('quad', this.buffers.quad, 2)
         .uniformi('pixels', 3)
         .draw(gl.TRIANGLE_STRIP, Igloo.QUAD2.length / 2);
-    // gl.blendFunc(gl.DST_COLOR, gl.SRC_ALPHA);
-    // gl.enable(gl.BLEND);
-    // this.programs.lightCone.use()
-    //     .attrib('a_position', this.buffers.lightCone, 2)
-    //     .attrib('a_alpha', this.buffers.lightConeAlpha, 1)
-    //     .uniform('posOffset', this.mousePos)
-    //     .uniform('worldsize', this.worldsize)
-    //     .draw(gl.TRIANGLES, this.lightConeVertices*3);
+    gl.blendFunc(gl.DST_COLOR, gl.SRC_ALPHA);
+    gl.enable(gl.BLEND);
+    this.programs.lightCone.use()
+        .attrib('a_position', this.buffers.lightCone, 2)
+        .attrib('a_alpha', this.buffers.lightConeAlpha, 1)
+        .uniform('posOffset', [this.mousePos.x, this.mousePos.y])
+        .uniform('worldsize', this.worldsize)
+        .draw(gl.TRIANGLES, this.lightConeVertices*3);
     return this;
 };
 
