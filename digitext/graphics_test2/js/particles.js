@@ -501,6 +501,8 @@ Particles.prototype.draw = function() {
     this.programs.lastFrame.use()
         .attrib('quad', this.buffers.quad, 2)
         .uniformi('pixels', 0)
+        .uniform('posOffset', this.posOffset)
+        .uniform('worldsize', this.worldsize)
         .draw(gl.TRIANGLE_STRIP, Igloo.QUAD2.length / 2);
     this.textures.p0.bind(0);
     this.textures.v0.bind(1);
@@ -530,12 +532,12 @@ Particles.prototype.draw = function() {
         .draw(gl.TRIANGLE_STRIP, Igloo.QUAD2.length / 2);
     gl.blendFunc(gl.DST_COLOR, gl.SRC_ALPHA);
     gl.enable(gl.BLEND);
-    this.programs.lightCone.use()
-        .attrib('a_position', this.buffers.lightCone, 2)
-        .attrib('a_alpha', this.buffers.lightConeAlpha, 1)
-        .uniform('posOffset', [this.mousePos.x, this.mousePos.y])
-        .uniform('worldsize', this.worldsize)
-        .draw(gl.TRIANGLES, this.lightConeVertices*3);
+    // this.programs.lightCone.use()
+    //     .attrib('a_position', this.buffers.lightCone, 2)
+    //     .attrib('a_alpha', this.buffers.lightConeAlpha, 1)
+    //     .uniform('posOffset', [this.mousePos.x, this.mousePos.y])
+    //     .uniform('worldsize', this.worldsize)
+    //     .draw(gl.TRIANGLES, this.lightConeVertices*3);
     return this;
 };
 
