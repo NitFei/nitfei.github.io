@@ -109,8 +109,6 @@ $(document).ready(function() {
         let y = Math.floor((mousePos.y - cavePos.y) / (caveHeight * Fragment.PLACEMENTFACTOR / NUMBEROFQUADRANTSPERAXIS));
         let clFrags = [];
 
-        let adjCount = 0;
-
         for(let k = 0; k < NUMBEROFQUADRANTSPERAXIS; k++) { // if less than 3 fragments were found, repeat with a larger search radius
             //make a list of all fragments inside the quadrant and inside adjacent quadrants
             let adjacentFragments = [];
@@ -147,8 +145,7 @@ $(document).ready(function() {
                     }
                 }
             }
-           
-            adjCount += adjacentFragments.length;
+    
 
             //check the distance from mouse position to each fragment position in the list
             adjacentFragments.forEach(fragment => {
@@ -175,6 +172,17 @@ $(document).ready(function() {
                 break;
             }
         }
+
+        for(let i = 0; i < clFrags.length; i++) {
+            for(let j = 0; j < closestFragments.length; j++) {
+                if(clFrags[i].frag.id === closestFragments[j].id && i !== j) {
+                    let temp = clFrags[i];
+                    clFrags[i] = clFrags[j];
+                    clFrags[j] = temp;
+                    console.log("now");
+                }
+            };
+        };
 
         closestFragments = [];
 
