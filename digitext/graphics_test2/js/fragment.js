@@ -1,6 +1,6 @@
 
 class Fragment {
-    constructor(_audioContext, _sound, _pos, _text, _parentDiv) {
+    constructor(_audioContext, _sound, _pos, _content, _id, _parentDiv) {
         this.div;
 
         this.audioContext = _audioContext;
@@ -12,8 +12,11 @@ class Fragment {
 
         this.isPlaying = false;
         this.pos = _pos;
-        this.text = _text;
+        this.content = _content;
+        this.id = _id;
         this.parentDiv = _parentDiv;
+
+        this.discovered = false;
 
         this.createDiv();
         this.createText();
@@ -28,7 +31,7 @@ class Fragment {
 
     createText = () => {
         const p = document.createElement('p');
-        p.textContent = this.text;
+        p.textContent = this.content;
         this.div.appendChild(p);
     }
 

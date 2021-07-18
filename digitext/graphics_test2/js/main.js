@@ -27,30 +27,33 @@ const audioContext = new AudioContext();
 
 $(document).ready(function() {
     
+    const whispers = []
+    for (let i = 0; i < 3; i++){
+        whispers.push(new Whisper("../src/sunyata1.mp3", audioContext, i));
+    }
 
     // set up textQuadrant system for locating the closest texts and for placing texts
-    const fragmentQuadrants = new Array(8);
+    const NUMBEROFQUADRANTSPERAXIS = 16;
+
+    const fragmentQuadrants = new Array(NUMBEROFQUADRANTSPERAXIS);
     for(let i = 0; i < fragmentQuadrants.length; i++) {
-        fragmentQuadrants[i] = new Array(8);
+        fragmentQuadrants[i] = new Array(NUMBEROFQUADRANTSPERAXIS);
         for(let j = 0; j < fragmentQuadrants[i].length; j++) {
             fragmentQuadrants[i][j] = [];
         }
     }
 
-    const NUMBEROFQUADRANTSPERAXIS = 8;
     const caveWidth = 28;
     const caveHeight = 35;
     const textInfo = JSON.parse(textInfoJSON);
     textInfo.forEach(text => {
-        const f = new Fragment(audioContext, undefined, text.pos, text.content, document.getElementById('cave-content'));
+        const f = new Fragment(audioContext, undefined, text.pos, text.content, text.id, document.getElementById('cave-content'));
 
 
         let x = Math.floor(text.pos.x / (caveWidth / NUMBEROFQUADRANTSPERAXIS));
         let y = Math.floor(text.pos.y / (caveHeight / NUMBEROFQUADRANTSPERAXIS));
         fragmentQuadrants[x][y].push(f);
     });
-
-    console.log(fragmentQuadrants);
 
     var canvas = $('#display')[0];
     // canvas.width = window.innerWidth;
@@ -86,8 +89,6 @@ $(document).ready(function() {
     caveDiv.addEventListener('mousedown', () => {dragging = true;});
     caveDiv.addEventListener('mouseup', () => {
         dragging = false;
-        findClosestFragments();
-        particles.updateClosest(closestFragments, cavePos);
     });
     document.addEventListener('mousemove', (e) => {mousePos.x = e.clientX; mousePos.y = e.clientY});
    
@@ -98,6 +99,7 @@ $(document).ready(function() {
     let mousePos = {x: 0, y: 0};
     let lastMousePos = {x: 0, y: 0};
     let cavePos = {x: 0, y: 0};
+    let lastCavePos = {x: 0, y:0};
 
     let closestFragments = [];
 
@@ -173,13 +175,21 @@ $(document).ready(function() {
             }
         }
 
+        while(clFrags.length > 3) {
+            clFrags.pop();
+        }
+
         for(let i = 0; i < clFrags.length; i++) {
             for(let j = 0; j < closestFragments.length; j++) {
-                if(clFrags[i].frag.id === closestFragments[j].id && i !== j) {
-                    let temp = clFrags[i];
-                    clFrags[i] = clFrags[j];
-                    clFrags[j] = temp;
-                    console.log("now");
+                try {
+                    if(clFrags[i].frag.id === closestFragments[j].id && i !== j) {
+                        let temp = clFrags[i];
+                        clFrags[i] = clFrags[j];
+                        clFrags[j] = temp;
+                    }
+                } catch (error) {
+                    console.log(i)
+                    console.log(clFrags);   
                 }
             };
         };
@@ -189,6 +199,17 @@ $(document).ready(function() {
         for(let i = 0; i < clFrags.length; i++) {
             closestFragments.push(clFrags[i].frag);
         };
+
+        //update sounds
+        for (let i = 0; i < clFrags.length; i++){
+            if(clFrags[i].dist < 400) {
+                whispers[i].setvolume((400-clFrags[i].dist)/400);
+            } else {
+                whispers[i].setvolume(0);
+            }
+        }
+        
+        
     }
 
     const update = () => {
@@ -197,6 +218,9 @@ $(document).ready(function() {
         if (dragging) {
             moveCave(mD.x, mD.y);
         }
+
+        findClosestFragments();
+        particles.updateClosest(closestFragments, cavePos);
 
         updateMousePos();
         // still need to implement sound
@@ -225,8 +249,27 @@ $(document).ready(function() {
     const moveCave = (x, y) => {
         cavePos.x += x;
         cavePos.y += y;
+        clampCave();
+        
         updateCave(cavePos.x, cavePos.y);
-        particles.updateCaveOffset([x,y]);
+        particles.updateCaveOffset([cavePos.x - lastCavePos.x, cavePos.y - lastCavePos.y]);
+        lastCavePos.x = cavePos.x;
+        lastCavePos.y = cavePos.y;
+    }
+
+    const clampCave = () => {
+        console.log(cavePos.y)
+        if(cavePos.x > 0) {
+            cavePos.x = 0;
+        } else if (cavePos.x < -((caveWidth * Fragment.PLACEMENTFACTOR) - canvas.width)) {
+            cavePos.x = -((caveWidth * Fragment.PLACEMENTFACTOR) - canvas.width);
+        }
+
+        if(cavePos.y > 0) {
+            cavePos.y = 0;
+        } else if (cavePos.y < -((caveHeight * Fragment.PLACEMENTFACTOR) - canvas.height)) {
+            cavePos.y = -((caveHeight * Fragment.PLACEMENTFACTOR) - canvas.height);
+        }
     }
 
     const updateCave = (x, y) => {
@@ -250,6 +293,8 @@ $(document).ready(function() {
     findClosestFragments();
     particles.updateClosest(closestFragments, cavePos);
     update();
+
+    
 });
 
 
