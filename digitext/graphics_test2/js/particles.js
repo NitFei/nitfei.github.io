@@ -61,7 +61,7 @@ function Particles(canvas, nparticles, size) {
     this.maxAge = 1000.0;
     this.birthIndex = 0;
     this.birthing = false;
-    this.birthingAtOnce = 20;
+    this.birthingAtOnce = 10;
     this.lightConeRadius = 0.5
     this.closestTargets = [[this.worldsize[0] * -0.25, this.worldsize[1] * 0.5],
                            [this.worldsize[0] * 0.5, this.worldsize[1] * 0.5],

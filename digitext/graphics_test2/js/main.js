@@ -86,9 +86,18 @@ $(document).ready(function() {
     const caveCont = document.getElementById('cave-content');
     caveDiv.addEventListener('mouseenter', () => {caveHover = true});
     caveDiv.addEventListener('mouseleave', () => {caveHover = false});
-    caveDiv.addEventListener('mousedown', () => {dragging = true;});
+    caveDiv.addEventListener('mousedown', (e) => {
+        dragging = true;
+        if (e.button == 2) {
+            particles.birthing = true;
+        }
+    });
+    caveDiv.addEventListener('contextmenu', (e) => {
+        e.preventDefault()
+    })
     caveDiv.addEventListener('mouseup', () => {
         dragging = false;
+        particles.birthing = false;
     });
     document.addEventListener('mousemove', (e) => {mousePos.x = e.clientX; mousePos.y = e.clientY});
    
@@ -258,7 +267,6 @@ $(document).ready(function() {
     }
 
     const clampCave = () => {
-        console.log(cavePos.y)
         if(cavePos.x > 0) {
             cavePos.x = 0;
         } else if (cavePos.x < -((caveWidth * Fragment.PLACEMENTFACTOR) - canvas.width)) {
@@ -277,18 +285,18 @@ $(document).ready(function() {
         caveCont.style.top = y + 'px';
     }
 
-    setInterval(() => {
-        particles.birthing = true;
-        setTimeout(() => {
-            particles.birthing = false;
-        }, 5000);
-    }, 10000);
+    // setInterval(() => {
+    //     particles.birthing = true;
+    //     setTimeout(() => {
+    //         particles.birthing = false;
+    //     }, 5000);
+    // }, 10000);
 
     //initial birthing burst
-    particles.birthing = true;
-    setTimeout(() => {
-        particles.birthing = false;
-    }, 5000);
+    // particles.birthing = true;
+    // setTimeout(() => {
+    //     particles.birthing = false;
+    // }, 5000);
 
     findClosestFragments();
     particles.updateClosest(closestFragments, cavePos);
