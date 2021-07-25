@@ -80,4 +80,4 @@ class Fragment {
     }
 }
 
-Fragment.PLACEMENTFACTOR = 200;
+Fragment.PLACEMENTFACTOR = 250;
