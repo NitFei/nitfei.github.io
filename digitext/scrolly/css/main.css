@@ -26,18 +26,18 @@ header img {
 }
 
 .tree {
-    height: 100px;
+    height: 70vh;
     position: absolute;
 }
 
 #tree001 {
-    top: 50%;
-    right: 0%;
+    top: 20%;
+    left: 100%;
 }
 
 #tree002 {
-    top: 70%;
-    right: 0%;
+    top: 30%;
+    left: 100%;
 }
 
 .train-background {
