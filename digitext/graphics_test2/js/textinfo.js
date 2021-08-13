@@ -52,17 +52,17 @@ const textInfotoJSON =
     },
 {
         "id":"012",
-        "content":"Mama hat gesagt, sie will keine Geschenke, aber Papa, Yannis und ich haben trotzdem welche besorgt. Um ihr eine Freude zu machen. Wir haben den Tisch schön gedeckt, mit Tischdecke und allem, die Geschenke stehen auf Mamas Teller, es gibt Sekt für Mama und Papa und Orangensaft für Yannis und mich.\n\“Oh\", sagt Mama, als sie den gedeckten Tisch sieht und reibt sich die Augen. Wir setzen uns und trinken alle einen Schluck aus den hohen Gläsern. Der Saft schmeckt komisch, weil ich mir gerade noch die Zähne geputzt habe. Bevor wir anfangen zu essen, soll Mama ihre Geschenke aufmachen. Yannis und ich schenken ihr die Pralinen, die sie bei unserem Ausflug nach Berlin so gerne gegessen hat, Papa hatte die Idee. Sie freut sich und wir teilen uns zu viert zwei Pralinen. Papa schenkt ihr ein Buch mit Photos drin, auf dem Ungarn 1994 steht, darunter stehen Mama und Papa, als sie noch jünger waren, vor einer großen Kirche. Mama bedankt sich bei uns allen, dann fangen wir an zu essen. ",
+        "content":"Mama hat gesagt, sie will keine Geschenke, aber Papa, Yannis und ich haben trotzdem welche besorgt. Um ihr eine Freude zu machen. Wir haben den Tisch schön gedeckt, mit Tischdecke und allem, die Geschenke stehen auf Mamas Teller, es gibt Sekt für Mama und Papa und Orangensaft für Yannis und mich.\n\"Oh\", sagt Mama, als sie den gedeckten Tisch sieht und reibt sich die Augen. Wir setzen uns und trinken alle einen Schluck aus den hohen Gläsern. Der Saft schmeckt komisch, weil ich mir gerade noch die Zähne geputzt habe. Bevor wir anfangen zu essen, soll Mama ihre Geschenke aufmachen. Yannis und ich schenken ihr die Pralinen, die sie bei unserem Ausflug nach Berlin so gerne gegessen hat, Papa hatte die Idee. Sie freut sich und wir teilen uns zu viert zwei Pralinen. Papa schenkt ihr ein Buch mit Photos drin, auf dem Ungarn 1994 steht, darunter stehen Mama und Papa, als sie noch jünger waren, vor einer großen Kirche. Mama bedankt sich bei uns allen, dann fangen wir an zu essen. ",
         "pos":{"x":15.5, "y":22.5},
     },
 {
         "id":"013",
-        "content":"\"In Exelsis Deeeeoooo!\" Yannis muss lachen und riecht gespielt an seinen Achselhöhlen. Mama schüttelt den Kopf, drückt seinen Arm runter und singt lauter. \“Guck mal wie blöd die Maria guckt,\" flüstert Papa mir zu und deutet zum Altar, wo das Krippenspiel ist. \“Fast so ernst wie deine Mutter.\" ",
+        "content":"\"In Exelsis Deeeeoooo!\" Yannis muss lachen und riecht gespielt an seinen Achselhöhlen. Mama schüttelt den Kopf, drückt seinen Arm runter und singt lauter. \"Guck mal wie blöd die Maria guckt,\" flüstert Papa mir zu und deutet zum Altar, wo das Krippenspiel ist. \"Fast so ernst wie deine Mutter.\" ",
         "pos":{"x":18, "y": 24.5},
     },
 {
         "id":"014",
-        "content":"Ich lehne mich nach vorne als Luke in den Graben des Todessterns fliegt und Mama packt aufgeregt meinen Arm. Die DVD haben wir von Papa, aber der musste heute Abend  mit Yannis auf die Vereinsfeier vom Leichtathletik-Verband, unser Nachbar hat Yannis einen Auftritt für die Pause aufgezwungen. \“Schieß!\", schreit Mama. \“Schieß doch!\" Und ich nehme mir eine Handvoll selbstgemachtes Popcorn.",
+        "content":"Ich lehne mich nach vorne als Luke in den Graben des Todessterns fliegt und Mama packt aufgeregt meinen Arm. Die DVD haben wir von Papa, aber der musste heute Abend  mit Yannis auf die Vereinsfeier vom Leichtathletik-Verband, unser Nachbar hat Yannis einen Auftritt für die Pause aufgezwungen. \"Schieß!\", schreit Mama. \"Schieß doch!\" Und ich nehme mir eine Handvoll selbstgemachtes Popcorn.",
         "pos":{"x":23, "y": 25.5},
     },
 {
@@ -107,12 +107,12 @@ const textInfotoJSON =
     },
 {
         "id":"023",
-        "content":"Von Flensburg bis nach Hause haben Mama und Papa kein Wort miteinander gewechselt. Kurz vor der Einfahrt meint Mama dann: \“Lieber sterb ich in Altersarmut, als von deren Erbe zu leben.\" ",
+        "content":"Von Flensburg bis nach Hause haben Mama und Papa kein Wort miteinander gewechselt. Kurz vor der Einfahrt meint Mama dann: \"Lieber sterb ich in Altersarmut, als von deren Erbe zu leben.\" ",
         "pos":{"x":18, "y": 33},
     },
 {
         "id":"024",
-        "content":"Zwei Mal, da waren Mamas Ohren so rot wie ihre Haare, zumindest fast. Einmal bei dieser Sache im Yosemite Nationalpark, die mit dem Auto, das zweite Mal, als sie in dem Sudoku-Heft, das wir ihr zu Weihnachten geschenkt hatten, schon das auf der ersten Seite nicht lösen konnte. \“Sag mir irgendeine Zahl zwischen 1 und 9, Yannis, und die schreib ich dann einfach hier hin, so ein Scheiß.\" \“Sieben\", hat Yannis gesagt. Mama hat genickt, gekritzelt und sich wieder über den Block gebeugt.",
+        "content":"Zwei Mal, da waren Mamas Ohren so rot wie ihre Haare, zumindest fast. Einmal bei dieser Sache im Yosemite Nationalpark, die mit dem Auto, das zweite Mal, als sie in dem Sudoku-Heft, das wir ihr zu Weihnachten geschenkt hatten, schon das auf der ersten Seite nicht lösen konnte. \"Sag mir irgendeine Zahl zwischen 1 und 9, Yannis, und die schreib ich dann einfach hier hin, so ein Scheiß.\" \"Sieben\", hat Yannis gesagt. Mama hat genickt, gekritzelt und sich wieder über den Block gebeugt.",
         "pos":{"x":16, "y": 31.5},
     },
 {
@@ -127,7 +127,7 @@ const textInfotoJSON =
     },
 {
         "id":"027",
-        "content":"Wir sitzen alle zusammen im Wohnzimmer und gucken Little Miss Sunshine. Das ist Papas Lieblingsfilm, den er uns allen unbedingt mal zeigen wollte. Immer wieder drückt er kurz auf Pause und erklärt uns, welcher Schauspieler in welchem anderen Film war und warum diese oder jene Szene besonders lustig ist. Mama kaut auf ihrer Lippe und sagt nicht - bis kurz vor Schluss, dann hält sie es nicht mehr aus: \“Ich versteh nicht, was du daran findest. Die fahren mit ihrer kleinen Tochter zu einem Beauty Contest und finden erst vor Ort raus, dass das gar nicht so eine gute Idee ist. Ich meine, wie blöd kann man denn sein? Und überhaupt, wie die Mutter es mit dem Vater aushält, das ist mir vollkommen schleierhaft!\"\n\“Aber darum geht es doch gerade. Eine etwas kaputte Familie und wie sie über diese Reise wieder zusammenwächst. Du musst dich nur mal drauf einlassen.\“\n\“Danke für Erörterung, wär ich so gar nicht drauf gekommen!\"\n\“Warum wirst du denn gleich wieder so garstig?\"\n\“Wenn ein Mann das Wort garstig benutzt, dann werd ich garstig.\"\n\“Jetzt geht das wieder los…\"\n\“Ne, Gerd, jetzt geht nichts wieder los, weil du es einfach nicht verstehen willst.\“\nDer Abspann beginnt, die winzigen weißen Namen ziehen über den Bildschirm. Schnell stehe ich auf, hole mir noch ein paar Popcorn, gehe nach oben, während Yannis laut schreit, dass er lieber Star Wars gucken will. ",
+        "content":"Wir sitzen alle zusammen im Wohnzimmer und gucken Little Miss Sunshine. Das ist Papas Lieblingsfilm, den er uns allen unbedingt mal zeigen wollte. Immer wieder drückt er kurz auf Pause und erklärt uns, welcher Schauspieler in welchem anderen Film war und warum diese oder jene Szene besonders lustig ist. Mama kaut auf ihrer Lippe und sagt nicht - bis kurz vor Schluss, dann hält sie es nicht mehr aus: \"Ich versteh nicht, was du daran findest. Die fahren mit ihrer kleinen Tochter zu einem Beauty Contest und finden erst vor Ort raus, dass das gar nicht so eine gute Idee ist. Ich meine, wie blöd kann man denn sein? Und überhaupt, wie die Mutter es mit dem Vater aushält, das ist mir vollkommen schleierhaft!\"\n\"Aber darum geht es doch gerade. Eine etwas kaputte Familie und wie sie über diese Reise wieder zusammenwächst. Du musst dich nur mal drauf einlassen.\"\n\"Danke für Erörterung, wär ich so gar nicht drauf gekommen!\"\n\"Warum wirst du denn gleich wieder so garstig?\"\n\"Wenn ein Mann das Wort garstig benutzt, dann werd ich garstig.\"\n\"Jetzt geht das wieder los…\"\n\"Ne, Gerd, jetzt geht nichts wieder los, weil du es einfach nicht verstehen willst.\"\nDer Abspann beginnt, die winzigen weißen Namen ziehen über den Bildschirm. Schnell stehe ich auf, hole mir noch ein paar Popcorn, gehe nach oben, während Yannis laut schreit, dass er lieber Star Wars gucken will. ",
         "pos":{"x":25.2, "y": 1.2},
     },
 {
@@ -152,17 +152,17 @@ const textInfotoJSON =
     },
 {
         "id":"032",
-        "content":"Ich habe Mama nicht erzählt, dass ich mich wieder mit Laura treffe. Ich habe eigentlich niemanden von unserem zweiten ersten Date erzählt, aber als ich zum Bahnhof will, drückt sie mir 50 Euro und die Adresse von einem Italiener in die Hand . \“Ist den ganzen Abend reserviert. Ich geh mit Papa nachher übrigens zu Schiekes, das Haus ist also leer.\" Noch bevor ich mich aufregen kann, weil das natürlich total übergriffig ist, verschwindet sie im Garten. Als ich Laura am Bahnsteig umständlich umarme, frage ich: \“Bock auf Pizza?\" ",
+        "content":"Ich habe Mama nicht erzählt, dass ich mich wieder mit Laura treffe. Ich habe eigentlich niemanden von unserem zweiten ersten Date erzählt, aber als ich zum Bahnhof will, drückt sie mir 50 Euro und die Adresse von einem Italiener in die Hand . \"Ist den ganzen Abend reserviert. Ich geh mit Papa nachher übrigens zu Schiekes, das Haus ist also leer.\" Noch bevor ich mich aufregen kann, weil das natürlich total übergriffig ist, verschwindet sie im Garten. Als ich Laura am Bahnsteig umständlich umarme, frage ich: \"Bock auf Pizza?\" ",
         "pos":{"x":25.9, "y": 5.7},
     },
 {
         "id":"033",
-        "content":"Mama steht über das Waschbecken gebeugt und hat zwei Handschuhe aus durchsichtigem Plastik an. Ich setze mich aufs Klo, um zu pinkeln.\n\"Was machst du da?\", frage ich sie.\n\"»Ich färbe mir die Haare.\" \n\"So rot wie immer?\" \n\"Damit ich nicht wie eine alte Frau aussehe.\"\nIch drücke die Spülung. \n\“Geh dir in der Küche die Hände waschen, ja?\"\nIch nehme den Hocker mit und stelle ihn unter das Waschbecken in der Küche. Während ich meine Finger einseife, überlege ich, warum Papas Mund nicht rot wird, wenn er Mama auf den Kopf küsst. ",
+        "content":"Mama steht über das Waschbecken gebeugt und hat zwei Handschuhe aus durchsichtigem Plastik an. Ich setze mich aufs Klo, um zu pinkeln.\n\"Was machst du da?\", frage ich sie.\n\"Ich färbe mir die Haare.\" \n\"So rot wie immer?\" \n\"Damit ich nicht wie eine alte Frau aussehe.\"\nIch drücke die Spülung. \n\"Geh dir in der Küche die Hände waschen, ja?\"\nIch nehme den Hocker mit und stelle ihn unter das Waschbecken in der Küche. Während ich meine Finger einseife, überlege ich, warum Papas Mund nicht rot wird, wenn er Mama auf den Kopf küsst. ",
         "pos":{"x":15.7, "y": 6.3},
     },
 {
         "id":"034",
-        "content":"Als Mama vorschlägt, ich solle lernen Orgel zu spielen, beginnt Papa, energisch auf seinem dem großen Stück Schnitzel in seinem Mund herumzukauen, kaut kaut kaut, schluckt es runter und sagt: \“Nur über meine Leiche.\"\nSchlagzeug fände ich eh cooler.",
+        "content":"Als Mama vorschlägt, ich solle lernen Orgel zu spielen, beginnt Papa, energisch auf seinem dem großen Stück Schnitzel in seinem Mund herumzukauen, kaut kaut kaut, schluckt es runter und sagt: \"Nur über meine Leiche.\"\nSchlagzeug fände ich eh cooler.",
         "pos":{"x":17.9, "y": 6.6},
     },
 {
@@ -177,7 +177,7 @@ const textInfotoJSON =
     },
 {
         "id":"037",
-        "content":"Mamas Finger rasen so schnell über die Tasten, dass es aussieht wie in einem schlechten Film aus den 90ern, wo man so Hacker zeigt, die grün blinkende Schrift in einen dicken PC einhauen und sich in die Supercomputer der CIA reinschleusen. Nur halt, dass Mama kein Hacker ist. Dabei ist sie trotzdem mindestens genau so krass und konzentriert, denn es geht gerade um richtig viel: Meinen Praktikumsbericht. \nEs ist 1:47 Uhr, morgens, und um 8:00 Uhr muss der fertige Bericht bei Herrn Ullrich auf dem Tisch neben seinem eingetupperten Leberwurstbrot liegen. Ich habe Mama die in Panik hingerotzten Seiten vor ca. zwei Stunden mit verweinten Augen auf den Nachttisch gelegt, nachdem ich heute Mittag noch alles unter Kontrolle hatte. \“Nerv nicht! Ich krieg das noch hin. Ich hab alles unter Kontrolle!\" Dann hab ich sie aus meinem Zimmer geschickt und weiter auf die leere Seite gestarrt. Ne ganz schön große Fresse dafür, dass ich hier jetzt stehe wie ein dummer kleiner Gartenzwerg, der auf seine Rettung hofft. Drei Wochen hatte ich Zeit für den Bericht und drei Wochen hatte ich natürlich immer was besseres zu tun. \nIch hab eigentlich erwartet, dass sie mich anschreit, aber sie ist viel grausamer, sie sagt gar nichts. Dadurch hallt jeder Tastenanschlag wie ein Gewehrschuss durch die Stille des Büros. Um Punkt 2:00 Uhr gibt sie mir den korrigierten Ausdruck in die Hand. Ich senke den Kopf dankbar - und frustriert, dass ich die nächsten Wochen keine einzige Diskussion mit ihr anfangen kann. Dieser Bericht ist ab jetzt ihre argumentative Allzweckwaffe. \n\“Das war das letzte Mal,\" sagt sie kühl, steht auf, hält kurz inne, und gibt mir einen Kuss auf die Stirn. Dann geht sie nach oben und legt sich neben Papa ins Bett, der schon seit Stunden schläft. ",
+        "content":"Mamas Finger rasen so schnell über die Tasten, dass es aussieht wie in einem schlechten Film aus den 90ern, wo man so Hacker zeigt, die grün blinkende Schrift in einen dicken PC einhauen und sich in die Supercomputer der CIA reinschleusen. Nur halt, dass Mama kein Hacker ist. Dabei ist sie trotzdem mindestens genau so krass und konzentriert, denn es geht gerade um richtig viel: Meinen Praktikumsbericht. \nEs ist 1:47 Uhr, morgens, und um 8:00 Uhr muss der fertige Bericht bei Herrn Ullrich auf dem Tisch neben seinem eingetupperten Leberwurstbrot liegen. Ich habe Mama die in Panik hingerotzten Seiten vor ca. zwei Stunden mit verweinten Augen auf den Nachttisch gelegt, nachdem ich heute Mittag noch alles unter Kontrolle hatte. \"Nerv nicht! Ich krieg das noch hin. Ich hab alles unter Kontrolle!\" Dann hab ich sie aus meinem Zimmer geschickt und weiter auf die leere Seite gestarrt. Ne ganz schön große Fresse dafür, dass ich hier jetzt stehe wie ein dummer kleiner Gartenzwerg, der auf seine Rettung hofft. Drei Wochen hatte ich Zeit für den Bericht und drei Wochen hatte ich natürlich immer was besseres zu tun. \nIch hab eigentlich erwartet, dass sie mich anschreit, aber sie ist viel grausamer, sie sagt gar nichts. Dadurch hallt jeder Tastenanschlag wie ein Gewehrschuss durch die Stille des Büros. Um Punkt 2:00 Uhr gibt sie mir den korrigierten Ausdruck in die Hand. Ich senke den Kopf dankbar - und frustriert, dass ich die nächsten Wochen keine einzige Diskussion mit ihr anfangen kann. Dieser Bericht ist ab jetzt ihre argumentative Allzweckwaffe. \n\"Das war das letzte Mal,\" sagt sie kühl, steht auf, hält kurz inne, und gibt mir einen Kuss auf die Stirn. Dann geht sie nach oben und legt sich neben Papa ins Bett, der schon seit Stunden schläft. ",
         "pos":{"x":19, "y": 8.5},
     },
 {
@@ -187,17 +187,17 @@ const textInfotoJSON =
     },
 {
         "id":"039",
-        "content":"\"Nein, da hatte ich Glück. Aber es gibt ja auch wirklich Eltern, die ihren Kindern den Hals umdrehen, wenn sie schlechte Noten nach Hause bringen\“, sagt Laura und lacht. Yannis schaut auf den Boden. Papa schaut auf seine sich drehenden Daumen. Mama grinst breit, atmet langsam ein und schenkt Laura noch ein Glas Wasser nach.",
+        "content":"\"Nein, da hatte ich Glück. Aber es gibt ja auch wirklich Eltern, die ihren Kindern den Hals umdrehen, wenn sie schlechte Noten nach Hause bringen\", sagt Laura und lacht. Yannis schaut auf den Boden. Papa schaut auf seine sich drehenden Daumen. Mama grinst breit, atmet langsam ein und schenkt Laura noch ein Glas Wasser nach.",
         "pos":{"x":22.4, "y": 9.8},
     },
 {
         "id":"040",
-        "content":"Papa sieht die Duschhaube in der schwarzen Tonne, geht er zurück in die Küche, schreit: \“Scheiße, Andrea, du hast meine Mutter weggeschmissen\", und fährt mit dem Auto weg.\nAm Abend kommt er wieder.",
+        "content":"Papa sieht die Duschhaube in der schwarzen Tonne, geht er zurück in die Küche, schreit: \"Scheiße, Andrea, du hast meine Mutter weggeschmissen\", und fährt mit dem Auto weg.\nAm Abend kommt er wieder.",
         "pos":{"x":15.5, "y": 10.9},
     },
 {
         "id":"041",
-        "content":"Mit meinem Abi in der einen Hand und einem Glas Billigsekt in der anderen stehe ich zwischen meiner und Christines Mutter und höre ihnen beim Smalltalk zu. Um uns herum warten die Leute, mit denen ich neun Jahre Woche für Woche, Tag für Tag in diesem Kackhaus verbracht habe, allesamt darauf, dass die Eltern weggehen und die richtige Abiparty beginnt.\n\"Mein Gott, das waren Zeiten\", sagt Christines Mutter und lacht. Meine Mutter nickt und nimmt einen Schluck aus ihrem Glas, als Herr Ulrich den Kopf an ihrer Schulter vorbei in den Kreis schiebt.\n\"Abend, Frau Sewering\", säuselt er. \nMeine Mutter zuckt zusammen und lehnt sich von ihm weg, der Sekt in ihrem Glas schwappt hin und her.\n\"Oh, meine Güte, haben Sie mich aber erschrocken.\"\n\"Erschreckt, Frau Sewering, erschreckt.\" Er schiebt sich an Christines Mutter vorbei, bis er von Angesicht zu Angesicht mit meiner Mutter steht. \"Interessant, dass sie so eine starke Reaktion hatten. Wissen Sie, was man über die Schuldigen sagt, über die Sünder, über die mit unreinem Gewissen, Frau Sewering?\"\nMeine Mutter hebt beide Augenbrauen, verschränkt die Arme.\n\"Sie sind schreckhaft, Frau Sewering. Schreck-haft.\"\nEr lächelt still, schiebt sich die Brille höher auf die Nase, verschränkt die Hände hinterm Rücken.\n\"Was wir nicht alles für die Bildung unserer Kinder tun, nicht wahr?\“, murmelt er und spaziert davon. \„Was wir nicht alles für die Bildung unserer Kinder tun.\" ",
+        "content":"Mit meinem Abi in der einen Hand und einem Glas Billigsekt in der anderen stehe ich zwischen meiner und Christines Mutter und höre ihnen beim Smalltalk zu. Um uns herum warten die Leute, mit denen ich neun Jahre Woche für Woche, Tag für Tag in diesem Kackhaus verbracht habe, allesamt darauf, dass die Eltern weggehen und die richtige Abiparty beginnt.\n\"Mein Gott, das waren Zeiten\", sagt Christines Mutter und lacht. Meine Mutter nickt und nimmt einen Schluck aus ihrem Glas, als Herr Ulrich den Kopf an ihrer Schulter vorbei in den Kreis schiebt.\n\"Abend, Frau Sewering\", säuselt er. \nMeine Mutter zuckt zusammen und lehnt sich von ihm weg, der Sekt in ihrem Glas schwappt hin und her.\n\"Oh, meine Güte, haben Sie mich aber erschrocken.\"\n\"Erschreckt, Frau Sewering, erschreckt.\" Er schiebt sich an Christines Mutter vorbei, bis er von Angesicht zu Angesicht mit meiner Mutter steht. \"Interessant, dass sie so eine starke Reaktion hatten. Wissen Sie, was man über die Schuldigen sagt, über die Sünder, über die mit unreinem Gewissen, Frau Sewering?\"\nMeine Mutter hebt beide Augenbrauen, verschränkt die Arme.\n\"Sie sind schreckhaft, Frau Sewering. Schreck-haft.\"\nEr lächelt still, schiebt sich die Brille höher auf die Nase, verschränkt die Hände hinterm Rücken.\n\"Was wir nicht alles für die Bildung unserer Kinder tun, nicht wahr?\", murmelt er und spaziert davon. \„Was wir nicht alles für die Bildung unserer Kinder tun.\" ",
         "pos":{"x":25.1, "y": 11},
     },
 {
@@ -227,7 +227,7 @@ const textInfotoJSON =
     },
 {
         "id":"047",
-        "content":"Ich bin diese Woche mit Bügeln dran. Ich habe das Brett im Wohnzimmer aufgebaut, wo Mama, Papa und Yannis auf dem Sofa sitzen und Monster AG schauen.\n\“Wieso müssen wir eigentlich kack Geschirrtücher bügeln?\", frage ich in die Runde, \“Werden doch eh gleich wieder nass.\"\n\“Ähm\", sagt Mama, \“wenn man einen Druckverband machen will, dann braucht man dafür ein gebügeltes Geschirrtuch.\"\nPapa nickt. Ich stelle das Bügeleisen ab und schaue eine Weile auf den Fernseher.\n\“Aber dann reicht es doch, wenn nur eins gebügelt ist\", sage ich.\n\“Hm\", macht Mama und schaut vom Fernseher hoch. \“Stimmt eigentlich. Dann bügel eins und leg den Rest einfach zusammen.\"\n\“Ich glaube, Yannis\", sagt Papa, \“ich glaube, das ist eine Revolution.\"",
+        "content":"Ich bin diese Woche mit Bügeln dran. Ich habe das Brett im Wohnzimmer aufgebaut, wo Mama, Papa und Yannis auf dem Sofa sitzen und Monster AG schauen.\n\"Wieso müssen wir eigentlich kack Geschirrtücher bügeln?\", frage ich in die Runde, \"Werden doch eh gleich wieder nass.\"\n\"Ähm\", sagt Mama, \"wenn man einen Druckverband machen will, dann braucht man dafür ein gebügeltes Geschirrtuch.\"\nPapa nickt. Ich stelle das Bügeleisen ab und schaue eine Weile auf den Fernseher.\n\"Aber dann reicht es doch, wenn nur eins gebügelt ist\", sage ich.\n\"Hm\", macht Mama und schaut vom Fernseher hoch. \"Stimmt eigentlich. Dann bügel eins und leg den Rest einfach zusammen.\"\n\"Ich glaube, Yannis\", sagt Papa, \"ich glaube, das ist eine Revolution.\"",
         "pos":{"x":20.1, "y": 14.2},
     },
 {
@@ -237,17 +237,17 @@ const textInfotoJSON =
     },
 {
         "id":"049",
-        "content":"Es ist das Klingeln des Weckers, das mir den Rest gibt.\“Wann steht meine Großmutter normalerweise auf?\"\n\“Gegen acht\", sagt die Pflegerin, die uns ins Zimmer geführt hat. Ich schaue auf meine Armbanduhr, sie zeigt halb zwölf – Besuchszeit ist immer vor dem Mittagessen. Oma blinzelt langsam. Papa steht hinter mir und sagt nichts. Ich gehe an Omas Bett und drücke auf den Wecker; endlich wird es still. ",
+        "content":"Es ist das Klingeln des Weckers, das mir den Rest gibt.\"Wann steht meine Großmutter normalerweise auf?\"\n\"Gegen acht\", sagt die Pflegerin, die uns ins Zimmer geführt hat. Ich schaue auf meine Armbanduhr, sie zeigt halb zwölf – Besuchszeit ist immer vor dem Mittagessen. Oma blinzelt langsam. Papa steht hinter mir und sagt nichts. Ich gehe an Omas Bett und drücke auf den Wecker; endlich wird es still. ",
         "pos":{"x":18.3, "y": 16},
     },
 {
         "id":"050",
-        "content":"\"Heute haben wir in der Schule gelernt, wie Babys gemacht werden\", sagt Yannis.\nIch setze mich an den Tisch, es gibt Linseneintopf.\n\“Ah?\", macht Mama und sagt dann: \“Guten Appetit. Haut rein, Jungs.\"\nWir antworten im Chor.\n\“Ja, Babys werden mit Sex gemacht.\"\n\“Stimmt\", sagt Papa und nickt.\n\“In der Pause haben wir dann geredet, wie das bei unseren Eltern ist.\"\nPapa und Mama werfen sich einen Blick zu und Pusten auf den Linseneintopf auf ihren Löffeln ein, was das Zeug hält. \“Und was hast du da gesagt?\", fragt Mama.\nYannis kippelt mit seinem Stuhl. \“Dass meine Eltern das jetzt nicht mehr machen. Also Sex.\"\nMama und Papa fangen an, laut zu lachen und Yannis lacht irgendwann auch, weil sie nicht damit aufhören. ",
+        "content":"\"Heute haben wir in der Schule gelernt, wie Babys gemacht werden\", sagt Yannis.\nIch setze mich an den Tisch, es gibt Linseneintopf.\n\"Ah?\", macht Mama und sagt dann: \"Guten Appetit. Haut rein, Jungs.\"\nWir antworten im Chor.\n\"Ja, Babys werden mit Sex gemacht.\"\n\"Stimmt\", sagt Papa und nickt.\n\"In der Pause haben wir dann geredet, wie das bei unseren Eltern ist.\"\nPapa und Mama werfen sich einen Blick zu und Pusten auf den Linseneintopf auf ihren Löffeln ein, was das Zeug hält. \"Und was hast du da gesagt?\", fragt Mama.\nYannis kippelt mit seinem Stuhl. \"Dass meine Eltern das jetzt nicht mehr machen. Also Sex.\"\nMama und Papa fangen an, laut zu lachen und Yannis lacht irgendwann auch, weil sie nicht damit aufhören. ",
         "pos":{"x":20.6, "y": 16},
     },
 {
         "id":"051",
-        "content":"\"Wenn wir nach Dänemark fahren, könnten wir eigentlich auf dem Rückweg noch ein zwei Tage bei meinen Eltern ranhägen\", schlägt Papa vor.\n\"Aber dann wären wir ja erst Sonntag Abend wieder zurück\“, überlegt Mama. \“Und Montag geht die Schule wieder los und ich muss auch wieder ins Büro. Du, ich glaub das ist mir zu stressig. Lass uns das doch ein andermal machen.\" ",
+        "content":"\"Wenn wir nach Dänemark fahren, könnten wir eigentlich auf dem Rückweg noch ein zwei Tage bei meinen Eltern ranhägen\", schlägt Papa vor.\n\"Aber dann wären wir ja erst Sonntag Abend wieder zurück\", überlegt Mama. \"Und Montag geht die Schule wieder los und ich muss auch wieder ins Büro. Du, ich glaub das ist mir zu stressig. Lass uns das doch ein andermal machen.\" ",
         "pos":{"x":25.2, "y": 16.1},
     },
 {
@@ -262,12 +262,12 @@ const textInfotoJSON =
     },
     {
         "id":"054",
-        "content":"Mama fischt mit der Kelle im Topf herum, bis sie eine Portion ohne Brokkoli erwischt, und gießt mir den dampfenden Eintopf in die Schüssel. Ich setze mich auf den Boden neben Yannis und fange an zu essen. Es schmeckt nach Ingwer und Zitrone und ganz viel bitter, aber es wärmt den Magen.\nDie Tür zum Dixi knallt und Papa kommt zu uns, wirft einen Blick in den Topf und reißt mir die Schüssel aus der Hand.\n\“Hast du das gegessen? Spuck das aus, spuck das aus!\"\nIch gucke Papa an. Neben mir hört Yannis auf zu kauen, der Löffel auf halber Strecke zum Mund erstarrt.\nMama beugt sich über den Topf. \“Was denn? Sind es die Pilze?\"\n\“Da ist Brokkoli drin\", sagt Papa und schüttelt den Kopf. \“Das sind giftige Vitamine! Du bringst den armen Jungen noch um.\" Mama haut Papa mit der Kelle auf den Kopf. ",
+        "content":"Mama fischt mit der Kelle im Topf herum, bis sie eine Portion ohne Brokkoli erwischt, und gießt mir den dampfenden Eintopf in die Schüssel. Ich setze mich auf den Boden neben Yannis und fange an zu essen. Es schmeckt nach Ingwer und Zitrone und ganz viel bitter, aber es wärmt den Magen.\nDie Tür zum Dixi knallt und Papa kommt zu uns, wirft einen Blick in den Topf und reißt mir die Schüssel aus der Hand.\n\"Hast du das gegessen? Spuck das aus, spuck das aus!\"\nIch gucke Papa an. Neben mir hört Yannis auf zu kauen, der Löffel auf halber Strecke zum Mund erstarrt.\nMama beugt sich über den Topf. \"Was denn? Sind es die Pilze?\"\n\"Da ist Brokkoli drin\", sagt Papa und schüttelt den Kopf. \"Das sind giftige Vitamine! Du bringst den armen Jungen noch um.\" Mama haut Papa mit der Kelle auf den Kopf. ",
         "pos":{"x":12.5, "y": 20},
     },
     {
         "id":"055",
-        "content":"Papas ausgelatschte Hotelpantoffeln schälen sich wie abgestorbene Hautfetzen von seinen blassen, faltigen Fußsohlen, jeder Schritt vom Wasserkocher zur Herdplatte ein leises Schlurfen.\n\“Ihr auch Kaffee?\", fragt Papa zum ersten Mal in meinem Leben. Er steht mit dem Rücken zu uns, klopft mit einem Löffel den Takt aus dem Radio auf der Küchentheke mit.\n\“Ne, danke\", sage ich. Laura schüttelt den Kopf.\n\“Ich nehm einen\", sagt Mama hinter ihrer Zeitung. Papa grinst.\n\“Und wie wars gestern? Habt ihr ordentlich Drogen gesoffen?\", fragt er über die Schulter.\nLaura lächelt höflich.\n\“Als ich in eurem Alter war, hat man sich das Koks noch direkt in die Augäpfel gespritzt. Wir haben so viel–\"\n\“Gerd.\" Meine Mutter senkt die Zeitung so weit, dass man einen Moment ihre Augen sieht.\n\“Lass in meinem Zimmer frühstücken\", sage ich zu Laura und stehe auf.",
+        "content":"Papas ausgelatschte Hotelpantoffeln schälen sich wie abgestorbene Hautfetzen von seinen blassen, faltigen Fußsohlen, jeder Schritt vom Wasserkocher zur Herdplatte ein leises Schlurfen.\n\"Ihr auch Kaffee?\", fragt Papa zum ersten Mal in meinem Leben. Er steht mit dem Rücken zu uns, klopft mit einem Löffel den Takt aus dem Radio auf der Küchentheke mit.\n\"Ne, danke\", sage ich. Laura schüttelt den Kopf.\n\"Ich nehm einen\", sagt Mama hinter ihrer Zeitung. Papa grinst.\n\"Und wie wars gestern? Habt ihr ordentlich Drogen gesoffen?\", fragt er über die Schulter.\nLaura lächelt höflich.\n\"Als ich in eurem Alter war, hat man sich das Koks noch direkt in die Augäpfel gespritzt. Wir haben so viel–\"\n\"Gerd.\" Meine Mutter senkt die Zeitung so weit, dass man einen Moment ihre Augen sieht.\n\"Lass in meinem Zimmer frühstücken\", sage ich zu Laura und stehe auf.",
         "pos":{"x":6, "y": 19.3},
     },
     {
@@ -277,30 +277,265 @@ const textInfotoJSON =
     },
     {
         "id":"057",
-        "content":"Vor zwei Wochen hat Papa den neuen Diesel gekauft und uns vorgerechnet wie viel Sprit wir damit bis zum nächsten Skiurlaub einsparen würden. \“Das ist die Zukunft Andrea, wir hätten den Passat viel früher kaufen sollen.\" An dem Abend prankt in der Tagesschau das VW Logo auf schwarzem Grund. Von da an ist Papa ganz still.",
+        "content":"Vor zwei Wochen hat Papa den neuen Diesel gekauft und uns vorgerechnet wie viel Sprit wir damit bis zum nächsten Skiurlaub einsparen würden. \"Das ist die Zukunft Andrea, wir hätten den Passat viel früher kaufen sollen.\" An dem Abend prankt in der Tagesschau das VW Logo auf schwarzem Grund. Von da an ist Papa ganz still.",
         "pos":{"x":10.8, "y": 20.4},
     },
     {
         "id":"058",
-        "content":"Wir haben noch zwei Stunden bis Mama und Papa aus dem Urlaub wiederkommen und das Haus sieht aus wie nach einem Bombeneinschlag. Mit schlimmem Kater und ohne ein Wort zu wechseln kämpfen wir uns durch leere Gläser, Chipskrümel und halbvolle Bierflaschen. Das Fotoalbum finden wir erst ganz zum Schluss. Ungarn 1994, der Titel ist kaum mehr zu erkennen, wegen dem dicken Rotweinfleck, der das Papier aufgeweicht hat. Die meisten der Fotos sind im Arsch. \“Das war bestimmt Johanna, die Bitch, die trinkt immer nur Wein\", sagt Yannis. Wir haben keine Zeit mehr, der Wagen fährt auf den Hof und die Koffer rollen vor der Tür. Wir beschließen einfach sofort mit der Sprache rauszurücken. Schuldbewusst halten wir Mama und Papa das Album hin wie ein schreckliches Beweisstück. Mama nimmt es mit ganz roten Augen hin, schaut kurz drauf und legt es dann auf den Küchentisch. \“Da haben wir eh kaum mehr reingeschaut.\" Dann geht Papa wortlos an ihr vorbei ins Schlafzimmer. Der Urlaub war wohl nicht so gut. Zwei Tage haben die beiden nicht miteinander geredet.  Papa hat irgendwann das Album genommen, das einzige heile Foto rausgelöst und den Rest kommentarlos in den Müll geschmissen. Yannis und mir wärs lieber gewesen, sie hätten uns angeschrien.",
+        "content":"Wir haben noch zwei Stunden bis Mama und Papa aus dem Urlaub wiederkommen und das Haus sieht aus wie nach einem Bombeneinschlag. Mit schlimmem Kater und ohne ein Wort zu wechseln kämpfen wir uns durch leere Gläser, Chipskrümel und halbvolle Bierflaschen. Das Fotoalbum finden wir erst ganz zum Schluss. Ungarn 1994, der Titel ist kaum mehr zu erkennen, wegen dem dicken Rotweinfleck, der das Papier aufgeweicht hat. Die meisten der Fotos sind im Arsch. \"Das war bestimmt Johanna, die Bitch, die trinkt immer nur Wein\", sagt Yannis. Wir haben keine Zeit mehr, der Wagen fährt auf den Hof und die Koffer rollen vor der Tür. Wir beschließen einfach sofort mit der Sprache rauszurücken. Schuldbewusst halten wir Mama und Papa das Album hin wie ein schreckliches Beweisstück. Mama nimmt es mit ganz roten Augen hin, schaut kurz drauf und legt es dann auf den Küchentisch. \"Da haben wir eh kaum mehr reingeschaut.\" Dann geht Papa wortlos an ihr vorbei ins Schlafzimmer. Der Urlaub war wohl nicht so gut. Zwei Tage haben die beiden nicht miteinander geredet.  Papa hat irgendwann das Album genommen, das einzige heile Foto rausgelöst und den Rest kommentarlos in den Müll geschmissen. Yannis und mir wärs lieber gewesen, sie hätten uns angeschrien.",
         "pos":{"x":7.6, "y": 21.4},
     },
     {
         "id":"059",
-        "content":"\"Psst, nicht so laut\", sagt Papa, als Mama endlich in die Küche kommt. \“Mama schläft noch.\"\n\"Ha-ha\" Mama macht den Wasserkocher an.\n\“Psssssst! Ihr wisst doch, dass Mama ganz grantig wird, wenn man sie weckt.\"\n\"Ich lass mir später was Cleveres einfallen.\"",
+        "content":"\"Psst, nicht so laut\", sagt Papa, als Mama endlich in die Küche kommt. \"Mama schläft noch.\"\n\"Ha-ha\" Mama macht den Wasserkocher an.\n\"Psssssst! Ihr wisst doch, dass Mama ganz grantig wird, wenn man sie weckt.\"\n\"Ich lass mir später was Cleveres einfallen.\"",
         "pos":{"x":2.5, "y": 22.4},
     },
     {
         "id":"060",
-        "content":"Alle sind weg. Mama räumt die Spülmaschine ein. Papa bringt den restlichen Kuchen aus dem Wohnzimmer. \“Irgendwie hat niemand die Windbeutel von meiner Schwester angefasst\", sagt er. \“Ich schon\", sagt Mama, nimmt ihm den Teller aus der Hand und schüttet die Windbeutel in den Müll.",
+        "content":"Alle sind weg. Mama räumt die Spülmaschine ein. Papa bringt den restlichen Kuchen aus dem Wohnzimmer. \"Irgendwie hat niemand die Windbeutel von meiner Schwester angefasst\", sagt er. \"Ich schon\", sagt Mama, nimmt ihm den Teller aus der Hand und schüttet die Windbeutel in den Müll.",
         "pos":{"x":10.8, "y": 23.1},
     },
     {
+        "id":"061",
+        "content":"Das erste und letzte Weihnachten mit Laura sprengt Papa wie eine Paketbombe. Am 25. macht Mama den Kartoffelbrei extra ohne Würstchen und gibt sich auch sonst viel Mühe. Ganze zwei Stunden lenke ich das Gespräch um jedes politische Thema herum. Dann geht Yannis mit seinem neuem Handy nach oben und beim Absacker geht der Zünder hoch. Laura beißt sich auf die Lippe, geht aufs Klo und kommt nicht wieder. Während sie in mein frisch bezogenes Kopfkissen weint und ich mit dem Kopf in den Händen daneben sitze, hallen die wütenden Schritte von Mama über die Treppe. Papa bleibt die ganz Nacht über vorm Weihnachtsbaum sitzen und starrt in den stummen Fernseher.",
+"pos":{"x":24.7, "y": 1.4}, 
+    },
+ {
+        "id":"062",
+        "content":"Papa hat Yannis über die Schulter geworfen, trällert Tatütata und rennt zurück zum Zeltplatz. Ich versuche hinterherzukommen, die nasse Hose scheuert und ich verliere einen Flip-Flop. Als ich am Zelt ankomme, setzt Papa Yannis gerade ins Dixi und sagt \"Feuer frei\", Yannis lacht und sagt \"und Wasser marsch\". Mama klappt ihr Buch zu, es ist was für ihre Doktorarbeit – \"die schläft nie\".\n\"War es kalt?\", fragt sie mich. \"Ging so. Ich und Yannis sind reingerannt, aber Papa hat erstmal seinen ganzen Körper mit Wasser abgespritzt.\"\n\"Ich hab ja auch einen Eisberg schwimmen sehen, so kalt war das\", sagt Papa.",
+"pos":{"x":5.9, "y": 24}, 
+    },
+ {
+        "id":"063",
+        "content":"Zu meinem achtzehnten Geburtstag schenkt mir Papa ein Furzkissen und Siddharta von Hermann Hesse als Taschenbuch.",
+"pos":{"x":9.2, "y": 25.1}, 
+    },
+ {
+        "id":"064",
+        "content":"Papa streckt den Kopf in mein Zimmer. \"Komm, komm, ich zeig dir was!\"\nIch stecke LEGO-Yoda zurück in sein Raumschiff und folge ihm ins Wohnzimmer. Papa stellt sich vors Musikregal und fährt mit dem Finger die glänzenden CD-Rücken entlang. \"Jetzt pass mal auf\", sagt er, drückt mir eine Albumhülle in die Hand und schiebt die CD in die Anlage. Ein buntes Bild von zwei Menschen auf einem Hügel, darüber ganz groß in lila Schrift, ich kanns schon lesen: Genesis. Papa skipt zu Lied vier, hebt den Finger. Eine Gitarre dröhnt aus der Anlage, Papa dreht sie lauter, lauter, bis die ganze Nachbarschaft mithört.\n\"So\", brüllt er über den Lärm. \"Dazu haben deine Mutter und ich früher getanzt.\"\nAls der Gesang einsetzt, nimmt er mich bei den Händen und tanzt mit mir durchs Wohnzimmer, hebt mich auf die Couch, dreht mich hin und her, während er jedes Wort mitgröhlt, \"HAAA can't dance, I can't talk!\"\nDass Mama im Zimmer ist, merke ich erst, als sie die Anlage ausschaltet.\n\"Ich arbeite\", sagt sie, eine Hand an den Telefonhörer gepresst. Dann geht sie aus dem Zimmer.",
+"pos":{"x":13, "y": 24.9}, 
+    },
+ {
+        "id":"065",
+        "content":"Mama ist seit zwei Tagen bei ihren Eltern. Papa sitzt allein im Wohnzimmer und guckt Liebesschnulzen mit klebriger Streichmusik. Als ich meine Zimmertür demonstrativ zuschlage, wechselt er zu Fußball.",
+"pos":{"x":10.5, "y": 26.8}, 
+    },
+ {
+        "id":"065",
+        "content":"Mama ist seit zwei Tagen bei ihren Eltern. Papa sitzt allein im Wohnzimmer und guckt Liebesschnulzen mit klebriger Streichmusik. Als ich meine Zimmertür demonstrativ zuschlage, wechselt er zu Fußball.",
+"pos":{"x":10.5, "y": 26.8}, 
+    },
+ {
+        "id":"066",
+        "content":"Wir gehen am See spazieren. Enten machen Geräusche, während Omas und Opas an ihnen vorbei schlurfen. Papa hat den Arm um Mama gelegt, damit sie nirgendwo gegen läuft, solange sie am Handy ist. Yannis hat einen Stock gefunden mit dem er mich in die Kniekehlen piekst. Ich zerbreche den Stock und werfe ihn ins Schilf, dann ist mir langweilig. Yannis will gerade anfangen zu heulen, da gibt uns Papa eine Handvoll altes Brot aus einer großen Tüte mit dem wir die Enten füttern können. Ich sage, dass wir in der Schule gelernt hätten, dass das nicht gut für die Enten wäre, aber zu spät. Yannis ist schon zum See gerannt und Papa hat nur noch Augen für eine junge Frau die uns entgegenkommt. Sie fährt ein kleines Kind spazieren.\n\"Guck mal wie süß\", sagt Papa und stößt Mama mit der Schulter an. \"Ach die kleinen Füßchen in den kleinen Söckchen. Weißt du noch als unsere Jungs so niedlich waren?\"\n\"Mhm\", macht Mama und guckt weiter auf ihr Handy.",
+"pos":{"x":2.9, "y": 26.8}, 
+    },
+{
+        "id":"067",
+        "content":"Ein Jahr bevor Yannis geboren wurde, wären wir fast zu Oma und Opa gezogen. Mama und ich. Ganz spät abends will sie sich auf den Weg machen. Sie hat eine rote Sporttasche in der Hand steht in der offenen Haustür. Ich habe Herrn Eisbär (den ich Jahre später Yannis schenken werde) in der Hand und stehe auf der dritten Treppenstufe von unten. Wir beide weinen, während Papa schweigend am Küchentisch sitzt und auf die zwei leeren Weingläser starrt. \"Sag \’tschüss\’ zu Papa, wir schlafen heute bei Oma\", meint Mama mit ganz zittriger Stimme. Aber ich will nicht und Herr Eisbär auch nicht, wir wollen lieber zu Hause bleiben. Und ich stehe bestimmt eine ganze Stunde auf der dritten Treppenstufe von unten und zittere, wegen der kalten Luft von draußen. Und dann packt Mama ihre Tasche wieder aus und Papa geht zum Schlafen ins Badezimmer. Umgezogen sind wir dann erst viele Jahre später, alle zusammen.",
+"pos":{"x":8.4, "y": 27.3}, 
+    },
+{
+        "id":"068",
+        "content":"Als ich nachts aufs Klo gehe, liegt Papa auf dem Wohnzimmerboden und hat Jürgen im Arm. Beide haben die Augen zu, aber zumindest Papa ist noch wach, weil er Jürgen ganz lieb am Kopf krault. Mama steht in der Küche und setzt den Wasserkocher auf. Sie sieht sehr müde aus und trägt ihren Kaptain-Blaubär-Bademantel, den Yannis, Papa und ich ihr zum Geburtstag geschenkt haben. \"Was macht ihr da?\", frage ich. Mama schaut auf: \"Jürgen hat eine Analdrüsenentzündung.\" Ich schlucke. \"Das klingt nicht so toll.\"\n\"Ne\", sagt Papa und hat die Augen immer noch zu. \"Das ist tatsächlich nicht so toll.\"\nIch setze mich aufs Sofa und freue mich, weil Mama und Papa mich nicht gleich wieder ins Bett geschickt haben. Schnell rede ich weiter. \"Und was muss man da machen?\" Papa krault Jürgen noch immer, während Mama zwei Tassen Tee eingießt.\n\"Da muss man alle paar Stunden an sein Poloch und ihm die Analdrüse auspressen.\" Papa richtet sich auf und Mama reicht ihm eine Tasse. \"Und dann muss man ihm eine Creme draufschmieren, die riecht noch schlimmer als das, war bei Jürgen da hinten rauskommt.\" Mama hebt die Brauen und nickt. Plötzlich wacht Jürgen auf, jault ein wenig und rutscht mit seinem Hintern auf dem Boden hin und her. \"Dann wollen wir mal\", stöhnt Papa und Mama reicht ihm einen von diesen blauen Plastikhandschuhen und ein Stück Küchenrolle. \"Na... ist doch fast genau so schön wie mit nem dritten Kind.\" Sie lacht. Papa schüttelt müde den Kopf.",
+"pos":{"x":5.3, "y": 28.4}, 
+    },
+{
+        "id":"069",
+        "content":"Ich wache auf weil Papa durchs Haus brüllt. Es klingt als hätte er starke Schmerzen. Natürlich erschrecke ich mit total und falle fast aus dem Bett. Verwirrt von Schlaf und Traum will ich schon los und nachsehen, vielleicht helfen, da fällt mir ein, dass heute der 1. April ist und lasse mich zurück aufs Bett fallen. Ich grabe den Kopf zwischen die Kissen und versuche wieder einzuschlafen. Unmöglich. Direkt nach Papas Brüllen hat Mama in der Küche neben meinem Zimmer angefangen irrsinnig laut zu lachen und kriegt sich gar nicht mehr ein. Ich stöhne und hoffe, dass der Tag möglichst schnell vorbeigehen wird.",
+"pos":{"x":1.3, "y": 29.2}, 
+    },
+{
+        "id":"070",
+        "content":"Papa: \"Leute, ich muss euch was sagen. Ich hab Angst. Ich hab gestern so einen Vortrag von Al Gore gesehen und verdammt, uns schmilzt die Erde davon; wenn wir nicht aufpassen, explodiert hier alles und uns fliegen Eisschollen um die Ohren. Versteht ihr? Andrea? Wir steigen auf Ökostrom um, findest du nicht?\"",
+"pos":{"x":10.2, "y": 28.8}, 
+    },
+{
+        "id":"071",
+        "content":"\"Jetzt, jetzt! Leute, es kommt!\", ruft Papa aus dem Wohnzimmer. Ich renne den Flur entlang, Yannis dicht hinter mir. Papa auf der Couch, die Fernbedienung mit ausgestrecktem Arm auf den Fernseher gerichtet, der Ton lauter und lauter.\n\" – vom größten Kometen des Jahrzehnts\", sagt eine Nachrichtensprecherin. \"Ersten Berichten zufolge deuten die Gesteinsproben auf – \"\n\"Wartet, wartet\", sagt Papa und hebt langsam die Hände wie zu einer La-Ola-Welle. \"Und, uuuuuund – \" \nEin Einblender in ein Labor, drei Menschen in Laborkitteln diskutieren neben einem Mikroskop. Dann Mama vor einem Bücherregal, ernst in die Kamera nickend, die roten Haare im Pferdeschwanz zurückgebunden.\n\"Das ist etwas ganz Großes\", sagt sie, und Papa jubelt. Schnitt zu einer Grafik über Gesteinsarten.\"",
+"pos":{"x":3, "y": 31}, 
+    },
+{
+        "id":"072",
+        "content":"\"Yannis, warum sprichst du heute nicht das Tischgebet\", fragt Papa und stellt die dampfende Lasagne auf den Küchentisch. Mir gegenüber macht Yannis kleiner Spielkamerad große Augen. \n\"Das ist nicht lustig, Papa\", sagt Yannis, ein Flehen in der Stimme. Papa nickt, während er sich neben Mama setzt.\n\"In der Tat, Sohnemann, beim Mahle wird nicht gespaßt. Das Wort Gottes ist kein Scherz.\"\nMit den Ofenhandschuhen greift Papa nach Mamas Hand und schließt andächtig die Augen. Mama kratzt sich mit der freien Hand an der Nase, lächelt Yannis Kumpel an, zuckt die Achseln.\n\"Einfach ignorieren, irgendwann hört er von selbst auf\", sagt sie, \"die Hoffnung habe ich noch nicht aufgegeben.\"",
+"pos":{"x":1.6, "y": 32.6}, 
+    },
+{
+        "id":"073",
+        "content":"Eine Glocke klingelt, dann rufen uns Mama und Papa ins Wohnzimmer: Unter dem Baum liegen die Geschenke. Ich bekomme den X-Wing von Lego Star Wars, den mit Luke Skywalker im orangenen Space-Suit. Yannis bekommt eine Gitarre.",
+"pos":{"x":4.9, "y": 31.3}, 
+    },
+{
+        "id":"074",
+        "content":"Papa schweigt solange ich schweige, und ich schweige solange ich hier sitzen muss, und ich muss hier sitzen solange dieses Stück Brokkoli auf meinem Teller statt in meinem Magen liegt. Mama kommt ab und zu rein und füllt ihr Glas mit Wasser, bevor sie zurück zum Staffelfinale DSDS ins Wohnzimmer geht.",
+"pos":{"x":4.4, "y": 32.8}, 
+    },
+{
+        "id":"075",
+        "content":"Zwischen den heiseren Männerstimmen grölt Yannis am lautesten: \"Schiri, wir wissen, wo dein Auto steht!\" Das Stadion kocht vor Wut und stöhnt auf, als Hannover den verlogenen Elfer gegen Bremen verwandelt. Die Auswärtskurve grölt: \"Wer ist grün und stinkt nach Fisch? Weeerder Bremen!\" Zur Beruhigung gebe ich Yannis ein Bier aus – wir sind das erste mal zu zweit im Stadion. Als wir Stunden später durch die Haustür torkeln, erspähen wir auf dem Sofa Papas Kopf in Mamas Schoß. Im ZDF läuft eine dieser Liebesschnulzen mit Streichmusik.",
+"pos":{"x":8, "y": 34}, 
+    },
+{
+        "id":"076",
+        "content":"Die Sonne ist schon fast komplett weg und es ist trotzdem noch heiß wie in der Wüste. Das mag ich so an Italien. Und die Kekse. Mama zeigt uns, wie man Steine auf dem Wasser flitschen lässt. Yannis schafft es noch nicht mal, die Steine ins Wasser zu werfen, sie landen immer direkt vor ihm. Mein Rekord liegt dafür schon bei drei Flitschern! Papa feuert uns an, besonders Yannis, und sucht nach ganz flachen Steinen. Beim nächsten Mal schaffe ich sicher vier!",
+"pos":{"x":9.1, "y": 30.4}, 
+    },
+{
+        "id":"077",
+        "content":"Wenn Papa mit uns im Wagen Genesis hört, dann ist das laut. Aber das Schweigen auf dem Weg zum Krankenhaus, das ist einfach ohrenbetäubend. Yannis und ich auf der Rückbank und Papa am Steuer und das einzige Geräusch ist der Abrieb der Reifen auf der Landstraße. Oma hängt an Röhren und Schläuchen und Monitoren und ganz schwachen Atemzügen. Yannis und ich legen unsere Hände kurz auf ihre bleichen Finger und sagen leise \"Hallo.\" Oma kann nicht antworten, nur ganz schwach mit dem Kopf nicken. Wir gehen aus dem Zimmer und weinen leise im Flur, jeder für sich, und warten, dass Papa wieder rauskommt. Dann die Rückfahrt, wieder ganz leise, obwohl ich schreien will, weil Papa gerade kein Papa ist. Zuhause wartet Mama mit Kakao.",
+"pos":{"x":12.5, "y": 31.4}, 
+    },
+{
+        "id":"078",
+        "content":"\"Das ist wie bei deinen Puzzlen, Andrea. Ab heute passt Biomüll nur noch in die Biotonne. Ganz einfach, siehst du? Da. Biomüll, Biotonne. Biomüll, Biotonne.\"",
+"pos":{"x":11, "y": 32.3}, 
+    },
+{
+        "id":"079",
+        "content":"Es ist der erste Dezember und Mama schenkt uns allen eine Frank Sinatra-CD mit Weihnachtsliedern.\n\"Wie schnulzig\", sagt Papa nach dem sechsten Song – Have yourself a Merry Little Christmas.",
+"pos":{"x":1.2, "y": 32.3}, 
+    },
+{
+        "id":"080",
+        "content":"Werner ist so stark, er kriegt sogar die Apfelschorle auf. Es gibt ein lautes Kohlensäurezischen, dann reicht er mir einen grünen Plastikbecher.\n\"Nicht alles auf einmal saufen, kleiner Mann\", sagt er. \"Dein Papa nimmt es mir sicher übel, wenn ich dich hier abfülle.\"\nIch nippe vorsichtig am Becherrand. Schmeckt ganz normal. \"Lass dir von dem nichts einreden\", sagt Papa und legt mir eine Hand auf die Schulter.\n\"Das ist nichts im Vergleich zum Whiskey, den es bei uns nach dem Zähneputzen gibt.\" Mama nickt ganz ernst und ich weiß nicht, was sie meinen.\nAuf der Picknickdecke vor uns spielt Yannis mit Werners kleiner Tochter. Ihre Hände sind kaum groß genug, um seinen Daumen zu umschlingen. Yannis kichert, als sie seine Hand zu ihrem Gesicht zieht und seinen Zeigefinger in ihr Nasenloch steckt. Papa sieht es auch und schnaubt ganz laut. Als ich zu ihm Hochgucke, hat er ein breites Lächeln von einem Grübchen zum nächsten.\n\"Wie schaut’s eigentlich aus bei euch?\" fragt Werner. \"Ist noch ein kleiner Yannis Junior geplant?\" Mama räuspert sich. \"Vielleicht wird es Zeit für einen Hund\", sagt sie und beißt in ein Frischkäse-Gurkensandwich. Papa sagt nichts und nimmt einen Schluck von dem Apfelschorlen-Whiskey.",
+"pos":{"x":3, "y": 3}, 
+    },
+{
+        "id":"081",
+        "content":"\"Habt ihr auch Maggi da?\", fragt Opa. Alle sitzen vor gefüllten Tellern, Mama und Papa standen den ganzen Tag in der Küche. Später liegen meine Eltern auf der Couch und atmen durch. \"Nächstes mal…\", sagt Mama,\"... geht’s wieder ins Restaurant.\" Papa nickt.",
+"pos":{"x":5.4, "y": 0.8}, 
+    },
+{
         "id":"082",
-        "content":"Im Fernsehen steht ein Mann mit Krawatte vor einem Pult, um ihn herum Blitzlichter und spricht in ganz viele Mikrofone.\n\"Das hätte ich dir gleich sagen können\", sagt Mama und beißt in ihr Käsebrot, während der Mann monoton weiterredet.",
-        "pos":{"x":1.5, "y": 4.5},
-    }
+        "content":"Im Fernsehen steht ein Mann mit Krawatte vor einem Pult, um ihn herum Blitzlichter und spricht in ganz viele Mikrofone. \"Das hätte ich dir gleich sagen können\", sagt Mama und beißt in ihr Käsebrot, während der Mann monoton weiterredet.",
+"pos":{"x":1.5, "y": 4.5}, 
+    },
+{
+        "id":"083",
+        "content":"Ich tappe auf nackten Füßen die Treppe herunter. Meine nassgeschwitzte Hand rutscht über das kalte Metallgeländer. Der Schlafanzug ist zu kurz und ich friere an den Knöcheln. Nach meinem Alptraum habe ich ein paar Minuten im Bett gelegen – stocksteif – und versucht nicht zu atmen. Dann habe ich mich vorsichtig raus getraut, bin leise damit mich keiner hört und im dunklen damit mich keiner sieht rüber ins Schlafzimmer von Mama und Papa, aber sie waren nicht da, die Betten leer und kalt. Jetzt bin ich auf dem Weg nach unten, zu der Sorge um mich ist eine Sorge um sie dazugekommen. Was wenn alles echt war. Was wenn das Monster auch sie geholt hat. Ich darf jetzt nicht heulen. Wenn das Monster wirklich da ist, muss ich stark sein – für Yannis. Ich erreiche den Flur. Hier gibt es keine Fenster. Ich taste mich nach vorn, stoße mir den Zeh an der Küchenschwelle. Die Küchentür nach draußen ist nur angelehnt. Auf der Terrasse brennt noch Licht und ich höre ein leises Geräusch... Dann gebe ich mir einen Ruck, bin einmal mutig und stoße die Tür auf. Auf der Bank sitzen Mama und Papa. Sie sitzt halb auf seinem Schoß, den Kopf in seinem Nacken vergraben. Beide lachen. Auf dem Tisch steht die Flasche Fernet Branca, die Papa letztes Weihnachten bekommen hat und ein paar leere Gläser. Daneben das Fotoalbum \"Ungarn 1994\". \"Was macht ihr da?\", frage ich. Die beiden erschrecken ein wenig. Mama fällt fast von Papas Schoß und darüber fangen beide wieder an zu kichern. \"Ach, nur an früher denken\", sagt Papa und winkt mich zu sich.",
+"pos":{"x":1.8, "y": 7}, 
+    },
+{
+        "id":"084",
+        "content":"Mama kommt rein und sagt: \"Man, Gerd, heute war Plastikmüll!\"\nUnd Papa sagt: \"Oh, Mist.\"\nMama: \"Ja, oh, Mist. Jetzt steht der uns wieder eine Woche lang nur im Weg.\"\nPapa: \"Im Schuppen steht der im Weg?\"\nMama: \"...jaaa.\"\nPapa: \"Stimmt. Kann ja sein, dass wir morgen einen zweiten Rasenmäher kaufen.\"\nM: \"Ja, ganz genau!\"\nBeide gucken sich ganz ernst an. Und dann müssen sie laut lachen.",
+"pos":{"x":4.5, "y": 5.2}, 
+    },
+{
+        "id":"085",
+        "content":"Papa bringt mir bei, wie man sich nach dem Duschen den Rücken abtrocknet. \"Das ist meine erste Erinnerungen, weißt du? Als Opa mir gezeigt hat, wie man sich den Rücken trocknet.\"\nEs geht so: Man legt das Handtuch um die Schultern und beginnt mit den Armen. Dann klemmt man den Stoff unter die Achseln, nimmt beide Enden in jeweils eine Hand, und zieht es abwechselnd nach links und rechts – so lange, bis man am Po angekommen ist.",
+"pos":{"x":8, "y": 2}, 
+    },
+{
+        "id":"086",
+        "content":"\"Herr Eisbär ist weg\", ruft Yannis ein paar Meter hinter uns, als wir schon fast am Bahnsteig sind. Mama lässt meine Hand los und dreht sich zu ihm um.\n\"Wie, weg?\"\nYannis kniet zusammengesunken über seinem Rucksack und wühlt mit einer Hand darin herum. Er zieht den Walkman, seinen Pulli und ein Spielzeugauto nach dem anderen heraus. Als er das Gesicht hebt, zerlaufen Augen, Mund und Nase zu Brei.\n\"Weg weg.\"\n\"Wo hattest du ihn denn zuletzt?\" Mama macht einen Schritt auf ihn zu. Neben mir schaut Papa auf seine Armbanduhr.\n\"Wir verpassen den Zug.\"\nMama kniet sich neben Yannis. \"Hast du ihn auch ganz sicher eingepackt?\"\n\"Er ist sowieso zu alt für Stofftiere.\"\nMama wirft Papa einen von ihren Blicken zu, dann nimmt sie Yannis bei der Hand.\n\"Wir gucken nochmal an der Bushaltestelle.\"",
+"pos":{"x":10.5, "y": 3.2}, 
+    },
+{
+        "id":"087",
+        "content":"Leise Stimmen aus der Küche, ich schließe die Wohnungstür und hänge meine Jacke an den Haken. Am Küchentisch sitzt Papa mit Yannis Kindergitarre auf dem Schoß, der schwarz lackierte Hals kaum länger als sein Unterarm. Mama lehnt an der Küchentheke und grinst mich an.\n\"Guck mal, was Papa schon kann\", sagt sie und deutet mit dem Kinn auf die Gitarre. Papa presst die Lippen zusammen, greift ein E-Moll, streicht mit dem Daumen über die Saiten und sieht mich gespannt an. Das tiefe E ist abgezwickt und das H klingt super schief. Mama klatscht Applaus.",
+"pos":{"x":12.8, "y": 5.3}, 
+    },
+{
+        "id":"088",
+        "content":"Nachdem ich Papa gesagt habe, dass ich heute das erste Mal für alle kochen will, ruft er Mama an und sagt, sie soll früher von der Arbeit kommen. Ich mache Toast Hawaii: Eine Scheibe Brot, dann Schinken, dann zwei Ringe Ananas und Käse oben drüber. Papa fragt mich, ob ich auf seine Scheiben Senf schmieren kann. \"Klar\", sage ich. Damit man erkennt, welche seine sind, schneide ich die Brote mit Senf in der Hälfte durch.\nMama kommt gerade nach Hause, als Papa und ich die Toasts aus dem Ofen nehmen. \"Perfektes Timing!\", rufe ich. \"Perfektes Timing!\", antwortet Mama.",
+"pos":{"x":9.4, "y": 4.9}, 
+    },
+{
+        "id":"089",
+        "content":"\"Dann schauen Sie jetzt nochmal nach! Nein, sie haben Feierabend, wenn Herr Eisbär wieder aufgetaucht ist!\" Mama haut auf den Tresen des Fundbüros und starrt den glatzköpfigen Mitarbeiter des Nahverkehrs in Grund und Boden. Er zuckt zusammen und verschwindet zwischen den offenen Regalen. Neben mir weint Yannis leise und ich nehme ihn an der Hand. Papa sagt genervt: \"Ich buch uns mal nen neuen Zug.\" \"Schön Gerd! Den Orden kriegst du später!\" Ich fasse Yannis Hand ein wenig doller.",
+"pos":{"x":7, "y": 6}, 
+    },
+{
+        "id":"090",
+        "content":"Mama denkt, sie muss mich trösten. Sie setzt sich neben mich auf die Couch und hält mir eine Tasse Kakao hin. Keine Ahnung, wann ich das letzte Mal Kakao getrunken hab. Ich nehme einen Höflichkeitsschluck.\n\"Es ist auch etwas Gutes dabei\", sagt sie nach längerem Schweigen. \"Wenn ich mit meinem ersten Freund nicht Schluss gemacht hätte, wären dein Papa und ich niemals zusammengekommen.\"\nIch verstecke meinen Mund hinter einem weiteren Schluck Kakao.",
+"pos":{"x":8.8, "y": 8.5}, 
+    },
+{
+        "id":"091",
+        "content":"Mama kommt von der Arbeit und ihr Mantel riecht nach Zigarette. Sie umarmt mich ganz fest, ich drehe den Kopf zur Seite.\n\"Zigaretten sind was für Junkies\", rufe ich und winde mich aus ihren Armen. Sie tritt einen Schritt von mir weg, hebt einen Ärmel und riecht am Stoff.\n\"Das kommt von der U-Bahn\", sagt sie leise, der Blick an mir vorbei den Flur entlang. In der Küche steht Papa und dreht das Radio lauter.",
+"pos":{"x":11.1, "y": 7.1}, 
+    },
+{
+        "id":"092",
+        "content":"Als Papa die Hand hebt, will ich gehen, aber Mama hält mich fest. Sie zischt: \"Gerd, was ist denn?\" Er winkt ab - lass mich mal machen. Alle schauen sich zu uns um. Gut 30 Eltern und nochmal genau so viele Schüler. Auch Laura, aus 8b. Sie flüstert mit ihrer Freundin und schaut zu uns rüber. Ich kotze fast. Noch nie, wenn Papa etwas vor großer Runde sagen wollte, ist etwas Gutes dabei herumgekommen. Das ist ein Naturgesetz. \"Ja, da hinten haben wir noch eine Meldung\", hallt es vom Podium. Fuck.\n\"Ich denke, ich spreche hier im Namen vieler Väter und ich vermute mal auch einiger Mütter, wenn ich sage, dass wir das Fußballspielen auf dem Pausenhof noch einmal aufgreifen sollten.\"\nEr sieht sich im Saal um und sucht nach Bestätigung, aber nichts.\n\"Mir ist nicht entgangen dass Sie, Frau Brudstätter, nach der letzten Jahrgangskonferenz, das Thema haben unter den Tisch fallen lassen.\"\nMeine Schweißflecken sind groß wie der Bodensee.\n\"Aber es ist denke ich ja auch im Interesse der Lehrer, dass die Schüler und natürlich auch einige Schülerinnen in der Pause einen körperlichen Ausgleich bekommen. Nicht war Jungs?\" Er schaut mich und meine Freunde an. Ich starre in den Abgrund.\n\"Und weil die Fußballtore für den Pausenhof nun seit beinahe zwei Jahren nicht genehmigt werden, dann, Entschuldigung, aber dann kann man doch verstehen, wenn sich die Jungs im Eingangsbereich austoben und in der Not die Eingangstür als Tor nutzen.\"\nStille. Papa ist sichtlich stolz.\n\"Also Frau Brudstätter, ich glaube, um eine Stellungnahme hierzu kommen sie wohl kaum herum.\"\nMeine Direktorin holt kurz Luft und schweigt dann ganz furchtbar lange, bevor seelenruhig ins Mikro haucht:\n\"Herr Sewering, wenn ich mich recht erinnere, waren sie auf der letzten Konferenz nicht anwesend, oder?\"\nPapas linke Augenbraue zuckt.\n\"Sonst hätten sie bestimmt zur Kenntnis genommen, dass die Fußballtore für den Pausenhof schon im Mai genehmigt wurden und noch in diesem Monat aufgestellt werden.\" Sie genießt das elektrische Schweigen. Laura aus der 8b hält sich den Bauch vor unterdrücktem Lachen. \"Gibt es sonst noch Wortmeldungen?\"",
+"pos":{"x":12.2, "y": 9}, 
+    },
+{
+        "id":"093",
+        "content":"Papa macht eine Liegestütze. \"Alles klar\", sagt er, \"erst Yannis.\" Ich nehme Yannis vom Boden und setze ihn auf Papas Rücken. \"Hältst du ihn fest?\" \"Mhm.\"\nDann macht Papa noch eine Liegestütze. \"Kein Problem. Jetzt du\", sagt er zu mir. Und ich klettere auf Papas Rücken.\nDann macht Papa noch eine Liegestütze. \"No problemo, seht ihr.\" Mama schaut uns vom Schreibtisch aus zu. \"Ob der Ranger Berry mich auch noch schafft, was meint ihr?\"\nOhne seine Antwort abzuwarten, kommt sie zu uns rüber und macht es sich neben mir auf Papas Po bequem. \"Uff.\"\nDann macht Papa keine Liegestütze mehr.",
+"pos":{"x":4, "y": 9.5}, 
+    },
+{
+        "id":"094",
+        "content":"Als Papa aus der Stadt zurückkommt und \"Herrn Eisbär Numero Zwei\" dabei hat, weint Yannis so sehr, dass auch Mama die Tränen kommen.",
+"pos":{"x":2.4, "y": 11}, 
+    },
+{
+        "id":"095",
+        "content":"Papa trägt die blaue Speedo mit Stolz, wie ein Athlet, und holt ein paar Schritte Anlauf. \"Papa, Papa, Papa!\", rufen Yannis und ich und reißen die Arme hoch. Zack, Arschbombe! Das Wasser spritzt über den Rand des Planschbeckens auf Mama Bauch, die in der Sonne liegt und davon aufwacht. \"Ohhh, Gerd!\"\n\"Ohhh Gerd!\" antworten wir drei.",
+"pos":{"x":1, "y": 13.5}, 
+    },
+{
+        "id":"096",
+        "content":"Während Mama und Papa mit Feuchttüchern Yannis Kotze von der Rückbank tupfen, puste ich ihm kalte Luft ins Gesicht. Es hilft natürlich nichts, das Pusten. Yannis ist blass und zittert und er weint ein bisschen.\n\"Ein Glück, dass ich nicht noch mehr Geschwister habe, oder?\", sage ich. Mama guckt mich an, runzelt die Stirn.\n\"Wieso?\"\n\"Dafür gäb’s wahrscheinlich nicht genug Feuchttücher.\"\nMama lacht. Papa lacht nicht. Als Yannis sich beruhigt hat und wir weiterfahren können, blickt Papa mich immer wieder ganz komisch im Rückspiegel an.",
+"pos":{"x":1.8, "y": 16.4}, 
+    },
+{
+        "id":"097",
+        "content":"Ich zeige auf die Nougat-Bits. \"Ne\", sagt Papa, \"die sind von Nestlé\". Ich greife den Heinz-Curry-Ketchup aus dem Regal und Papa nimmt ihn mir wieder aus der Hand: \"Alles nur Geschmacksverstärker.\" Ich lege eine Zucchini in den Wagen und Papa meint: \"Nimm gleich vier.\"",
+"pos":{"x":12.5, "y": 17}, 
+    },
+{
+        "id":"098",
+        "content":"Ich zeige auf die Nougat-Bits. \"Ne\", sagt Papa, \"die sind von Nestlé\". Ich greife den Heinz-Curry-Ketchup aus dem Regal und Papa nimmt ihn mir wieder aus der Hand: \"Alles nur Geschmacksverstärker.\" Ich lege eine Zucchini in den Wagen und Papa meint: \"Nimm gleich vier.\"",
+"pos":{"x":12.5, "y": 17}, 
+    },
+{
+        "id":"099",
+        "content":"Yannis und ich haben kein Zelt, weil Mama es vergessen hat, sagt Papa. Worauf Mama meint, dass auch sie sich gleich vergisst. Wir müssen also alle vier in Papas altem Zelt schlafen und als der Wind immer stärker wird, sagt er: \"Das hat schon die wildesten Nächte mit meiner ersten Freundin ausgehalten, das hält die Böen aus.\" Yannis lacht wiehernd, Mama schüttelt den Kopf und ich würge. Eine Stunde später flutet Platzregen den Campingplatz und wir schwimmen in unseren Schlafsäcken. Eigentlich müssten Mama und Papa sich jetzt furchtbar doll anschreien. Aber nichts. Mama legt mich und Yannis einfach in den Kofferraum, nimmt sich ein Taschenmesser und schneidet Papas kaputtes Zelt in zwei. Dann spannt sie den Stoff über den offenen Kofferraum und baut uns so ein kleines Tarp. Zu viert kuscheln wir uns aneinander, Papa hat einen Arm um Mama gelegt und meckert nicht, dass sie ihm sein tolles Zelt zerschnitten hat. Irgendwann singt er auf Französisch, sehr laut und sehr schief und es klingt super witzig. \"Was singst du da?\", will Yannis wissen. \"Wenn ich dir das erzähle, wird Mama wütend mit mir.\" Irgendwann hört es auf zu regnen und ich schlafe ein.",
+"pos":{"x":5, "y": 14.5}, 
+    },
+{
+        "id":"100",
+        "content":"Der Tag, an dem ein dutzend Maulwurfshügel im Blumenbeet auftauchen, ist der Tag, an dem Papa nicht spricht. Es ist der Tag, an dem Papa sich den Spaten aus dem Schuppen holt und bis spät abends auf einem Plastikstuhl im Garten sitzt – ohne Handy, ohne Buch. Es ist der Tag, an dem eine riesige Taschenlampe das Gras durchleuchtet. Und es war der Tag, an dem ich nachts durch einen dumpfen Schrei aus dem Schlaf gerissen werde. Beim Frühstück am nächsten Morgen liest uns Papa gut gelaunt aus der Zeitung vor. Der frisch polierte Spaten hängt wieder im Schuppen.",
+"pos":{"x":9, "y": 17.2}, 
+    },
+{
+        "id":"101",
+        "content":"Erik steht neben seiner Mutter, als wir in ihrer Einfahrt parken. Mama streckt den Kopf aus dem Fenster und lächelt Erik an, nickt mit dem Kopf auf die Rückbank.\n\"Vielen Dank, Andrea, du weißt nicht, was für einen Riesengefallen du mir tust\", sagt Eriks Mutter, während Erik an Yannis vorbei auf den Mittelsitz klettert. Seine Mutter reicht ihm seinen Ranzen in den Wagen, klopft Mama auf die Schulter. \"Ich schulde dir was.\" \"Oh mein Gott\", ruft Yannis und deutet auf den kleinen Stofflöwen, der vorne an Eriks Schulranzen baumelt. \"Du hast noch Kuscheltiere?\"",
+"pos":{"x":8.7, "y": 13.5}, 
+    },
+{
+        "id":"102",
+        "content":"Als Oma stirbt, stehe ich im Garten und wässere den Johannisbeerbaum. Seit einer Woche muss ich jeden Tag zwei Stunden im Haushalt helfen, weil Mama Zigaretten in meiner Jackentasche gefunden hat, zufällig. Ich weiß noch nicht, dass Oma tot ist, Papa nimmt gerade erst den Anruf in der Küche entgegen. Gesprächsfetzen dringen über das Rauschen des Wasserschlauchs zu mir durch. Ich höre, wie mein Vater ruft, dass das nicht sein kann und dann sehe ich ihn hinter dem bodentiefen Fenster zusammenbrechen. Ich weiß sofort, was passiert ist. Ich weiß es einfach. Mein Vater sieht mich durch das Fenster an: bewegungslos dastehend, den Schlauch in der Hand. Dann dreht er schluchzend den Kopf weg. Ich tue nichts, schaue nur durch immer wässriger werdende Augen zum Haus. Dann ist da Mama in der Küche, versteht, und läuft zu mir in den Garten. Sie fragt: \"Bist du in Ordnung?\" Ich nicke und versuche, überzeugend auszusehen. Sie drückt mich kurz aber fest an sich und geht zurück ins Haus. Durch das Fenster sehe ich, wie sie sich neben meinem immer panischer schluchzenden Vater auf den Boden setzt und ihm einen Arm um die Schulter legt.",
+"pos":{"x":6.3, "y": 11.5}, 
+    },
+{
+        "id":"103",
+        "content":"\"Früher kam man hier nicht so einfach rüber\", sagt Papa, als wir gerade den Rhein überqueren. Neben der Autobahn heißt uns ein Schild in Frankreich willkommen. \"Früher standen hier noch überall Zäune\", sagt er und dreht sich wieder nach vorn. Mama knufft ihn in die Seite und sagt, dass er das doch selbst gar nicht mehr erlebt hätte. Eine Minute später winkt uns eine französische Grenzbeamtin auf einen Parkplatz. \"Bestimmt nur eine Stichprobenkontrolle\", sagt Mama und kommt langsam vor der Polizistin zum Stehen. Sie lässt das Fenster herunter und schaut die Beamtin fragend an. Die sagt etwas auf Französisch und Mama antwortet auf Englisch, beide verstehen nicht. Die Polizistin will schon ihre Kollegin rufen, da lehnt Papa sich über die Mittelkonsole, bis er fast auf Mamas Schoß hängt und fragt: \"Pardon, de quoi s'agit-il?\". Die Grenzbeamtin antwortet und Papa erklärt uns, dass es sich lediglich um eine Stichprobenkontrolle handeln würde und reicht ihr die Fahrzeugpapiere. \"Le permis de conduire s'il vous plaît\", sagt die Polizistin und Papa beginnt in Mamas Jackentasche nach ihrem Portemonnaie zu suchen. Wütend haut Mama ihm auf die Finger und zieht ihren Geldbeutel selbst aus der Tasche. Sie drückt der Beamtin ihren Ausweis in die Hand. Papa sagt: \"Nein, le permis de conduire ist der Führerschein. \‘Permis\’ heißt die Erlaubnis und \‘de conduire\’ zum Fahren. Du hattest doch damals Latein in der Schule oder nicht?\" Papa lacht, aber Mama antwortet nicht und will gerade ihren Führerschein rausgeben, da gibt ihr die Beamtin den Ausweis zurück und winkt uns weiter.",
+"pos":{"x":9.8, "y": 10}, 
+    },
+{
+        "id":"104",
+        "content":"Mit der einen Hand versuche ich, den Ärmel meiner Jacke zu entwirren, mit der anderen schmiere ich Frischkäse auf eine labbrige Scheibe Toast.\n\"Schon wieder los?\", fragt Mama vom Küchentisch. \"Wo gehts denn hin?\"\n\"Er muss zu seinem Buchclub. Zum Mathe lernen\", sagt Papa mit halb vollem Mund. Ich stelle den Frischkäse zurück in den Kühlschrank.\n\"Zu Freunden\", sage ich und Papa räuspert sich.\n\"Heißen die zufällig alle Laura, deine Freunde?\"\nIch schiebe mir das Toast in den Mund und gehe zur Wohnungstür.\n\"Siehst gut aus\", ruft Mama mir hinterher.",
+"pos":{"x":10.5, "y": 13}, 
+    },
+{
+        "id":"105",
+        "content":"Seit gestern wohnt Jürgen bei uns. Jürgen ist ein Labrador-Collie-Irgendwas-Mischling und hat den bescheuertsten Namen, den es gibt. Als Jürgen noch im Tierheim war, hieß er El Gladiatore, was – soweit so offensichtlich – der coolste Name ist, den man haben kann. Papa fand Jürgen aber witziger. Mama war es egal und Yannis wollte sich bei Papa einschleimen und hat auch für Jürgen gestimmt. Jürgen ist stubenrein und für einen Hund aus dem Tierheim überraschend artig, das sagt zumindest Mama. Als wir Jürgen gerade in den Kofferraum gepackt hatten und Mama den Wagen angelassen hat, hat Papa sie übertrieben freundlich angeguckt und gesagt: \"So, jetzt wären wir also zu fünft. Mehr werden's wohl nicht, wa?\" Dann ist Mama losgefahren.",
+"pos":{"x":11.8, "y": 14.4}, 
+    },
+{
+        "id":"106",
+        "content":"\"Bei mir wird's heute Abend spät\", sagt Mama am Frühstückstisch, \"du musst also nicht mit dem Essen auf mich warten.\" Papa nickt. \"Achso und die beiden gehen nach der Schule mit zu den Zwillingen und übernachten da. Stimmt doch, oder?\" Yannis und ich nicken auch. \"Na siehste Mal, da hast du den ganzen Tag deine Ruhe\", sagt Mama und tätschelt Papa die Schulter, der jetzt stumm aus dem Fenster guckt.",
+"pos":{"x":9.4, "y": 15.7}, 
+    },
+
 ]
 
 const textInfoJSON = JSON.stringify(textInfotoJSON);
+
+
+
+
 

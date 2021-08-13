@@ -11,7 +11,7 @@ header, footer {
     align-items: center;
     font-family: "Monteserrat", sans-serif;
     color: #ccb984;
-    background-color:black;
+    background-color: black;
 }
 
 header img {
@@ -20,24 +20,34 @@ header img {
 
 .animation {
     height: 100vh;
-    background-color: black;
+    background:linear-gradient(#000000, #8b8d8d);
+    /*background-color: black;*/
     position: relative;
     overflow: hidden;
 }
 
-.tree {
-    height: 70vh;
+.animation img {
     position: absolute;
 }
 
+.tree {
+    height: 70vh;
+}
+
 #tree001 {
-    top: 20%;
+    top: 40%;
     left: 100%;
 }
 
 #tree002 {
-    top: 30%;
+    top: 50%;
     left: 100%;
+}
+
+#pole001 {
+    top: 40vh;
+    left: 100%;
+    height: 70vh;
 }
 
 .train-background {
@@ -53,13 +63,6 @@ header img {
     width: 100vw;
 }
 
-.highlights {
-    z-index: 10;
-}
-
-.lowlights {
-    z-index: 5;
-}
 
 .text {
     position: absolute;
