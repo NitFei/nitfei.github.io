@@ -20,7 +20,7 @@ header img {
 
 .animation {
     height: 100vh;
-    background:linear-gradient(#000000, #8b8d8d);
+    /*background:linear-gradient(#000000, #8b8d8d); handled by gsap in main.js*/
     /*background-color: black;*/
     position: relative;
     overflow: hidden;
@@ -32,22 +32,28 @@ header img {
 
 .tree {
     height: 70vh;
+    left: 100%;
 }
 
 #tree001 {
     top: 40%;
-    left: 100%;
+    
 }
 
 #tree002 {
     top: 50%;
-    left: 100%;
+    height: 60vh;
 }
 
-#pole001 {
-    top: 40vh;
+#tree003 {
+    top: 35%;
+}
+
+.e-pole {
+    opacity: 0.65;
+    top: 60vh;
     left: 100%;
-    height: 70vh;
+    height: 40vh;
 }
 
 .train-background {
