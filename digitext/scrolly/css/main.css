@@ -10,7 +10,7 @@ header, footer {
     justify-content: center;
     align-items: center;
     font-family: "Monteserrat", sans-serif;
-    color: #ccb984;
+    color: #73858b;
     background-color: black;
 }
 
@@ -46,14 +46,81 @@ header img {
 }
 
 #tree003 {
+    top: 45%;
+    height: 55vh;
+}
+
+#tree004 {
     top: 35%;
 }
+
+#tree005 {
+    top: 70%;
+    height: 30vh;
+}
+
+#tree006 {
+    top: 25%;
+    height: 90vh;
+}
+
+#tree007 {
+    top: 35%;
+}
+
+#tree008 {
+    top: 35%;
+}
+
+#tree009 {
+    top: 40%;
+    
+}
+
+#tree010 {
+    top: 70%;
+    height: 30vh;
+}
+
+#tree011 {
+    top: 35%;
+    height: 65vh;
+}
+
+#tree012 {
+    top: 55%;
+}
+
+#tree013 {
+    top: 30%;
+    height: 90vh;
+}
+
+#tree014 {
+    top: 25%;
+    height: 90vh;
+}
+
+#tree015 {
+    top: 55%;
+}
+
+#tree016 {
+    top: 35%;
+}
+
 
 .e-pole {
     opacity: 0.65;
     top: 60vh;
     left: 100%;
     height: 40vh;
+}
+
+#factory {
+    top: 65vh;
+    left: 100%;
+    height: 30vh;
 }
 
 .train-background {
