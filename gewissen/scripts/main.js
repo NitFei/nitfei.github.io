@@ -51,10 +51,10 @@ function moveFrontToBack(front, devAng) {
 
     if(devAng.hasClass('devil-wrapper')){
         front.addClass('devil-wrapper');
-        addBodyImages(front, '../src/devils/');
+        addBodyImages(front, './src/devils/');
     } else {
         front.addClass('angel-wrapper');
-        addBodyImages(front, '../src/angels/');
+        addBodyImages(front, './src/angels/');
     }
 
     front.click(function() {
