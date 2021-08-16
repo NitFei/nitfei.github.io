@@ -68,16 +68,17 @@ function moveFrontToBack(front, devAng) {
 }
 
 function addBodyImages(front, path) {
+    
     // add head
-    const head = createBodyPart(path + 'heads/head001.png');
+    const head = createBodyPart(path + 'heads/head' + randomPathNumber() + '.png');
     head.appendTo(front);
 
     // add torso
-    const torso = createBodyPart(path + 'torsos/torso001.png');
+    const torso = createBodyPart(path + 'torsos/torso' + randomPathNumber() + '.png');
     torso.appendTo(front);
 
     // add legs
-    const legs = createBodyPart(path + 'legs/legs001.png');
+    const legs = createBodyPart(path + 'legs/legs' + randomPathNumber() + '.png');
     legs.appendTo(front);
 }
 
@@ -126,4 +127,14 @@ function handleBackClick(me) {
 
     bringBackToFront(me);
     me.off('click');
+}
+
+function randomPathNumber() {
+    let rand = Math.floor(Math.random() * 3) + 1;
+    console.log(rand)
+    if (rand < 10) {
+        rand = '00' + rand;
+    } else if (rand < 100) {
+        rand = '0' + rand;
+    } return rand;
 }
