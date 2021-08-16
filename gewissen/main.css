@@ -27,7 +27,6 @@ img {
     display: flex;
     flex-direction: column;
     width: 20%;
-    transition: width 0.5s ease 0.2s;
 }
 .devil-wrapper.back {
     right: 20%;
@@ -43,6 +42,16 @@ img {
 
 .angel-wrapper:hover {
     width: 25%;
+}
+
+.back.animate {
+    transition: width 0.5s ease 0.2s,
+                opacity 0.5s ease;
+    opacity: 1;
+}
+
+.opacity0 {
+    opacity: 0;
 }
 
 .front {
