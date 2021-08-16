@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.animation-wrapper {
+    position:relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+img {
+    display: block;
+}
+
+.back {
+    position: absolute;
+    top: 30%;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    transition: width 0.5s ease 0.2s;
+}
+.devil-wrapper.back {
+    right: 20%;
+}
+
+.devil-wrapper:hover {
+    width: 25%;
+}
+
+.angel-wrapper.back {
+    left: 20%;
+}
+
+.angel-wrapper:hover {
+    width: 25%;
+}
+
+.front {
+    top:0;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    z-index: 20;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.devil-wrapper.front.animate {
+    transition: width 0.5s ease-in-out,
+    top 0.5s ease-in-out,
+    right 0.5s ease-in-out;
+}
+
+.angel-wrapper.front.animate {
+    transition: width 0.5s ease-in-out,
+    top 0.5s ease-in-out,
+    left 0.5s ease-in-out;;
+}
+
+.person {
+    width: 100%;
+}
