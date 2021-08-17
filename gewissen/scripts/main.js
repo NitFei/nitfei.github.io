@@ -150,6 +150,7 @@ function handleBackClick(me) {
     moveOtherAside(other);
     makeFrontBig($('.front'), isDevil);
     bringBackToFront(me);
+    $('.answer-wrapper').addClass('hidden');
 }
 
 function randomPathNumber() {
