@@ -13,6 +13,7 @@ html, body {
 :root {
     --backTop: 30%;
     --backTopHover: 30%;
+    --answerTop: 20%;
 }
 
 .animation-wrapper {
@@ -86,4 +87,47 @@ img {
     top 0.5s ease-in-out,
     right 0.5s ease-in-out,
     left 0.5s ease-in-out;
+}
+
+.text {
+
+    background-color: rgba(65, 57, 57, 0.336);
+    padding: 20px;
+}
+
+.answer-wrapper {
+    z-index: 100;
+    position: absolute;
+    width: 20%;
+    height: 4em;
+    top:var(--answerTop);
+    transition: opacity 0.5s ease-in-out,
+                visibility 0.5s;
+}
+
+.answer-wrapper.devil {
+    right: 20%;
+}
+
+.answer-wrapper.angel {
+    left: 20%;
+}
+
+.answer-wrapper.hidden {
+    visibility: none;
+    opacity: 0;
+}
+
+.question-wrapper {
+    z-index: 100;
+    position: absolute;
+    width: 100%;
+    bottom: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question {
+    width: 60em;
 }

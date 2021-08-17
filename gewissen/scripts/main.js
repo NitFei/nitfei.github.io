@@ -7,7 +7,10 @@ $(document).ready(function() {
         resizeBack();
     });
 
-    addEventHandlingToBackCharacter($('.back'));
+    $('.back').each(function() {
+        addEventHandlingToBackCharacter($(this));
+    })
+    
 
     $('#back-button').click(function() {
         backOneLayer();
@@ -18,6 +21,7 @@ function resizeBack() {
     const fw = $('.front').width();
     document.body.style.setProperty('--backTop', fw * 0.15 + 'px');
     document.body.style.setProperty('--backTopHover', fw * 0.12 + 'px');
+    document.body.style.setProperty('--answerTop', fw * 0.1 + 'px');
 }
 
 function bringBackToFront(back) {
@@ -174,16 +178,26 @@ function moveFrontToBack() {
 }
 
 function addEventHandlingToBackCharacter(me) {
-    $(me).click(function() {
+    me.click(function() {
         handleBackClick($(this));
     });
 
-    $(me).mouseenter(function() {
-        $(this).addClass('hover');
+    me.mouseenter(function() {
+        me.addClass('hover');
+        if(me.hasClass('devil-wrapper')) {
+            $('.answer-wrapper.devil').removeClass('hidden');
+        } else {
+            $('.answer-wrapper.angel').removeClass('hidden');
+        }
     });
 
-    $(me).mouseleave(function() {
-        $(this).removeClass('hover');
+    me.mouseleave(function() {
+        me.removeClass('hover');
+        if(me.hasClass('devil-wrapper')) {
+            $('.answer-wrapper.devil').addClass('hidden');
+        } else {
+            $('.answer-wrapper.angel').addClass('hidden');
+        }
     });
 }
 

@@ -1,5 +1,5 @@
 class Character {
-    constructor(_isDevil, _parent) {
+    constructor(_isDevil, _parent, _answer, _question) {
         this.parent = _parent;
         // is the character a devil or an angel?
         this.isDevil = _isDevil;
@@ -11,8 +11,17 @@ class Character {
             this.bodyParts[i] = this.randomPathNumber(maxBodyPartOptions);
         }
 
-        this.answer = '';
-        this.question = '';
+        if(_answer) {
+            this.answer = _answer;
+        } else {
+            this.answer = '';
+        }
+        
+        if(_question) {
+            this.question = _question;
+        } else {
+            this.question = '';
+        }
     }
 
     randomPathNumber = (max) => {
