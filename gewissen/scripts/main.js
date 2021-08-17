@@ -1,4 +1,6 @@
-$(document).ready(function(){
+$(document).ready(function() {
+    currentLayerString = ''
+
     resizeBack();
 
     $(window).resize(function(){
@@ -7,7 +9,19 @@ $(document).ready(function(){
 
     $('.back').click(function() {
         handleBackClick($(this));
-    })
+    });
+
+    $('.back').mouseenter(function() {
+        handleBackMouseEnter($(this));
+    });
+
+    $('.back').mouseleave(function() {
+        resizeBack();
+    });
+
+    $('#back-button').click(function() {
+        backOneLayer();
+    });
 })
 
 function resizeBack() {
@@ -24,62 +38,86 @@ function bringBackToFront(back) {
     }
     back.removeClass('back');
     back.addClass('front');
-    back.addClass('animate')
+    back.addClass('animate');
+    back.off('click');
+    back.off('mouseenter');
+    back.off('mouseleave');
 }
 
-function makeFrontBig(front, devAng) {
+function makeFrontBig(front, isDevil) {
     front.removeClass('animate');
     const w = front.width();
 
-    if(devAng.hasClass('devil-wrapper')){
+    if(isDevil){
         // devil needs to move stuff to the left
         front.css({'right': '0', 'left':''});
-        front.animate({'width': 4 * w + 'px', 'top': 4 * -w * 0.15 + 'px', 'right': 4 * -w * 0.2 + 'px', 'opacity': 0}, 500, function() {moveFrontToBack(front, devAng)});
+        front.animate({'width': 4 * w + 'px',
+                        'top': 4 * -w * 0.15 + 'px',
+                        'right': 4 * -w * 0.2 + 'px',
+                        'opacity': 0},
+                        500,
+                        function() {resetToBack(front, isDevil)});
     } else {
         // angel moves stuff to the right
         front.css({'left': '0', 'right':''});
-        front.animate({'width': 4 * w + 'px', 'top': 4 * -w * 0.15 + 'px', 'left': 4 * -w * 0.2 + 'px', 'opacity': 0}, 500, function() {moveFrontToBack(front, devAng)});
+        front.animate({'width': 4 * w + 'px',
+                        'top': 4 * -w * 0.15 + 'px',
+                        'left': 4 * -w * 0.2 + 'px',
+                        'opacity': 0},
+                        500,
+                        function() {resetToBack(front, isDevil)});
     }
 }
 
-function moveFrontToBack(front, devAng) {
-    front.empty();
-    front.removeClass();
-    front.addClass('back');
-    front.addClass('opacity0');
-    front.removeAttr("style");
+function resetToBack(toReset, isDevil) {
+    toReset.off('click');
+    toReset.off('mouseenter');
+    toReset.off('mouseleave');
+    toReset.empty();
+    toReset.removeClass();
+    toReset.addClass('back');
+    toReset.addClass('opacity0');
+    toReset.removeAttr("style");
 
-    if(devAng.hasClass('devil-wrapper')){
-        front.addClass('devil-wrapper');
-        addBodyImages(front, './src/devils/');
+    if(isDevil){
+        toReset.addClass('devil-wrapper');
+        addBodyImages(toReset, './src/devils/', currentFront.getChildCharacter(0));
     } else {
-        front.addClass('angel-wrapper');
-        addBodyImages(front, './src/angels/');
+        toReset.addClass('angel-wrapper');
+        addBodyImages(toReset, './src/angels/', currentFront.getChildCharacter(1));
     }
 
-    front.click(function() {
-        handleBackClick(front)
+    toReset.click(function() {
+        handleBackClick(toReset)
+    })
+
+    toReset.mouseenter(function() {
+        handleBackMouseEnter($(this));
+    })
+
+    toReset.mouseleave(function() {
+        resizeBack();
     })
 
     resizeBack();
 
-    front.addClass('animate');
-    front.removeClass('opacity0');
+    toReset.addClass('animate');
+    toReset.removeClass('opacity0');
 }
 
-function addBodyImages(front, path) {
+function addBodyImages(container, path, child) {
     
     // add head
-    const head = createBodyPart(path + 'heads/head' + randomPathNumber() + '.png');
-    head.appendTo(front);
+    const head = createBodyPart(path + 'heads/head' + child.bodyParts[0] + '.png');
+    head.appendTo(container);
 
     // add torso
-    const torso = createBodyPart(path + 'torsos/torso' + randomPathNumber() + '.png');
-    torso.appendTo(front);
+    const torso = createBodyPart(path + 'torsos/torso' + child.bodyParts[1] + '.png');
+    torso.appendTo(container);
 
     // add legs
-    const legs = createBodyPart(path + 'legs/legs' + randomPathNumber() + '.png');
-    legs.appendTo(front);
+    const legs = createBodyPart(path + 'legs/legs' + child.bodyParts[2] + '.png');
+    legs.appendTo(container);
 }
 
 function createBodyPart(path) {
@@ -94,47 +132,61 @@ function moveOtherAside(other) {
 
     if(other.hasClass('devil-wrapper')){
         // devil needs to be moved to the right
-        other.animate({'width': w * 0.8, 'top': 0, 'right': 7 * -w * 0.2 + 'px', 'opacity': 0}, 500, function() {resetToBack(other)});
+        other.animate({'width': w * 0.8,
+                        'top': 0,
+                        'right': 7 * -w * 0.2 + 'px',
+                        'opacity': 0}, 
+                        500,
+                        function() {resetToBack(other, true)});
     } else {
         // angel moves to the left
-        other.animate({'width': w * 0.8, 'top': 0, 'left': 7 *  -w * 0.2 + 'px', 'opacity': 0}, 500, function() {resetToBack(other)});
+        other.animate({'width': w * 0.8,
+                        'top': 0,
+                        'left': 7 *  -w * 0.2 + 'px',
+                        'opacity': 0},
+                        500,
+                        function() {resetToBack(other, false)});
     }
-}
-
-function resetToBack(other) {
-    other.addClass('opacity0')
-    other.removeAttr('style');
-
-
-    resizeBack();
-
-    other.addClass('animate');
-    other.removeClass('opacity0');
 }
 
 function handleBackClick(me) {
     let other;
+    let isDevil;
     if(me.hasClass('devil-wrapper')){
+        isDevil = true;
+        currentFront = currentFront.getChildCharacter(0);
         other = $('.back.angel-wrapper');
     } else {
+        isDevil = false;
+        currentFront = currentFront.getChildCharacter(1);
         other = $('.back.devil-wrapper');
     }
 
     moveOtherAside(other);
-
-    makeFrontBig($('.front'), me);
-
-
+    makeFrontBig($('.front'), isDevil);
     bringBackToFront(me);
-    me.off('click');
 }
 
 function randomPathNumber() {
     let rand = Math.floor(Math.random() * 3) + 1;
-    console.log(rand)
     if (rand < 10) {
         rand = '00' + rand;
     } else if (rand < 100) {
         rand = '0' + rand;
     } return rand;
 }
+
+function handleBackMouseEnter(me) {
+    const fw = $('.front').width();
+    me.css('top', fw * 0.12 + 'px');
+}
+
+function backOneLayer() {
+    currentFront = currentFront.getParentCharacter();
+
+    $('.back').removeClass('animate');
+    $('.back').addClass('opacity0');
+}
+
+let currentLayerString = '';
+let currentFront = new Character(false, null);

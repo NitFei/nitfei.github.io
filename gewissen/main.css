@@ -32,25 +32,18 @@ img {
     right: 20%;
 }
 
-.devil-wrapper:hover {
-    width: 25%;
-}
-
 .angel-wrapper.back {
     left: 20%;
 }
 
-.angel-wrapper:hover {
-    width: 25%;
-}
-
 .back.animate {
-    transition: width 0.5s ease 0.2s,
+    transition: top 0.5s ease 0.2s,
                 opacity 0.5s ease;
     opacity: 1;
 }
 
 .opacity0 {
+    transition: opacity 0.5s ease;
     opacity: 0;
 }
 
@@ -79,4 +72,10 @@ img {
 
 .person {
     width: 100%;
+}
+
+#back-button {
+    background-color: rgba(65, 57, 57, 0.336);
+    padding: 20px;
+    cursor: pointer;
 }
