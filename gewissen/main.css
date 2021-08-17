@@ -10,6 +10,11 @@ html, body {
     width: 100%;
 }
 
+:root {
+    --backTop: 30%;
+    --backTopHover: 30%;
+}
+
 .animation-wrapper {
     position:relative;
     height: 100%;
@@ -23,11 +28,16 @@ img {
 
 .back {
     position: absolute;
-    top: 30%;
+    top: var(--backTop);
     display: flex;
     flex-direction: column;
     width: 20%;
 }
+
+.back.hover {
+    top: var(--backTopHover);
+}
+
 .devil-wrapper.back {
     right: 20%;
 }
@@ -36,9 +46,12 @@ img {
     left: 20%;
 }
 
-.back.animate {
-    transition: top 0.5s ease 0.2s,
-                opacity 0.5s ease;
+.animate {
+    transition: width 0.5s ease-in-out,
+                top 0.5s ease-in-out,
+                right 0.5s ease-in-out,
+                left 0.5s ease-in-out,
+                opacity 0.5s ease-in-out;
     opacity: 1;
 }
 
@@ -58,18 +71,6 @@ img {
     flex-direction: column;
 }
 
-.devil-wrapper.front.animate {
-    transition: width 0.5s ease-in-out,
-    top 0.5s ease-in-out,
-    right 0.5s ease-in-out;
-}
-
-.angel-wrapper.front.animate {
-    transition: width 0.5s ease-in-out,
-    top 0.5s ease-in-out,
-    left 0.5s ease-in-out;;
-}
-
 .person {
     width: 100%;
 }
@@ -78,4 +79,11 @@ img {
     background-color: rgba(65, 57, 57, 0.336);
     padding: 20px;
     cursor: pointer;
+}
+
+.test {
+    transition: width 0.5s ease-in-out,
+    top 0.5s ease-in-out,
+    right 0.5s ease-in-out,
+    left 0.5s ease-in-out;
 }

@@ -7,17 +7,7 @@ $(document).ready(function() {
         resizeBack();
     });
 
-    $('.back').click(function() {
-        handleBackClick($(this));
-    });
-
-    $('.back').mouseenter(function() {
-        handleBackMouseEnter($(this));
-    });
-
-    $('.back').mouseleave(function() {
-        resizeBack();
-    });
+    addEventHandlingToBackCharacter($('.back'));
 
     $('#back-button').click(function() {
         backOneLayer();
@@ -26,7 +16,8 @@ $(document).ready(function() {
 
 function resizeBack() {
     const fw = $('.front').width();
-    $('.back').css('top', fw * 0.15 + 'px');
+    document.body.style.setProperty('--backTop', fw * 0.15 + 'px');
+    document.body.style.setProperty('--backTopHover', fw * 0.12 + 'px');
 }
 
 function bringBackToFront(back) {
@@ -87,17 +78,7 @@ function resetToBack(toReset, isDevil) {
         addBodyImages(toReset, './src/angels/', currentFront.getChildCharacter(1));
     }
 
-    toReset.click(function() {
-        handleBackClick(toReset)
-    })
-
-    toReset.mouseenter(function() {
-        handleBackMouseEnter($(this));
-    })
-
-    toReset.mouseleave(function() {
-        resizeBack();
-    })
+    addEventHandlingToBackCharacter(toReset);
 
     resizeBack();
 
@@ -176,16 +157,34 @@ function randomPathNumber() {
     } return rand;
 }
 
-function handleBackMouseEnter(me) {
-    const fw = $('.front').width();
-    me.css('top', fw * 0.12 + 'px');
-}
-
 function backOneLayer() {
     currentFront = currentFront.getParentCharacter();
 
     $('.back').removeClass('animate');
     $('.back').addClass('opacity0');
+    moveFrontToBack();
+    resizeBack();
+}
+
+function moveFrontToBack() {
+    const front = $('.front');
+    front.removeAttr('style');
+    front.removeClass('front');
+    front.addClass('back');
+}
+
+function addEventHandlingToBackCharacter(me) {
+    $(me).click(function() {
+        handleBackClick($(this));
+    });
+
+    $(me).mouseenter(function() {
+        $(this).addClass('hover');
+    });
+
+    $(me).mouseleave(function() {
+        $(this).removeClass('hover');
+    });
 }
 
 let currentLayerString = '';
