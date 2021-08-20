@@ -162,22 +162,6 @@ function randomPathNumber() {
     } return rand;
 }
 
-function backOneLayer() {
-    currentFront = currentFront.getParentCharacter();
-
-    $('.back').removeClass('animate');
-    $('.back').addClass('opacity0');
-    moveFrontToBack();
-    resizeBack();
-}
-
-function moveFrontToBack() {
-    const front = $('.front');
-    front.removeAttr('style');
-    front.removeClass('front');
-    front.addClass('back');
-}
-
 function addEventHandlingToBackCharacter(me) {
     me.click(function() {
         handleBackClick($(this));
@@ -201,6 +185,68 @@ function addEventHandlingToBackCharacter(me) {
         }
     });
 }
+
+function backOneLayer() {
+    currentFront = currentFront.getParentCharacter();
+
+    $('.back').removeClass('animate');
+    //$('.back').addClass('opacity0');
+
+    let other;
+    let newFront;
+
+    if($('.front').hasClass('devil-wrapper')){
+        other = $('.back.angel-wrapper');
+    } else {
+        other = $('.back.devil-wrapper');
+    }
+    
+    moveOtherIn(other);
+    moveFrontToBack();
+    spawnFront(newFront);
+    resizeBack();
+}
+
+function moveFrontToBack() {
+    const front = $('.front');
+    front.removeAttr('style');
+    front.removeClass('front');
+    front.addClass('back');
+}
+
+function moveOtherIn(other) {
+    other.removeClass('animate');
+    const w = $('.front').width();
+    console.log(w);
+
+    if(other.hasClass('devil-wrapper')){
+        console.log("HI")
+        // devil needs to be moved to the right
+        other.css({'width': w * 0.8,
+                        'top': 0,
+                        'right': 7 * -w * 0.2 + 'px',
+                        'opacity': 0});
+        other.animate({'width': w * 0.2,
+                        'top': w * 0.15,
+                        'right': w * 0.2 + 'px',
+                        'opacity': 1},
+                        500,
+                        function(){resetToBack(other, true)});
+    } else {
+        // angel moves to the left
+        other.css({'width': w * 0.8,
+                        'top': 0,
+                        'left': 7 *  -w * 0.2 + 'px',
+                        'opacity': 0});
+        other.animate({'width': w * 0.2,
+                        'top': w * 0.15,
+                        'leftt': w * 0.2 + 'px',
+                        'opacity': 1},
+                        500,
+                        function(){resetToBack(other, false)});
+    }   
+}
+
 
 let currentLayerString = '';
 let currentFront = new Character(false, null);

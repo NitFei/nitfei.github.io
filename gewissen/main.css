@@ -14,6 +14,10 @@ html, body {
     --backTop: 30%;
     --backTopHover: 30%;
     --answerTop: 20%;
+    --blowUpWidth: 0;
+    --blowUpTop: 0;
+    --blowUpLeft: 0;
+    --blowUpRight: 0;
 }
 
 .animation-wrapper {
@@ -70,6 +74,34 @@ img {
     pointer-events: none;
     display: flex;
     flex-direction: column;
+}
+
+.front.left0 {
+    left: 0;
+}
+
+.front.right0 {
+    right: 0;
+}
+
+.blowUp {
+    overflow: hidden;
+    position: absolute;
+    z-index: 20;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    width: var(--blowUpWidth);
+    top: var(--blowUpTop);
+    opacity: 0;
+}
+
+.blowUp.right {
+    right: var(--blowUpRight);
+}
+
+.blowUp.left {
+    left: var(--blowUpLeft);
 }
 
 .person {
@@ -130,4 +162,8 @@ img {
 
 .question {
     width: 60em;
+}
+
+.test {
+    background-color: green;;
 }
