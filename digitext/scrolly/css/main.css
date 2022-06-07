@@ -97,7 +97,7 @@ header img {
 }
 
 #tree014 {
-    top: 25%;
+    top: 55%;
     height: 90vh;
 }
 
@@ -109,6 +109,42 @@ header img {
     top: 35%;
 }
 
+#tree017 {
+    top: 50%;
+    height: 50vh;
+}
+
+#tree018 {
+    top: 70%;
+    height: 30vh;
+}
+
+#tree019 {
+    top: 35%;
+    height: 65vh;
+}
+
+#tree020 {
+    top: 55%;
+}
+
+#tree021 {
+    top: 30%;
+    height: 90vh;
+}
+
+#tree022 {
+    top: 25%;
+    height: 90vh;
+}
+
+#tree023 {
+    top: 55%;
+}
+
+#tree024 {
+    top: 35%;
+}
 
 .e-pole {
     opacity: 0.65;
@@ -138,8 +174,15 @@ header img {
 
 
 .text {
+    opacity: 90%;
     position: absolute;
     left: 100%;
     top: 25%;
     height: 50vh;
+    z-index: -5;
+}
+
+#text001 {
+    top:35%;
+    height: 30%;
 }
