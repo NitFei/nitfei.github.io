@@ -64,7 +64,7 @@ function drawSectionA(){
     fill(c3);
     text("bin", 100 + textWidth("test test ich "), 100);
     fill(c2);
-    text(" ein test", 100 + textWidth("test test ich ")+ textWidth("bin"), 100);
+    text(" ein test", 100 + textWidth("test test ich bin"), 100);
     // shapes
     push();
     stroke(c2);
