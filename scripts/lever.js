@@ -12,10 +12,14 @@ class Lever {
 
         //this.div.onclick = () => { this.alignRandomPost };
         this.div.addEventListener('click', this.alignRandomPost);
+        this.clickable = true;
     }
 
     alignRandomPost = () => {
-        this.div.style.backgroundImage = "url(./src/media/ui/lever_clicked.png)";
-        this.logic.alignRandomPost();
+        if (this.clickable) {
+            this.clickable = false;
+            this.div.style.backgroundImage = "url(./src/media/ui/lever_clicked.png)";
+            this.logic.alignRandomPost();
+        }
     }
 }

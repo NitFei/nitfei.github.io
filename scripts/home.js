@@ -1,4 +1,4 @@
-// To whoever might have to read code this in the future: I'm so sorry.
+// To whoever might have to read this code in the future: I'm so sorry.
 // Nitay Feigenbaum, April 2021
 
 /* TODO:
@@ -281,6 +281,7 @@ class Logic {
     }
 
     alignRandomPost = () => {
+        
         this.scrollers.forEach((scroller) => {
             clearTimeout(scroller.timer);
         })
@@ -382,6 +383,7 @@ class Logic {
         } else {
             scroller.snap();
             document.getElementById('lever-wrapper').style.backgroundImage = "url(./src/media/ui/lever_unclicked.png)";
+            this.lever.clickable = true;
         }
     }
 }

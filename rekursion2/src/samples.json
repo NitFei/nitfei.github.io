@@ -1,0 +1,37 @@
+[
+    {
+        "section": "e",
+        "name": "tick2",
+        "path": "./src/audio/sectione/tick2.wav",
+        "isLooping": false,
+        "sequencerBars": [0,2]
+    },
+    {
+        "section": "e",
+        "name": "tick1",
+        "path": "./src/audio/sectione/tick1.wav",
+        "isLooping": false,
+        "sequencerBars": [0,1,2,3]
+    },
+    {
+        "section": "e",
+        "name": "tick3",
+        "path": "./src/audio/sectione/tick3.wav",
+        "isLooping": false,
+        "sequencerBars": [0]
+    },
+    {
+        "section": "e",
+        "name": "tick4",
+        "path": "./src/audio/sectione/tick4.wav",
+        "isLooping": false,
+        "sequencerBars": [2]
+    },
+    {
+        "section": "e",
+        "name": "tick1",
+        "path": "./src/audio/sectione/ambience.wav",
+        "isLooping": false,
+        "sequencerBars": []
+    }
+]

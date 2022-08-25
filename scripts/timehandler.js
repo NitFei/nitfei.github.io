@@ -71,6 +71,7 @@ class TimeHandler {
         if (!isNaN(this.mP.currentTrack.duration)) {
             seekPosition = this.mP.currentTrack.currentTime * (this.slider.clientWidth / this.mP.currentTrack.duration);
 
+            console.log(seekPosition);
             const prgs = document.getElementsByClassName('time-slider-progress');
             for (let i = 0; i < prgs.length; i++) {
                 prgs[i].style.width = seekPosition + 'px';
@@ -103,6 +104,7 @@ class TimeHandler {
 
     stopUpdating = () => {
         clearInterval(this.updateTimer);
+        console.log("stopped updating")
     }
 
     addMidPoint = (time, label) => {
