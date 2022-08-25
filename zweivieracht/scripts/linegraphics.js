@@ -120,5 +120,6 @@ class LineGraphics {
         this.drawLines();
         this.drawImg(this.img);
         requestAnimationFrame(this.draw);
+        console.log("hi")
     }
 }
