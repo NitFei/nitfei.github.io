@@ -30,8 +30,12 @@ class LineGraphics {
         this.img = new Image();
         this.img.src = imgPath;
 
-        this.img.onload = () => {
+        this.img.addEventListener('load', () => {
             this.draw();
+        });
+
+        this.img.onerror = (e) => {
+            console.log(e);
         }
     }
 

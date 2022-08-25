@@ -1,7 +1,7 @@
 window.onload = () => {
     resizeCards();
     const cont = document.getElementById("img-cont");
-    const lg = new LineGraphics("../src/images/home2.jpg", cont);
+    const lg = new LineGraphics("./src/images/home2.jpg", cont);
     clean(document);
 }
 
